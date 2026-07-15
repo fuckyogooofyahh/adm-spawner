@@ -1,1 +1,1121 @@
---[[ v1.0.0 https://wearedevs.net/obfuscator ]] return(function(...)local o={"\105\082\081\112\113\105\052\112\114\097\122\118\112\114\100\115\109\105\116\083\075\050\101\082\070\049\111\074","","\104\052\109\048\090\117\067\113\072\081\112\085\066\081\112\100\090\080\054\077";"\056\115\048\080\103\068\098\052\082\116\061\061";"\097\047\054\068\099\057\066\043\066\116\061\061";"\117\081\121\069\104\117\119\083\072\081\080\121\054\105\072\048\097\068\081\061";"\054\071\117\068\049\071\117\085\066\050\043\110\112\069\061\061","\100\080\065\120\112\052\098\061","\054\113\119\118\076\102\072\055\105\049\074\085\082\047\107\048\105\100\081\061","\099\113\054\085\090\052\048\053","\105\105\043\119\112\121\117\085\054\100\108\101\097\043\121\114","\112\047\121\111\076\057\066\050\082\117\077\114\104\102\112\054\049\116\061\061","\052\100\069\085\052\050\080\083\112\052\121\067\099\052\077\084","\112\100\108\085\082\113\083\061","\099\084\072\119\082\084\111\061","\074\071\065\089\074\071\121\068";"\109\065\054\079\056\098\090\050";"\082\084\117\089","\052\100\107\119";"\117\084\121\109\099\084\117\085\083\057\054\043\066\084\117\110\066\084\117\081\083\069\061\061";"\118\122\056\043\112\088\067\077\118\056\061\061";"\105\068\065\077\105\068\066\109\054\080\112\111\069\049\109\052\054\053\083\061";"\074\071\119\119\099\056\061\061";"\066\084\065\106\066\047\108\077\082\050\099\061";"\069\074\076\076\067\098\085\070\100\043\118\110\083\069\057\061","\100\080\065\077\082\050\054\043\104\116\061\061","\100\080\065\053\074\111\061\061","\072\100\076\106\090\102\049\113\099\080\119\117\090\080\119\084\049\056\061\061";"\097\117\108\117\112\080\049\113\097\081\111\098\076\049\109\105\099\053\049\061","\082\102\083\061";"\099\050\117\109\082\113\112\043";"\099\071\117\068\082\052\117\068\074\100\054\119\074\050\075\043";"\105\068\121\074\082\050\117\050\090\071\081\071\105\110\069\111\104\102\056\061";"\082\102\057\061","\074\053\043\068\112\069\061\061","\052\121\066\071";"\099\050\121\089\112\084\065\109","\072\043\099\071\082\117\057\113\072\080\066\083\090\113\077\113";"\069\110\121\084\054\050\080\050\082\081\108\067\054\047\043\122\097\105\069\061","\099\057\054\097\118\100\121\108\066\080\077\098\076\113\074\048\090\111\061\061";"\082\052\121\068\090\116\061\061","\100\080\065\109\112\100\054\119\066\084\121\122\082\084\049\061","\112\113\072\080\074\056\061\061","\112\071\121\109\112\069\061\061";"\066\052\048\111\074\052\072\101";"\112\050\075\070\082\113\083\061";"\112\071\080\119\066\084\072\067","\118\056\061\061","\066\084\065\089\066\052\080\122\112\100\083\061";"\066\084\121\122\082\084\049\061";"\105\047\069\113\076\117\107\048"}for j,Y in ipairs({{797461+-797460;644719-644668},{-137067+137068;-507637+507645},{-295985+295994;-799941-(-799992)}})do while Y[1025025-1025024]<Y[-581687+581689]do o[Y[596712-596711]],o[Y[486504+-486502]],Y[658039-658038],Y[163174+-163172]=o[Y[548962-548960]],o[Y[254187+-254186]],Y[-366008+366009]+(785432+-785431),Y[-902625+902627]-(1000012+-1000011)end end local function j(j)return o[j-(-76008-(-134993))]end do local j=table.insert local Y=table.concat local x=type local d=string.char local L={z=-859307+859341,m=210959-210914,["\047"]=-538402+538409,B=911415+-911386,Y=1032509-1032463;X=264415-264413;e=-639307-(-639350);W=-507869+507911,s=-973952+974012,["\055"]=-477106+477164;i=124354+-124335;o=1002844-1002796,w=-435143-(-435176),["\051"]=940282+-940271,["\054"]=-227854-(-227871),["\056"]=-931250-(-931282);c=-716969+716997;O=700375-700344,f=989008-989005,P=-529946-(-529999);D=-272386-(-272438),u=258600-258579;H=-251121+251134,C=-998172+998212;M=-909010-(-909051);["\043"]=280333+-280296;r=942217+-942202,["\049"]=-767245+767265;y=699142+-699137;G=698857+-698803,K=295350-295301;["\057"]=842578-842574,Z=-1042574-(-1042600),v=844947+-844933;R=417933+-417906,T=140920-140914,["\048"]=662841-662784;N=-223747-(-223810),["\050"]=-634479-(-634517);h=-824402+824432,p=-312928-(-312953),d=-129729-(-129752),a=519465+-519447;E=384369+-384353,V=997284+-997222;U=-797525-(-797575);j=-543288-(-543339),n=-703419-(-703454),S=91153+-91145;l=-34894-(-34903);t=-803756-(-803756);Q=-383415-(-383451);g=39505+-39446,A=732522+-732461,x=495848-495804,L=-740903-(-740915);I=244735+-244725,F=1007088-1007041;J=-77601-(-77625);k=-544344-(-544345),b=-565267+565323;q=-906773-(-906828),["\052"]=-542996+543018;["\053"]=105967+-105928}local R=string.len local v=math.floor local B=o local Z=string.sub for o=293116-293115,#B,-135213-(-135214)do local C=B[o]if x(C)=="\115\116\114\105\110\103"then local x=R(C)local p={}local t=375639-375638 local k=-335381+335381 local H=450103-450103 while t<=x do local o=Z(C,t,t)local Y=L[o]if Y then k=k+Y*(-423551-(-423615))^((111868-111865)-H)H=H+(-769716+769717)if H==-760936-(-760940)then H=274655-274655 local o=v(k/(169968-104432))local Y=v((k%(-944274-(-1009810)))/(-888042-(-888298)))local x=k%(-42574-(-42830))j(p,d(o,Y,x))k=-781432-(-781432)end elseif o=="\061"then j(p,d(v(k/(378199+-312663))))if t>=x or Z(C,t+(-316455-(-316456)),t+(990025+-990024))~="\061"then j(p,d(v((k%(-552588+618124))/(476465-476209))))end break end t=t+(772518+-772517)end B[o]=Y(p)end end end return(function(o,x,d,L,R,v,B,u,s,l,t,D,J,k,p,C,Y,H,Z,P,U)P,C,J,k,t,Y,p,u,U,l,D,s,Z,H=function(o,j)local x=k(j)local d=function(...)return Y(o,{...},j,x)end return d end,{},function(o)C[o]=C[o]-(-929908+929909)if 347136+-347136==C[o]then C[o],Z[o]=nil,nil end end,function(o)for j=284679+-284678,#o,785840-785839 do C[o[j]]=C[o[j]]+(-270427+270428)end if d then local Y=d(true)local x=R(Y)x[j(-32010-(-91029))],x[j(-256969+315989)],x[j(-607555-(-666556))]=o,H,function()return 474190+-4626851 end return Y else return L({},{[j(-746211-(-805231))]=H;[j(-605392-(-664411))]=o,[j(-690821+749822)]=function()return-3120378-1032283 end})end end,-861592-(-861592),function(Y,d,L,R)local V,f,q,K,e,a,S,I,C,M,G,h,A,r,O,Q,z,i,P,F,t,b,B,E,m,X,k,T,n,H,y,W,c,g while Y do if Y<-838459+7868745 then if Y<-252139+4026622 then if Y<1629035-307538 then if Y<353570+371736 then if Y<452606+160593 then if Y<-417748-(-1011029)then if Y<-859092+1229118 then k=k+P t=k<=H W=not n t=W and t W=k>=H W=n and W t=W or t W=651517+662377 Y=t and W t=6350529-(-680589)Y=Y or t else W=j(-241790+300824)n=B B=o[W]W=j(-997758+1056788)Y=B[W]V=j(-654170-(-713162))W=p()Z[W]=Y B=o[V]V=j(601563-542554)r=j(241007-182015)Y=B[V]T=o[r]z=T h=Y V=Y Y=T and 11131615-518130 or 571153+12327665 end else t=Z[L[368018-368016]]Y=5213993-(-406273)k=Z[L[311543+-311540]]C=t==k B=C end else if Y<812888-131461 then C=j(-990114+1049121)Y=o[C]t=Z[L[693980+-693972]]k=373555-373555 C=Y(t,k)Y=-234375+4414623 else k=-649731-(-649732)t=Z[L[480573+-480570]]C=t~=k Y=C and 1320061-379607 or 885236+5483187 end end else if Y<1804885-840677 then if Y<-618170+1440407 then if Y<1696535-908630 then c=D(6368508-(-660521),{})T=-315933+315998 m=j(-282961+341978)S=j(-122894-(-181902))z=p()Z[z]=B Y=Z[W]h=-909401-(-909404)B=Y(h,T)h=p()Y=688943+-688943 Z[h]=B T=Y Y=-40466-(-40466)r=Y B=o[S]S={B(c)}Y={x(S)}S=Y B=-651906+651908 Y=S[B]B=j(-347642+406633)c=Y Y=o[B]i=Z[k]X=o[m]m=X(c)X=j(-522453-(-581467))E=i(m,X)i={E()}B=Y(x(i))i=p()Z[i]=B B=90340+-90339 E=Z[h]X=E Y=6533122-181719 E=1005797-1005796 m=E E=-634112+634112 b=m<E E=B-m else I=Z[t]K=I Y=I and 16345502-(-33569)or 48342+5013894 end else T=231928-231915 t=Z[L[-554162+554165]]k=-986550-(-986582)z=21066-21064 C=t%k H=Z[L[-823403+823407]]W=Z[L[41513+-41511]]c=Z[L[465167+-465164]]S=c-C c=684240-684208 r=S/c h=T-r V=z^h n=W/V P=H(n)H=4295378671-411375 k=P%H P=58181-58179 H=P^C t=k/H H=Z[L[300383-300379]]C=nil V=185509+-185508 W=t%V V=4295136575-169279 T=1025-769 n=W*V P=H(n)H=Z[L[-399411-(-399415)]]n=H(t)Y=727871-(-954540)k=P+n W=863991-798455 t=nil P=799920-734384 H=k%P n=k-H z=-475302-(-475558)P=n/W W=-3300+3556 n=H%W V=H-n W=V/z z=447879+-447623 k=nil V=P%z h=P-V P=nil z=h/T H=nil h={n,W,V,z}V=nil z=nil Z[L[496120+-496119]]=h W=nil n=nil end else if Y<784344+445822 then c=i a=c Y=14126088-(-24835)S[c]=a c=nil else V=-408409-(-408409)z=150371-150116 t=k Y=Z[L[928674+-928673]]W=Y(V,z)C[t]=W t=nil Y=-157919-(-367609)end end end else if Y<128431+2596325 then if Y<1708378-27943 then if Y<-65666+1558202 then if Y<2343025-1004114 then Y=true Z[L[560969+-560968]]=Y B={}Y=o[j(889153+-830132)]else Y=809112+15301949 end else c={}k=nil i=p()Z[i]=c c=p()b=u(13339971-772662,{i;z,h;P})Y=o[j(400071+-341040)]Z[c]=b b={}O=p()a={}n=nil P=J(P)G=j(420529+-361504)W=nil A=j(889567-830548)q=j(1097233-1038198)e=nil Z[O]=b b=o[G]M=Z[O]n=j(455916-396930)y={[A]=M;[q]=e}G=b(a,y)b=U(975966+7899533,{O,i,r,z;h;c})i=J(i)z=J(z)h=J(h)Z[t]=G S=nil c=J(c)V=nil O=J(O)Z[H]=b P=o[n]r=J(r)T=nil T=j(166102+-107105)V=Z[t]B={}z=Z[H]n=j(955463+-896463)S=657627+9018945128332 n=P[n]r=29998730332430-(-568707)h=z(T,r)T=23699605070491-(-837760)W=V[h]n=n(P,W)W=Z[t]h=j(-841708+900726)V=Z[H]z=V(h,T)P=W[z]r=j(829765-770755)k=n[P]n=j(383002-323985)P=o[n]z=Z[t]h=Z[H]T=h(r,S)V=z[T]W=k[V]h=j(1098567-1039572)n=P(W)W=Z[t]T=29340937425064-711498 V=Z[H]z=V(h,T)P=W[z]W=p()k=nil z=u(-137958+6262186,{t,H,W})V=j(-83545+142553)Z[W]=P W=J(W)P=o[V]t=J(t)V=P(z)H=J(H)n=nil end else if Y<2212832-329115 then k=j(-778667+837659)t=o[k]Y=o[j(-680499-(-739531))]k=j(922966+-863942)C=t[k]k=Z[L[159474-159473]]t={C(k)}B={x(t)}else W=j(-134828-(-193836))C=d Y=true t=p()k=j(-801692+860695)Z[t]=Y H=p()B=o[k]P=p()k=j(384124+-325135)Y=B[k]k=p()Z[k]=Y V=s(2262905-930050,{P})Y=l(3379806-15223,{})Z[H]=Y Y=false Z[P]=Y n=o[W]W=n(V)Y=W and 84536+3372139 or 967387-421322 B=W end end else if Y<3634642-118947 then if Y<3513971-112426 then C=j(280090+-221077)B=j(280044-221037)Y=o[B]B=Y(C)Y=o[j(978516+-919501)]B={}else n=Z[P]B=n Y=1047989-501924 end else if Y<-398076+4121066 then B={t}Y=o[j(291344+-232311)]else Y=o[j(886040-827014)]B={}end end end end else if Y<5947984-229048 then if Y<5198140-150626 then if Y<4627616-468541 then if Y<3105056-(-953505)then if Y<880009+2901947 then W=412855+-412600 Y={}Z[L[-202491-(-202493)]]=Y V=j(-449270-(-508273))B=Z[L[-1027315-(-1027318)]]H=B P=35184371919814-(-169018)B=t%P Z[L[-875408+875412]]=B n=t%W W=126092+-126090 P=n+W Z[L[286529+-286524]]=P W=o[V]V=j(111340+-52329)h=-1022345-(-1022346)n=W[V]W=n(C)n=j(942608+-883613)k[t]=n n=940109-939873 T=h V=-229000+229001 h=608468-608468 Y=4185939-(-475483)r=T<h z=W h=V-T else Z[t]=E Y=Z[t]Y=Y and 4891389-(-204608)or 13137580-(-404370)end else I=Y F=1026679-1026678 g=q[F]F=false e=g==F K=e Y=e and 10758677-(-804756)or 5917084-(-37338)end else if Y<4821554-486785 then Y={}k=Z[L[627082-627073]]t=315478+-315477 C=Y H=k k=632981-632980 P=k k=450199-450199 n=P<k k=t-P Y=-112001+321691 else h=h+T V=h<=z S=not r V=S and V S=h>=z S=r and S V=S or V S=11061219-929166 Y=V and S V=-914702+15661172 Y=Y or V end end else if Y<718845+4534694 then if Y<40596+5050871 then Z[t]=K f=-663950-(-663951)F=Z[y]g=F+f e=q[g]I=T+e e=-775756+776012 Y=I%e T=Y g=Z[a]Y=853830+8251378 e=r+g g=-346884+347140 I=e%g r=I else Y=6477186-735236 end else if Y<834421+4848197 then Y=B and 293951+8304229 or 169571+9041723 else Y=true Y=Y and 16422176-386917 or 123764+3622333 end end end else if Y<6243509-(-108556)then if Y<43601+6095267 then if Y<-300090+6334118 then if Y<-533781+6366178 then h=J(h)z=J(z)S=nil k=J(k)c=nil i=J(i)n=nil k=nil r=nil P=J(P)t=J(t)t=nil z=j(-708380+767383)V=nil T=nil c=-901447+901448 n=j(569387-510353)W=J(W)H=J(H)H=p()Z[H]=t t=p()Z[t]=k P=o[n]Y=36515+14114408 W=j(608830+-549796)n=j(403768-344780)k=P[n]P=p()V=j(395160+-336168)Z[P]=k n=o[W]h=p()W=j(-687284+746314)i=-902654+902910 k=n[W]T={}r=p()W=o[V]V=j(903508+-844484)n=W[V]V=o[z]z=j(-371245-(-430261))W=V[z]z=p()V=-721751-(-721751)Z[z]=V V=118170+-118168 Z[h]=V V={}Z[r]=T T=-270521-(-270521)S={}b=i i=-1022157+1022158 O=i i=1000939-1000939 G=O<i i=c-O else Y=I B=K Y=11556468-682263 end else B=j(691680-632694)Y=o[B]B=j(846355+-787357)P=j(1010708-951714)t=Z[L[585972+-585971]]n=958597+21146654377458 B=Y[B]k=Z[L[144310+-144308]]H=k(P,n)C=t[H]B=B(Y,C)Y=o[j(587581+-528577)]Z[L[-117852+117855]]=B B={}end else if Y<5344821-(-957334)then Y=444785+3218793 else O=not b E=E+m B=E<=X B=O and B O=E>=X O=b and O B=O or B O=469954+12279324 Y=B and O B=-319216+10043136 Y=Y or B end end else if Y<7488448-1008960 then if Y<675462+5685987 then Y=9396464-899200 b=-966056+966056 i=#S c=i==b else k=377582-377579 Y=612593+85536 t=Z[L[-431638+431641]]C=t*k t=1015864-1015607 B=C%t Z[L[220415-220412]]=B end else if Y<7307937-617445 then B=j(-448134-(-507157))Y=o[B]C=j(-308013+367040)B=o[C]C=j(-569579+628606)o[C]=Y C=j(-402157-(-461180))o[C]=B Y=16091760-(-19301)C=Z[L[-703252-(-703253)]]t=C()else t=j(31328+27684)B=713877+9637172 k=-542388+9587248 C=t^k Y=B-C B=j(170526-111497)C=Y Y=B/C B={Y}Y=o[j(703647-644642)]end end end end end else if Y<254066+12246226 then if Y<542464+9181381 then if Y<794071+8256879 then if Y<8602676-63530 then if Y<802957+7644497 then if Y<901266+6302822 then Y=Z[L[615756+-615746]]t=Z[L[-93887+93898]]C[Y]=t Y=Z[L[-347526-(-347538)]]t={Y(C)}Y=o[j(-761795+820797)]B={x(t)}else Z[L[-972235-(-972240)]]=B C=nil Y=9365779-154485 end else b=#S i=35369-35368 c=k(i,b)a=692636-692635 i=n(S,c)b=Z[r]G=i-a c=nil O=W(G)b[i]=O Y=8300121-(-1016875)i=nil end else if Y<1003151+7862552 then H=j(-51448-(-110465))B=j(-785041-(-844032))z=u(-179882+14278923,{})Y=o[B]V=j(-825690-(-884698))C=Z[L[-595203-(-595207)]]k=o[H]W=o[V]V={W(z)}n={x(V)}W=189015+-189013 P=n[W]H=k(P)k=j(-910436+969450)t=C(H,k)C={t()}B=Y(x(C))t=Z[L[146747+-146742]]C=B B=t Y=t and-658761+10934780 or-414123+7791960 else t=d[-403887+403889]Y=Z[L[-15558+15559]]C=d[34632+-34631]k=Y Y=k[t]Y=Y and 5300990-(-948215)or 2976283-(-803218)end end else if Y<-925553+10227693 then if Y<-783007+9963309 then O=J(O)q=nil a=J(a)M=J(M)G=J(G)Y=187084+6164319 A=J(A)y=J(y)else Y=Z[L[-887807+887814]]Y=Y and 632863+46851 or 5126915-946667 end else if Y<8357162-(-966892)then b=-304848-(-304848)i=#S c=i==b Y=c and 856641-(-805188)or 8018637-(-478627)else Y=6572231-880069 end end end else if Y<-393620+11171250 then if Y<10306491-(-246459)then if Y<629702+9562631 then if Y<-722798+10589384 then X=Z[t]Y=X and 12451556-(-880704)or-605698+4387800 E=X else m=j(311927-252924)V=h X=o[m]m=j(733061+-674033)E=X[m]X=E(C,V)V=nil E=Z[L[-952910-(-952916)]]m=E()i=X+m c=i+n i=47167-46911 S=c%i m=-1003928+1003929 i=k[t]Y=-530445+5191867 n=S X=n+m E=H[X]c=i..E k[t]=c end else k=Z[L[-858090-(-858096)]]Y=8058597-680760 t=k==C B=t end else if Y<10722319-136332 then K=Z[t]Y=K and 4397177-308948 or 10500874-(-373331)B=K else S=j(-793283-(-852275))Y=749795+12149023 r=o[S]S=j(640561-581574)T=r[S]z=T end end else if Y<742726+10767885 then if Y<10600917-(-345412)then Y=9741501-636293 Z[t]=B else h=j(-415263-(-474250))z=o[h]Y=1793127-1011452 B=z end else if Y<12330315-371141 then F=468753-468751 g=q[F]F=Z[M]e=g==F Y=5007671-(-946751)K=e else Y=-418561+6110723 end end end end else if Y<-457862+14573798 then if Y<13326632-(-98016)then if Y<12382391-(-483033)then if Y<12674605-(-79228)then if Y<858138+11765188 then C=Z[L[459446-459445]]B=#C C=633507-633507 Y=B==C Y=Y and 1031270+12697979 or 2017003-334592 else G=j(-354504-(-413538))O=p()a=-1041627+1041727 Z[O]=E B=o[G]G=j(494491+-435461)y=-267903-(-268158)Y=B[G]G=-515576-(-515577)B=Y(G,a)G=p()e=j(-772862-(-831879))Z[G]=B Y=Z[W]a=8062-8062 B=Y(a,y)a=p()Z[a]=B y=-150997-(-150998)M=651489+-651488 Y=Z[W]Q=-120448-(-130448)A=Z[G]B=Y(y,A)y=p()Z[y]=B B=Z[W]q=-606160-(-606162)f=-26035+26035 A=B(M,q)B=594779-594778 Y=A==B B=j(-847642+906656)A=p()q=j(-296388+355378)Z[A]=Y Y=j(-197192+256228)I=o[e]g=Z[W]Y=c[Y]F={g(f,Q)}e=I(x(F))I=j(-453810+512800)K=e..I M=q..K Y=Y(c,B,M)M=p()Z[M]=Y q=j(689675-630667)B=o[q]K=D(323778+14874277,{W;O;h,k,t,i,A,M;G,y;a,z})q={B(K)}Y={x(q)}q=Y Y=Z[A]Y=Y and 11528523-973652 or 854241+-51933 end else Y=D(-26969+1474778,{H})X={Y()}Y=o[j(-569815+628821)]B={x(X)}end else if Y<12918521-(-114814)then B=z Y=h Y=z and 1018177-236502 or 235304+11242659 else X=T==r Y=2954683-(-827419)E=X end end else if Y<936539+12726814 then if Y<1008327+12605072 then Y=true Y=945688+11827381 else b=j(585837-526814)Y=o[b]b=j(591031+-532004)o[b]=Y Y=13187359-711950 end else if Y<13130420-(-871007)then t=Z[L[-803338+803340]]k=981523-981414 C=t*k t=13763894265999-(-381050)B=C+t t=-127208-(-127209)C=35184371486955-(-601877)Y=B%C Z[L[137075-137073]]=Y C=Z[L[644753+-644750]]Y=527138+5841285 B=C~=t else B=-225788+6555286 k=8362508-(-656518)t=j(-260181-(-319177))C=t^k Y=B-C B=j(-744199+803192)C=Y Y=B/C B={Y}Y=o[j(-819074-(-878096))]end end end else if Y<15073111-(-958581)then if Y<677267+14597809 then if Y<-872457+15752861 then if Y<-701338+14957411 then a=not G i=i+O c=i<=b c=a and c a=i>=b a=G and a c=a or c a=1480259-482416 Y=c and a c=-761370+7113922 Y=Y or c else n=nil H=nil Y=2943772-(-719806)W=nil end else P=-338613+338615 t=Z[L[893321+-893320]]H=667821+-667820 k=t(H,P)t=215834-215833 C=k==t Y=C and-154943+5775209 or 1349154-746325 B=C end else if Y<-98199+16004830 then m=j(-889401+948418)Y=o[m]O=j(524889+-465862)b=o[O]m=Y(b)Y=j(525089+-466066)o[Y]=m Y=845048+11630361 else B={}Y=o[j(198594-139595)]end end else if Y<278487+15854191 then if Y<-643171+16749711 then Y=Z[W]m=842267+-842266 b=-382708-(-382714)X=Y(m,b)b=j(51780+7243)Y=j(192020+-132997)o[Y]=X m=o[b]b=761256+-761254 Y=m>b Y=Y and-1015602+16348605 or-373337+14007283 else Y=true Y=Y and 899246+5609039 or-165904+16180581 end else if Y<16208387-11663 then Y=true Y=Y and-151033+9874736 or-281828+13054897 else e=778209-778208 I=q[e]K=I Y=4391767-(-670469)end end end end end end end Y=#R return x(B)end,function()t=(-433936-(-433937))+t C[t]=-470910-(-470911)return t end,function(o,j)local x=k(j)local d=function(d)return Y(o,{d},j,x)end return d end,function(o,j)local x=k(j)local d=function(d,L,R,v,B)return Y(o,{d,L;R;v,B},j,x)end return d end,function(o,j)local x=k(j)local d=function(d,L)return Y(o,{d;L},j,x)end return d end,function(o,j)local x=k(j)local d=function(d,L,R,v)return Y(o,{d,L;R;v},j,x)end return d end,function(o,j)local x=k(j)local d=function(d,L,R)return Y(o,{d;L,R},j,x)end return d end,{},function(o)local j,Y=-211114-(-211115),o[-53685-(-53686)]while Y do C[Y],j=C[Y]-(-167881-(-167882)),(326612-326611)+j if C[Y]==-887771-(-887771)then C[Y],Z[Y]=nil,nil end Y=o[j]end end return(P(2681999-738196,{}))(x(B))end)(getfenv and getfenv()or _ENV,unpack or table[j(69129-10142)],newproxy,setmetatable,getmetatable,select,{...})end)(...)
+-- GhemsHUB Fixed v2
+-- Removed: hookmetamethod (was corrupting game context) and SafeRequire on game modules
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local CoreGui = game:GetService("CoreGui")
+local TweenService = game:GetService("TweenService")
+local UIS = game:GetService("UserInputService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local THEME = {
+    FrameBg     = Color3.fromRGB(38, 42, 56),
+    FrameBg2    = Color3.fromRGB(48, 52, 68),
+    Accent      = Color3.fromRGB(0, 180, 255),
+    AccentHover = Color3.fromRGB(0, 205, 255),
+    TabIdle     = Color3.fromRGB(70, 90, 130),
+    TabActive   = Color3.fromRGB(0, 180, 255),
+    ToggleBg    = Color3.fromRGB(60, 64, 80),
+    ToggleHover = Color3.fromRGB(70, 74, 95),
+    TextLight   = Color3.fromRGB(240, 240, 240),
+    TitleText   = Color3.fromRGB(255, 255, 255),
+    ErrorText   = Color3.fromRGB(255, 80, 80),
+}
+
+local currentBalance, username = 76345714, player.Name
+local ROBUX_ICON = "rbxasset://textures/ui/common/robux@3x.png"
+
+-- Safe parent helper
+local function safeParent(gui)
+    local ok = false
+    if gethui then
+        ok = pcall(function() gui.Parent = gethui() end)
+    end
+    if not ok then
+        ok = pcall(function() gui.Parent = CoreGui end)
+    end
+    if not ok then
+        gui.Parent = playerGui
+    end
+end
+
+-- Format numbers
+local function fmt(n)
+    local s = tostring(math.floor(n))
+    return s:reverse():gsub("(%d%d%d)", "%1,"):reverse():gsub("^,", "")
+end
+
+local function parse(s)
+    if not s or s == "" or type(s) ~= "string" then return nil end
+    local cleaned = s:gsub(",", ""):gsub("%s+", ""):gsub("R$", ""):gsub("Robux", ""):gsub("robux", "")
+    return tonumber(cleaned)
+end
+
+local function parseImageId(imageString)
+    if not imageString or imageString == "" then return nil end
+    if imageString:match("^rbxassetid://%d+$") then return imageString end
+    local id = imageString:match("rbxassetid://(%d+)")
+    if id then return "rbxassetid://" .. id end
+    if tonumber(imageString) then return "rbxassetid://" .. tonumber(imageString) end
+    id = imageString:match("[%?&]id=(%d+)")
+    if id then return "rbxassetid://" .. id end
+    id = imageString:match("assetId=(%d+)")
+    if id then return "rbxassetid://" .. id end
+    id = imageString:match("(%d+)")
+    if id then return "rbxassetid://" .. id end
+    return nil
+end
+
+local function getFirstWord(str)
+    if not str or str == "" then return "" end
+    return str:match("^(%S+)") or str
+end
+
+local function getTreadmillPriceByName(itemName)
+    if not itemName or itemName == "" then return 17000 end
+    local firstWord = getFirstWord(itemName)
+    if firstWord == "" then return 17000 end
+    local price = 17000
+    pcall(function()
+        local shopModal = playerGui:WaitForChild("SpeedGameUI"):WaitForChild("Modals"):WaitForChild("RobuxShopModal")
+        local scrollingFrame = shopModal:WaitForChild("ScrollingFrame")
+        local treadmills = scrollingFrame:WaitForChild("Treadmills")
+        local mainFrame = treadmills:WaitForChild("MainFrame")
+        local treadmillFrame = mainFrame:FindFirstChild(firstWord)
+        if not treadmillFrame then
+            treadmillFrame = mainFrame:FindFirstChild(firstWord .. "_Treadmill")
+            if not treadmillFrame then
+                treadmillFrame = mainFrame:FindFirstChild("Treadmill_" .. firstWord)
+                if not treadmillFrame then
+                    treadmillFrame = mainFrame:FindFirstChild(firstWord .. "Treadmill")
+                    if not treadmillFrame then
+                        treadmillFrame = mainFrame:FindFirstChild(firstWord .. "_Tredmill")
+                        if not treadmillFrame then
+                            treadmillFrame = mainFrame:FindFirstChild("Tredmill_" .. firstWord)
+                        end
+                    end
+                end
+            end
+        end
+        if not treadmillFrame then
+            for _, child in ipairs(mainFrame:GetChildren()) do
+                if child.Name:lower():find(firstWord:lower()) then
+                    treadmillFrame = child
+                    break
+                end
+            end
+        end
+        if treadmillFrame then
+            pcall(function()
+                local buyFrame = treadmillFrame:WaitForChild("Buy")
+                local priceLabel = buyFrame:WaitForChild("Price")
+                local parsed = parse(priceLabel.Text)
+                if parsed then price = parsed end
+            end)
+        end
+    end)
+    return price
+end
+
+-- Notifications (custom fallback only - no game module require)
+local function CreateCustomNotification(text, color)
+    local parent = CoreGui or playerGui
+    local old = parent:FindFirstChild("GiftNotification9871")
+    if old then old:Destroy() end
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "GiftNotification9871"
+    screenGui.ResetOnSpawn = false
+    screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    screenGui.DisplayOrder = 10009
+    safeParent(screenGui)
+
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(0, 340, 0, 50)
+    frame.Position = UDim2.new(0.5, -170, 0, -60)
+    frame.BackgroundColor3 = color or Color3.fromRGB(100, 255, 100)
+    frame.BorderSizePixel = 0
+    frame.BackgroundTransparency = 0.1
+    frame.Parent = screenGui
+    Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 8)
+
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.Text = text or "Gift sent!"
+    label.TextColor3 = Color3.fromRGB(255, 255, 255)
+    label.TextScaled = true
+    label.Font = Enum.Font.GothamBold
+    label.Parent = frame
+
+    local stroke = Instance.new("UIStroke")
+    stroke.Thickness = 2
+    stroke.Color = Color3.fromRGB(0, 0, 0)
+    stroke.Parent = label
+
+    TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Position = UDim2.new(0.5, -170, 0, 20)}):Play()
+    task.delay(3, function()
+        local tweenOut = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.In), {Position = UDim2.new(0.5, -170, 0, -60)})
+        tweenOut:Play()
+        tweenOut.Completed:Wait()
+        screenGui:Destroy()
+    end)
+end
+
+local function PlayCustomSound(soundId)
+    local sound = Instance.new("Sound")
+    sound.SoundId = soundId or "rbxassetid://9114488953"
+    sound.Volume = 0.5
+    sound.Parent = player:WaitForChild("Character", 5) or workspace
+    sound:Play()
+    sound.Ended:Connect(function() sound:Destroy() end)
+end
+
+function PromptGiftNotification(giftText, color)
+    CreateCustomNotification(giftText or "Gift sent!", color or Color3.fromRGB(100, 255, 100))
+    PlayCustomSound("rbxassetid://9114488953")
+end
+
+local function closeGameGiftModal()
+    pcall(function()
+        local modal = playerGui:WaitForChild("SpeedGameUI"):WaitForChild("Modals"):WaitForChild("GiftToPlayerModal")
+        if not modal then return end
+        local header = modal:FindFirstChild("Header")
+        if not header then return end
+        local closeBtn = header:FindFirstChild("CloseButton")
+        if not closeBtn then return end
+        if getconnections then
+            for _, conn in ipairs(getconnections(closeBtn.MouseButton1Click)) do pcall(function() conn:Fire() end) end
+            for _, conn in ipairs(getconnections(closeBtn.Activated)) do pcall(function() conn:Fire() end) end
+        end
+    end)
+end
+
+local function showCompleted(target, giftMessage, itemName)
+    local displayName = itemName or "Admin Treadmill"
+    local sg = Instance.new("ScreenGui")
+    sg.Name = "PurchaseCompleted"
+    sg.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    sg.IgnoreGuiInset = true
+    sg.DisplayOrder = 10007
+    sg.ResetOnSpawn = false
+    safeParent(sg)
+
+    local bg = Instance.new("Frame")
+    bg.Size = UDim2.new(1, 0, 1, 0)
+    bg.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    bg.BackgroundTransparency = 1
+    bg.BorderSizePixel = 0
+    bg.ZIndex = 1
+    bg.Parent = sg
+
+    local trap = Instance.new("TextButton")
+    trap.BackgroundTransparency = 1
+    trap.Size = UDim2.new(1, 0, 1, 0)
+    trap.Text = ""
+    trap.ZIndex = 2
+    trap.Parent = bg
+
+    local modal = Instance.new("Frame")
+    modal.Size = UDim2.new(0, 400, 0, 220)
+    modal.Position = UDim2.new(0.5, 0, 0.5, 0)
+    modal.AnchorPoint = Vector2.new(0.5, 0.5)
+    modal.BackgroundColor3 = Color3.fromRGB(31, 32, 36)
+    modal.BorderSizePixel = 0
+    modal.ZIndex = 3
+    modal.Parent = sg
+    Instance.new("UICorner", modal).CornerRadius = UDim.new(0, 16)
+
+    local uiSizeConstraint = Instance.new("UISizeConstraint")
+    uiSizeConstraint.MaxSize = Vector2.new(420, 9999)
+    uiSizeConstraint.MinSize = Vector2.new(280, 0)
+    uiSizeConstraint.Parent = modal
+
+    local title = Instance.new("TextLabel")
+    title.Text = "Purchase completed"
+    title.Font = Enum.Font.GothamBold
+    title.TextSize = 20
+    title.TextXAlignment = Enum.TextXAlignment.Left
+    title.Position = UDim2.new(0, 20, 0, 16)
+    title.Size = UDim2.new(1, -60, 0, 26)
+    title.TextColor3 = Color3.fromRGB(240, 240, 240)
+    title.BackgroundTransparency = 1
+    title.ZIndex = 4
+    title.Parent = modal
+
+    local close = Instance.new("TextButton")
+    close.Position = UDim2.new(1, -16, 0, 14)
+    close.AnchorPoint = Vector2.new(1, 0)
+    close.Size = UDim2.fromOffset(26, 26)
+    close.Text = "X"
+    close.Font = Enum.Font.GothamBold
+    close.TextSize = 18
+    close.BackgroundTransparency = 1
+    close.TextColor3 = Color3.fromRGB(180, 180, 180)
+    close.ZIndex = 5
+    close.Parent = modal
+
+    local iconCont = Instance.new("Frame")
+    iconCont.Size = UDim2.fromOffset(56, 56)
+    iconCont.Position = UDim2.new(0.5, 0, 0, 58)
+    iconCont.AnchorPoint = Vector2.new(0.5, 0)
+    iconCont.BackgroundTransparency = 1
+    iconCont.ZIndex = 4
+    iconCont.Parent = modal
+
+    local circle = Instance.new("Frame")
+    circle.Size = UDim2.fromScale(1, 1)
+    circle.BackgroundTransparency = 1
+    circle.Parent = iconCont
+    Instance.new("UICorner", circle).CornerRadius = UDim.new(1, 0)
+    local cStroke = Instance.new("UIStroke")
+    cStroke.Thickness = 2.5
+    cStroke.Color = Color3.fromRGB(200, 200, 200)
+    cStroke.Parent = circle
+
+    local check = Instance.new("ImageLabel")
+    check.Size = UDim2.fromScale(0.6, 0.6)
+    check.Position = UDim2.fromScale(0.5, 0.5)
+    check.AnchorPoint = Vector2.new(0.5, 0.5)
+    check.BackgroundTransparency = 1
+    check.Image = "rbxassetid://3944680095"
+    check.ImageColor3 = Color3.fromRGB(200, 200, 200)
+    check.ZIndex = 5
+    check.Parent = iconCont
+
+    local desc = Instance.new("TextLabel")
+    desc.Text = "You have successfully bought " .. displayName .. " - Gift."
+    desc.Font = Enum.Font.GothamMedium
+    desc.TextSize = 14
+    desc.TextWrapped = true
+    desc.Position = UDim2.new(0, 20, 0, 122)
+    desc.Size = UDim2.new(1, -40, 0, 40)
+    desc.TextXAlignment = Enum.TextXAlignment.Center
+    desc.TextYAlignment = Enum.TextYAlignment.Center
+    desc.TextColor3 = Color3.fromRGB(180, 180, 180)
+    desc.BackgroundTransparency = 1
+    desc.ZIndex = 4
+    desc.Parent = modal
+
+    local okBtn = Instance.new("TextButton")
+    okBtn.Size = UDim2.new(1, -40, 0, 40)
+    okBtn.Position = UDim2.new(0, 20, 0, 168)
+    okBtn.Text = "OK"
+    okBtn.Font = Enum.Font.GothamBold
+    okBtn.TextSize = 15
+    okBtn.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+    okBtn.TextColor3 = Color3.new(1, 1, 1)
+    okBtn.AutoButtonColor = false
+    okBtn.ZIndex = 4
+    Instance.new("UICorner", okBtn).CornerRadius = UDim.new(0, 10)
+    okBtn.Parent = modal
+
+    TweenService:Create(bg, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.45}):Play()
+    TweenService:Create(modal, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(0.5, 0, 0.5, 0)}):Play()
+
+    local function close()
+        TweenService:Create(bg, TweenInfo.new(0.2), {BackgroundTransparency = 1}):Play()
+        TweenService:Create(modal, TweenInfo.new(0.2), {Position = UDim2.new(0.5, 0, 0.45, 0)}):Play()
+        task.delay(0.22, function()
+            sg:Destroy()
+            closeGameGiftModal()
+            if giftMessage and giftMessage ~= "" then
+                PromptGiftNotification(giftMessage, Color3.fromRGB(100, 255, 100))
+            end
+        end)
+    end
+
+    okBtn.MouseButton1Click:Connect(close)
+    close.MouseButton1Click:Connect(close)
+    trap.MouseButton1Click:Connect(close)
+end
+
+local function createPurchaseModal(target, giftMessage, itemImage, itemName)
+    local price = getTreadmillPriceByName(itemName)
+    local displayName = itemName or "Admin Treadmill"
+
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "PurchaseModal"
+    screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    screenGui.IgnoreGuiInset = true
+    screenGui.DisplayOrder = 10007
+    screenGui.ResetOnSpawn = false
+    safeParent(screenGui)
+
+    local bg = Instance.new("Frame")
+    bg.Size = UDim2.new(1, 0, 1, 0)
+    bg.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    bg.BackgroundTransparency = 1
+    bg.BorderSizePixel = 0
+    bg.ZIndex = 1
+    bg.Parent = screenGui
+
+    local trap = Instance.new("TextButton")
+    trap.BackgroundTransparency = 1
+    trap.Size = UDim2.new(1, 0, 1, 0)
+    trap.Text = ""
+    trap.ZIndex = 2
+    trap.Parent = bg
+
+    local modal = Instance.new("Frame")
+    modal.Size = UDim2.new(0, 400, 0, 180)
+    modal.Position = UDim2.new(0.5, 0, 0.5, 0)
+    modal.AnchorPoint = Vector2.new(0.5, 0.5)
+    modal.BackgroundColor3 = Color3.fromRGB(31, 32, 36)
+    modal.BorderSizePixel = 0
+    modal.ZIndex = 3
+    modal.Parent = screenGui
+    Instance.new("UICorner", modal).CornerRadius = UDim.new(0, 16)
+
+    local uiSizeConstraint = Instance.new("UISizeConstraint")
+    uiSizeConstraint.MaxSize = Vector2.new(420, 9999)
+    uiSizeConstraint.MinSize = Vector2.new(280, 0)
+    uiSizeConstraint.Parent = modal
+
+    local title = Instance.new("TextLabel")
+    title.Position = UDim2.new(0, 18, 0, 14)
+    title.Size = UDim2.new(0, 100, 0, 24)
+    title.Text = "Buy item"
+    title.Font = Enum.Font.GothamBold
+    title.TextSize = 18
+    title.TextXAlignment = Enum.TextXAlignment.Left
+    title.BackgroundTransparency = 1
+    title.TextColor3 = Color3.fromRGB(240, 240, 240)
+    title.ZIndex = 4
+    title.Parent = modal
+
+    local balHolder = Instance.new("Frame")
+    balHolder.Position = UDim2.new(1, -50, 0, 14)
+    balHolder.AnchorPoint = Vector2.new(1, 0)
+    balHolder.Size = UDim2.fromOffset(0, 24)
+    balHolder.AutomaticSize = Enum.AutomaticSize.X
+    balHolder.BackgroundTransparency = 1
+    balHolder.ZIndex = 4
+    balHolder.Parent = modal
+
+    local balIcon = Instance.new("ImageLabel")
+    balIcon.Size = UDim2.fromOffset(18, 18)
+    balIcon.Position = UDim2.fromOffset(0, 3)
+    balIcon.Image = ROBUX_ICON
+    balIcon.BackgroundTransparency = 1
+    balIcon.ZIndex = 5
+    balIcon.Parent = balHolder
+
+    local balText = Instance.new("TextLabel")
+    balText.Position = UDim2.fromOffset(20, 0)
+    balText.Size = UDim2.new(0, 0, 1, 0)
+    balText.AutomaticSize = Enum.AutomaticSize.X
+    balText.Text = fmt(currentBalance)
+    balText.Font = Enum.Font.GothamBold
+    balText.TextSize = 14
+    balText.TextXAlignment = Enum.TextXAlignment.Left
+    balText.BackgroundTransparency = 1
+    balText.TextColor3 = Color3.fromRGB(230, 230, 230)
+    balText.ZIndex = 5
+    balText.Parent = balHolder
+
+    local closeBtn = Instance.new("TextButton")
+    closeBtn.Position = UDim2.new(1, -14, 0, 12)
+    closeBtn.AnchorPoint = Vector2.new(1, 0)
+    closeBtn.Size = UDim2.fromOffset(24, 24)
+    closeBtn.Text = "X"
+    closeBtn.Font = Enum.Font.GothamBold
+    closeBtn.TextSize = 16
+    closeBtn.BackgroundTransparency = 1
+    closeBtn.TextColor3 = Color3.fromRGB(180, 180, 180)
+    closeBtn.ZIndex = 5
+    closeBtn.Parent = modal
+
+    local itemRow = Instance.new("Frame")
+    itemRow.Position = UDim2.new(0, 18, 0, 48)
+    itemRow.Size = UDim2.new(1, -36, 0, 60)
+    itemRow.BackgroundTransparency = 1
+    itemRow.ZIndex = 4
+    itemRow.Parent = modal
+
+    local itemImg = Instance.new("ImageLabel")
+    itemImg.Size = UDim2.fromOffset(56, 56)
+    itemImg.Position = UDim2.fromOffset(0, 2)
+    itemImg.BackgroundColor3 = Color3.fromRGB(35, 35, 40)
+    local parsedImage = parseImageId(itemImage)
+    itemImg.Image = parsedImage or "rbxassetid://139607718"
+    itemImg.ZIndex = 5
+    itemImg.Parent = itemRow
+    Instance.new("UICorner", itemImg).CornerRadius = UDim.new(0, 10)
+
+    local itemNameLabel = Instance.new("TextLabel")
+    itemNameLabel.Position = UDim2.new(0, 68, 0, 8)
+    itemNameLabel.Size = UDim2.new(1, -76, 0, 22)
+    itemNameLabel.Text = displayName .. " - Gift"
+    itemNameLabel.Font = Enum.Font.GothamBold
+    itemNameLabel.TextSize = 15
+    itemNameLabel.TextXAlignment = Enum.TextXAlignment.Left
+    itemNameLabel.BackgroundTransparency = 1
+    itemNameLabel.TextColor3 = Color3.fromRGB(240, 240, 240)
+    itemNameLabel.ZIndex = 5
+    itemNameLabel.Parent = itemRow
+
+    local itemPriceRow = Instance.new("Frame")
+    itemPriceRow.Position = UDim2.new(0, 68, 0, 34)
+    itemPriceRow.Size = UDim2.fromOffset(120, 20)
+    itemPriceRow.BackgroundTransparency = 1
+    itemPriceRow.ZIndex = 5
+    itemPriceRow.Parent = itemRow
+
+    local itemPriceIcon = Instance.new("ImageLabel")
+    itemPriceIcon.Size = UDim2.fromOffset(16, 16)
+    itemPriceIcon.Position = UDim2.fromOffset(0, 2)
+    itemPriceIcon.Image = ROBUX_ICON
+    itemPriceIcon.BackgroundTransparency = 1
+    itemPriceIcon.ZIndex = 6
+    itemPriceIcon.Parent = itemPriceRow
+
+    local itemPriceText = Instance.new("TextLabel")
+    itemPriceText.Position = UDim2.fromOffset(18, 0)
+    itemPriceText.Size = UDim2.new(1, -18, 1, 0)
+    itemPriceText.Text = fmt(price)
+    itemPriceText.Font = Enum.Font.GothamBold
+    itemPriceText.TextSize = 14
+    itemPriceText.TextXAlignment = Enum.TextXAlignment.Left
+    itemPriceText.BackgroundTransparency = 1
+    itemPriceText.TextColor3 = Color3.fromRGB(240, 240, 240)
+    itemPriceText.ZIndex = 6
+    itemPriceText.Parent = itemPriceRow
+
+    local buyBtn = Instance.new("TextButton")
+    buyBtn.Position = UDim2.new(0, 18, 0, 122)
+    buyBtn.Size = UDim2.new(1, -36, 0, 40)
+    buyBtn.BackgroundColor3 = Color3.fromRGB(0, 60, 140)
+    buyBtn.AutoButtonColor = false
+    buyBtn.Text = ""
+    buyBtn.ClipsDescendants = true
+    buyBtn.ZIndex = 4
+    buyBtn.Parent = modal
+    Instance.new("UICorner", buyBtn).CornerRadius = UDim.new(0, 10)
+
+    local filler = Instance.new("Frame")
+    filler.Size = UDim2.new(0, 0, 1, 0)
+    filler.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+    filler.BorderSizePixel = 0
+    filler.ZIndex = 2
+    filler.Parent = buyBtn
+    Instance.new("UICorner", filler).CornerRadius = UDim.new(0, 10)
+
+    local buyLabel = Instance.new("TextLabel")
+    buyLabel.Size = UDim2.new(1, 0, 1, 0)
+    buyLabel.BackgroundTransparency = 1
+    buyLabel.Text = "Buy"
+    buyLabel.Font = Enum.Font.GothamBold
+    buyLabel.TextSize = 15
+    buyLabel.TextColor3 = Color3.new(1, 1, 1)
+    buyLabel.ZIndex = 3
+    buyLabel.Parent = buyBtn
+
+    local busy = false
+    local preLoaded = false
+
+    TweenService:Create(bg, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.45}):Play()
+    TweenService:Create(modal, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(0.5, 0, 0.5, 0)}):Play()
+
+    task.spawn(function()
+        task.wait(0.25)
+        if not filler or not filler.Parent then return end
+        local tw = TweenService:Create(filler, TweenInfo.new(3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Size = UDim2.new(1, 0, 1, 0)})
+        tw:Play()
+        tw.Completed:Wait()
+        if not buyBtn or not buyBtn.Parent then return end
+        preLoaded = true
+    end)
+
+    local function closeBuy()
+        busy = false
+        preLoaded = true
+        TweenService:Create(bg, TweenInfo.new(0.2), {BackgroundTransparency = 1}):Play()
+        TweenService:Create(modal, TweenInfo.new(0.2), {Position = UDim2.new(0.5, 0, 0.45, 0)}):Play()
+        task.delay(0.22, function()
+            screenGui:Destroy()
+        end)
+    end
+
+    closeBtn.MouseButton1Click:Connect(closeBuy)
+    trap.MouseButton1Click:Connect(closeBuy)
+
+    buyBtn.MouseButton1Click:Connect(function()
+        if not preLoaded or busy then return end
+        busy = true
+        currentBalance = math.max(0, currentBalance - price)
+        balText.Text = fmt(currentBalance)
+        closeBuy()
+        task.delay(0.3, function()
+            showCompleted(target, giftMessage, displayName)
+            busy = false
+        end)
+    end)
+end
+
+-- Hook the in-game Gift button
+local function hookGameUIButton()
+    local success, modal = pcall(function()
+        return playerGui:WaitForChild("SpeedGameUI"):WaitForChild("Modals"):WaitForChild("GiftToPlayerModal")
+    end)
+    if not success or not modal then return end
+
+    local mainFrame = modal:WaitForChild("MainFrame")
+    local sendBtnFrame = mainFrame:WaitForChild("SendGiftButtonFrame")
+    local sendBtn = sendBtnFrame:WaitForChild("SendGiftButton")
+    local textboxFrame = mainFrame:WaitForChild("TextboxFrame")
+    local usernameInput = textboxFrame:WaitForChild("UsernameInput")
+
+    if sendBtn:FindFirstChild("CustomGiftOverlay") then return end
+
+    local overlay = Instance.new("TextButton")
+    overlay.Name = "CustomGiftOverlay"
+    overlay.BackgroundTransparency = 1
+    overlay.Text = ""
+    overlay.Size = UDim2.new(1, 0, 1, 0)
+    overlay.ZIndex = (sendBtn.ZIndex or 1) + 50
+    overlay.Parent = sendBtn
+
+    overlay.MouseButton1Click:Connect(function()
+        local targetName = ""
+        pcall(function()
+            targetName = usernameInput.Text
+        end)
+        if targetName == "" then targetName = "someone" end
+
+        local rawImage, rawName = nil, nil
+        pcall(function()
+            local contentFrame = mainFrame:WaitForChild("ContentFrame")
+            local itemFrame = contentFrame:WaitForChild("ItemFrame")
+            rawImage = itemFrame:WaitForChild("ItemImage").Image
+
+            local itemNameBg = itemFrame:WaitForChild("ItemNameBg")
+            rawName = itemNameBg:WaitForChild("ItemNameLabel").Text
+        end)
+
+        local giftMessage = "Gift sent to " .. targetName .. "!"
+        createPurchaseModal(targetName, giftMessage, rawImage, rawName)
+    end)
+end
+
+task.spawn(function()
+    task.wait(2)
+    hookGameUIButton()
+end)
+
+player.CharacterAdded:Connect(function()
+    task.wait(2)
+    hookGameUIButton()
+end)
+
+playerGui.DescendantAdded:Connect(function(desc)
+    if desc.Name == "SendGiftButton" and desc.Parent and desc.Parent.Name == "SendGiftButtonFrame" then
+        task.delay(0.5, hookGameUIButton)
+    end
+end)
+
+UIS.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.KeyCode ~= Enum.KeyCode.K then return end
+    
+    local success, btn = pcall(function()
+        return playerGui:WaitForChild("SpeedGameUI")
+            :WaitForChild("Frames")
+            :WaitForChild("RightFrame")
+            :WaitForChild("ButtonsFrame")
+            :WaitForChild("2xspeedbutton") -- FIXED: was "2xspeedbutton"
+    end)
+    
+    -- METHOD 1: Try firing button connections (with button as argument)
+    if success and btn then
+        if firesignal then
+            pcall(function() firesignal(btn.MouseButton1Click, btn) end)
+            pcall(function() firesignal(btn.Activated, btn) end)
+            pcall(function() firesignal(btn.MouseButton1Down, btn) end)
+            pcall(function() firesignal(btn.MouseButton1Up, btn) end)
+        end
+        
+        if getconnections then
+            for _, c in ipairs(getconnections(btn.MouseButton1Click)) do 
+                pcall(function() c:Fire(btn) end) 
+            end
+            for _, c in ipairs(getconnections(btn.Activated)) do 
+                pcall(function() c:Fire(btn) end) 
+            end
+            for _, c in ipairs(getconnections(btn.MouseButton1Down)) do 
+                pcall(function() c:Fire(btn) end) 
+            end
+            for _, c in ipairs(getconnections(btn.MouseButton1Up)) do 
+                pcall(function() c:Fire(btn) end) 
+            end
+        end
+    end
+    
+    -- METHOD 2: Directly open RobuxShopModal (reconstructs game UI state)
+    pcall(function()
+        local speedUI = playerGui:WaitForChild("SpeedGameUI")
+        local modals = speedUI:WaitForChild("Modals")
+        local shopModal = modals:WaitForChild("RobuxShopModal")
+        
+        -- Ensure the entire modal chain is visible
+        shopModal.Visible = true
+        modals.Visible = true
+        
+        -- Reset modal appearance (common game patterns)
+        if shopModal:IsA("GuiObject") then
+            shopModal.BackgroundTransparency = 0
+            shopModal.Position = UDim2.new(0.5, 0, 0.5, 0)
+            shopModal.AnchorPoint = Vector2.new(0.5, 0.5)
+            shopModal.ZIndex = 100
+        end
+        
+        if shopModal:IsA("ImageLabel") or shopModal:IsA("ImageButton") then
+            shopModal.ImageTransparency = 0
+        end
+        
+        -- Enable background dimmer / blur / overlay (the game uses these)
+        for _, child in ipairs(modals:GetChildren()) do
+            local name = child.Name:lower()
+            if name:find("bg") or name:find("dim") or name:find("blur") or name:find("overlay") or name:find("shadow") then
+                child.Visible = true
+                if child:IsA("GuiObject") then
+                    child.BackgroundTransparency = 0.5
+                    if child:IsA("ImageLabel") or child:IsA("ImageButton") then
+                        child.ImageTransparency = 0.5
+                    end
+                end
+            end
+        end
+        
+        -- Also check SpeedGameUI direct children for full-screen overlays
+        for _, child in ipairs(speedUI:GetChildren()) do
+            local name = child.Name:lower()
+            if (name:find("bg") or name:find("dim") or name:find("blur") or name:find("darken")) and child:IsA("GuiObject") then
+                child.Visible = true
+                if child:IsA("Frame") or child:IsA("ImageLabel") then
+                    child.BackgroundTransparency = 0.5
+                end
+            end
+        end
+    end)
+end)
+
+-- Booth hooks
+local processedBooths = {}
+
+local function getId(obj)
+    for name, val in pairs(obj:GetAttributes()) do
+        if (name:lower():find("id") or name:lower():find("asset")) and type(val) == "number" then return val end
+    end
+    for _, c in ipairs(obj:GetChildren()) do
+        if (c.Name:lower():find("id") or c.Name:lower():find("asset")) and (c:IsA("NumberValue") or c:IsA("IntValue")) then return c.Value end
+    end
+    if tonumber(obj.Name) then return tonumber(obj.Name) end
+    local id = obj.Name:match("Item(%d+)")
+    if id then return tonumber(id) end
+    if obj.Parent then
+        local pid = obj.Parent.Name:match("Item(%d+)")
+        if pid then return tonumber(pid) end
+    end
+    return nil
+end
+
+local function getProductInfo(id)
+    local ok, info = pcall(function() return game:GetService("MarketplaceService"):GetProductInfo(id, Enum.InfoType.GamePass) end)
+    if ok and info then
+        return {Name = info.Name or "Unknown", IconImageAssetId = id, PriceInRobux = info.PriceInRobux or 0, AssetId = id}
+    end
+    return {Name = "Unknown", IconImageAssetId = id, PriceInRobux = 0, AssetId = id}
+end
+
+local function getBoothUser(frame)
+    local ok, result = pcall(function()
+        for _, c in ipairs(frame:GetDescendants()) do
+            if c:IsA("TextLabel") or c:IsA("TextButton") then
+                local text = c.Text
+                if text and text:find("@") then
+                    local match = text:match("@([%w_]+)")
+                    if match then return match end
+                end
+            end
+        end
+        return nil
+    end)
+    return ok and result or nil
+end
+
+local function hookBoothBtn(btn)
+    if not (btn:IsA("TextButton") or btn:IsA("ImageButton")) then return end
+    if processedBooths[btn] then return end
+    if btn:FindFirstChild("CustomPurchaseOverlay") then return end
+    local id = getId(btn)
+    if not id then return end
+
+    processedBooths[btn] = true
+
+    local overlay = Instance.new("TextButton")
+    overlay.Name = "CustomPurchaseOverlay"
+    overlay.BackgroundTransparency = 1
+    overlay.Text = ""
+    overlay.Size = UDim2.new(1, 0, 1, 0)
+    overlay.ZIndex = (btn.ZIndex or 1) + 10
+    overlay.Parent = btn
+
+    overlay.MouseButton1Click:Connect(function()
+        local cid = getId(btn) or id
+        local info = getProductInfo(cid)
+        local boothUser = getBoothUser(btn) or username
+        local giftMessage = "Bought from " .. boothUser .. "!"
+        createPurchaseModal(boothUser, giftMessage, tostring(info.IconImageAssetId), info.Name)
+    end)
+end
+
+task.spawn(function()
+    task.wait(5)
+    pcall(function()
+        for _, obj in ipairs(playerGui:GetDescendants()) do
+            if obj:IsA("TextButton") or obj:IsA("ImageButton") then
+                local parentName = ""
+                if obj.Parent then parentName = obj.Parent.Name:lower() end
+                if parentName:find("booth") or parentName:find("shop") or parentName:find("store") or parentName:find("item") then
+                    hookBoothBtn(obj)
+                end
+            end
+        end
+    end)
+end)
+
+-- Cleanup old instances
+for _, n in ipairs({"FaDhenModernMini", "Cmdr", "GhemsHUB"}) do
+    local old = CoreGui:FindFirstChild(n)
+    if old then old:Destroy() end
+    old = playerGui:FindFirstChild(n)
+    if old then old:Destroy() end
+end
+
+-- Main UI
+local gui = Instance.new("ScreenGui")
+gui.Name = "Cmdr"
+gui.ResetOnSpawn = false
+safeParent(gui)
+
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 200, 0, 195)
+mainFrame.Position = UDim2.new(0.5, -100, 0.5, -97)
+mainFrame.BackgroundColor3 = THEME.FrameBg
+mainFrame.Active = true
+mainFrame.Draggable = true
+mainFrame.Visible = false
+mainFrame.Parent = gui
+Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0, 12)
+
+local mStroke = Instance.new("UIStroke")
+mStroke.Thickness = 2
+mStroke.Color = THEME.Accent
+mStroke.Transparency = 0.15
+mStroke.Parent = mainFrame
+
+local shadow = Instance.new("ImageLabel")
+shadow.AnchorPoint = Vector2.new(0.5, 0.5)
+shadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+shadow.Size = UDim2.new(1, 36, 1, 36)
+shadow.ZIndex = 0
+shadow.BackgroundTransparency = 1
+shadow.Image = "rbxassetid://5028857084"
+shadow.ImageColor3 = Color3.new(0, 0, 0)
+shadow.ImageTransparency = 0.55
+shadow.ScaleType = Enum.ScaleType.Slice
+shadow.SliceCenter = Rect.new(24, 24, 276, 276)
+shadow.Parent = mainFrame
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 32)
+title.BackgroundColor3 = THEME.Accent
+title.Text = "  GhemsHub "
+title.Font = Enum.Font.GothamBold
+title.TextSize = 14
+title.TextXAlignment = Enum.TextXAlignment.Left
+title.TextColor3 = THEME.TitleText
+title.Parent = mainFrame
+Instance.new("UICorner", title).CornerRadius = UDim.new(0, 12)
+
+local tGrad = Instance.new("UIGradient")
+tGrad.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, THEME.Accent), ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 60, 255))}
+tGrad.Rotation = 80
+tGrad.Parent = title
+
+local content = Instance.new("Frame")
+content.Position = UDim2.new(0, 10, 0, 38)
+content.Size = UDim2.new(1, -20, 1, -48)
+content.BackgroundTransparency = 1
+content.Parent = mainFrame
+
+local mainTab = Instance.new("Frame")
+mainTab.Name = "MainTab"
+mainTab.Size = UDim2.new(1, 0, 1, 0)
+mainTab.BackgroundTransparency = 1
+mainTab.Visible = true
+mainTab.Parent = content
+
+local layout = Instance.new("UIListLayout")
+layout.Padding = UDim.new(0, 6)
+layout.VerticalAlignment = Enum.VerticalAlignment.Top
+layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+layout.SortOrder = Enum.SortOrder.LayoutOrder
+layout.Parent = mainTab
+
+local function makeLabel(text, order)
+    local lbl = Instance.new("TextLabel")
+    lbl.Size = UDim2.new(1, -10, 0, 16)
+    lbl.Position = UDim2.new(0, 5, 0, 2)
+    lbl.BackgroundTransparency = 1
+    lbl.Text = text
+    lbl.TextColor3 = Color3.fromRGB(115, 100, 150)
+    lbl.Font = Enum.Font.GothamBold
+    lbl.TextSize = 10
+    lbl.TextXAlignment = Enum.TextXAlignment.Left
+    lbl.LayoutOrder = order
+    lbl.Parent = mainTab
+    return lbl
+end
+
+makeLabel("FAKE BALANCE", 1)
+
+local balInput = Instance.new("TextBox")
+balInput.Size = UDim2.new(1, -10, 0, 32)
+balInput.Position = UDim2.new(0, 5, 0, 20)
+balInput.BackgroundColor3 = Color3.fromRGB(20, 18, 30)
+balInput.Text = fmt(currentBalance)
+balInput.TextColor3 = Color3.fromRGB(220, 215, 240)
+balInput.Font = Enum.Font.Gotham
+balInput.TextSize = 13
+balInput.PlaceholderText = "Enter balance..."
+balInput.PlaceholderColor3 = Color3.fromRGB(80, 72, 108)
+balInput.ClearTextOnFocus = false
+balInput.LayoutOrder = 2
+balInput.Parent = mainTab
+Instance.new("UICorner", balInput).CornerRadius = UDim.new(0, 9)
+
+local biStroke = Instance.new("UIStroke", balInput)
+biStroke.Color = Color3.fromRGB(45, 40, 68)
+biStroke.Thickness = 1
+
+balInput.Focused:Connect(function()
+    TweenService:Create(biStroke, TweenInfo.new(0.15), {Color = THEME.Accent, Thickness = 1.5}):Play()
+end)
+balInput.FocusLost:Connect(function()
+    TweenService:Create(biStroke, TweenInfo.new(0.15), {Color = Color3.fromRGB(45, 40, 68), Thickness = 1}):Play()
+end)
+
+local applyBtn = Instance.new("TextButton")
+applyBtn.Size = UDim2.new(1, -10, 0, 32)
+applyBtn.Position = UDim2.new(0, 5, 0, 56)
+applyBtn.BackgroundColor3 = Color3.fromRGB(88, 66, 188)
+applyBtn.Text = "Apply Changes"
+applyBtn.TextColor3 = Color3.new(1, 1, 1)
+applyBtn.Font = Enum.Font.GothamBold
+applyBtn.TextSize = 13
+applyBtn.AutoButtonColor = false
+applyBtn.LayoutOrder = 3
+applyBtn.Parent = mainTab
+Instance.new("UICorner", applyBtn).CornerRadius = UDim.new(0, 10)
+
+applyBtn.MouseEnter:Connect(function()
+    TweenService:Create(applyBtn, TweenInfo.new(0.13), {BackgroundColor3 = Color3.fromRGB(108, 86, 210)}):Play()
+end)
+applyBtn.MouseLeave:Connect(function()
+    TweenService:Create(applyBtn, TweenInfo.new(0.13), {BackgroundColor3 = Color3.fromRGB(88, 66, 188)}):Play()
+end)
+
+applyBtn.MouseButton1Click:Connect(function()
+    local inputText = balInput.Text
+    local nb = parse(inputText)
+    if nb and type(nb) == "number" and nb >= 0 then
+        currentBalance = math.floor(nb)
+        balInput.Text = fmt(currentBalance)
+        TweenService:Create(applyBtn, TweenInfo.new(0.12), {BackgroundColor3 = Color3.fromRGB(52, 168, 90)}):Play()
+        applyBtn.Text = "Applied!"
+        task.delay(1.4, function()
+            TweenService:Create(applyBtn, TweenInfo.new(0.18), {BackgroundColor3 = Color3.fromRGB(88, 66, 188)}):Play()
+            applyBtn.Text = "Apply Changes"
+        end)
+    else
+        TweenService:Create(applyBtn, TweenInfo.new(0.12), {BackgroundColor3 = Color3.fromRGB(255, 80, 80)}):Play()
+        applyBtn.Text = "Invalid!"
+        task.delay(1.0, function()
+            TweenService:Create(applyBtn, TweenInfo.new(0.18), {BackgroundColor3 = Color3.fromRGB(88, 66, 188)}):Play()
+            applyBtn.Text = "Apply Changes"
+        end)
+    end
+end)
+
+UIS.InputBegan:Connect(function(input, gp)
+    if gp then return end
+    if input.KeyCode == Enum.KeyCode.RightShift then
+        mainFrame.Visible = not mainFrame.Visible
+    end
+end)
+
+-- Toggle button
+local toggleBtn = Instance.new("ImageButton")
+toggleBtn.Size = UDim2.new(0, 55, 0, 55)
+toggleBtn.Position = UDim2.new(0, 10, 0.2, 0)
+toggleBtn.Image = "rbxassetid://88985860242479"
+toggleBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+toggleBtn.BackgroundTransparency = 0.7
+toggleBtn.Active = true
+toggleBtn.Draggable = true
+toggleBtn.Parent = gui
+Instance.new("UICorner", toggleBtn).CornerRadius = UDim.new(0, 9)
+
+local tStroke = Instance.new("UIStroke")
+tStroke.Thickness = 2
+tStroke.Color = Color3.fromRGB(255, 255, 255)
+tStroke.Transparency = 0.3
+tStroke.Parent = toggleBtn
+
+toggleBtn.MouseEnter:Connect(function()
+    TweenService:Create(toggleBtn, TweenInfo.new(0.15), {Size = UDim2.new(0, 60, 0, 60)}):Play()
+end)
+toggleBtn.MouseLeave:Connect(function()
+    TweenService:Create(toggleBtn, TweenInfo.new(0.15), {Size = UDim2.new(0, 55, 0, 55)}):Play()
+end)
+
+local isOpen = false
+toggleBtn.MouseButton1Click:Connect(function()
+    isOpen = not isOpen
+    mainFrame.Visible = isOpen
+end)
+
+-- Intro
+local introGui = Instance.new("ScreenGui")
+introGui.Name = "GhemsHUB"
+introGui.ResetOnSpawn = false
+introGui.IgnoreGuiInset = true
+introGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+introGui.DisplayOrder = 10000
+safeParent(introGui)
+
+local bg = Instance.new("Frame")
+bg.Size = UDim2.new(1, 0, 1, 0)
+bg.BackgroundColor3 = Color3.fromRGB(10, 10, 14)
+bg.BorderSizePixel = 0
+bg.Parent = introGui
+
+local card = Instance.new("Frame")
+card.Size = UDim2.fromOffset(380, 230)
+card.Position = UDim2.fromScale(0.5, 0.55)
+card.AnchorPoint = Vector2.new(0.5, 0.5)
+card.BackgroundColor3 = Color3.fromRGB(20, 21, 26)
+card.BorderSizePixel = 0
+card.BackgroundTransparency = 1
+card.Parent = bg
+Instance.new("UICorner", card).CornerRadius = UDim.new(0, 16)
+
+local cStroke = Instance.new("UIStroke")
+cStroke.Color = THEME.Accent
+cStroke.Transparency = 1
+cStroke.Thickness = 2
+cStroke.Parent = card
+
+local topBar = Instance.new("Frame")
+topBar.Size = UDim2.new(1, 0, 0, 4)
+topBar.Position = UDim2.new(0, 0, 0, 0)
+topBar.BackgroundColor3 = THEME.Accent
+topBar.BorderSizePixel = 0
+topBar.BackgroundTransparency = 1
+topBar.Parent = card
+Instance.new("UICorner", topBar).CornerRadius = UDim.new(0, 16)
+
+local tGrad2 = Instance.new("UIGradient")
+tGrad2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, THEME.Accent), ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 60, 255))}
+tGrad2.Parent = topBar
+
+local introTitle = Instance.new("TextLabel")
+introTitle.Size = UDim2.new(1, -20, 0, 40)
+introTitle.Position = UDim2.new(0, 10, 0, 14)
+introTitle.BackgroundTransparency = 1
+introTitle.Text = "made by Ghems"
+introTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+introTitle.TextSize = 28
+introTitle.Font = Enum.Font.GothamBold
+introTitle.TextXAlignment = Enum.TextXAlignment.Center
+introTitle.TextTransparency = 1
+introTitle.Parent = card
+
+local keybindText = Instance.new("TextLabel")
+keybindText.Size = UDim2.new(1, -20, 0, 36)
+keybindText.Position = UDim2.new(0, 10, 0, 56)
+keybindText.BackgroundTransparency = 1
+keybindText.Text = "Shop Keybind = K"
+keybindText.TextColor3 = THEME.Accent
+keybindText.TextSize = 22
+keybindText.Font = Enum.Font.GothamBold
+keybindText.TextXAlignment = Enum.TextXAlignment.Center
+keybindText.TextTransparency = 1
+keybindText.Parent = card
+
+local link = Instance.new("TextLabel")
+link.Size = UDim2.new(1, -20, 0, 20)
+link.Position = UDim2.new(0, 10, 0, 100)
+link.BackgroundTransparency = 1
+link.Text = "GhemsHUB"
+link.TextColor3 = THEME.Accent
+link.TextSize = 14
+link.Font = Enum.Font.GothamMedium
+link.TextXAlignment = Enum.TextXAlignment.Center
+link.TextTransparency = 1
+link.Parent = card
+
+local sub = Instance.new("TextLabel")
+sub.Size = UDim2.new(1, -20, 0, 18)
+sub.Position = UDim2.new(0, 10, 0, 160)
+sub.BackgroundTransparency = 1
+sub.Text = "loading..."
+sub.TextColor3 = Color3.fromRGB(120, 120, 140)
+sub.TextSize = 12
+sub.Font = Enum.Font.Gotham
+sub.TextXAlignment = Enum.TextXAlignment.Center
+sub.TextTransparency = 1
+sub.Parent = card
+
+TweenService:Create(card, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.fromScale(0.5, 0.5), BackgroundTransparency = 0}):Play()
+TweenService:Create(cStroke, TweenInfo.new(0.5), {Transparency = 0.2}):Play()
+TweenService:Create(topBar, TweenInfo.new(0.5), {BackgroundTransparency = 0}):Play()
+
+task.delay(0.3, function() TweenService:Create(introTitle, TweenInfo.new(0.4), {TextTransparency = 0}):Play() end)
+task.delay(0.5, function() TweenService:Create(keybindText, TweenInfo.new(0.4), {TextTransparency = 0}):Play() end)
+task.delay(0.7, function() TweenService:Create(link, TweenInfo.new(0.4), {TextTransparency = 0}):Play() end)
+task.delay(0.9, function() TweenService:Create(sub, TweenInfo.new(0.4), {TextTransparency = 0}):Play() end)
+
+task.delay(2.0, function()
+    sub.Text = "ready!"
+    TweenService:Create(sub, TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(0, 255, 120)}):Play()
+end)
+
+task.delay(3.0, function()
+    TweenService:Create(sub, TweenInfo.new(0.3), {TextTransparency = 1}):Play()
+    TweenService:Create(link, TweenInfo.new(0.3), {TextTransparency = 1}):Play()
+end)
+
+task.delay(3.2, function()
+    TweenService:Create(keybindText, TweenInfo.new(0.3), {TextTransparency = 1}):Play()
+end)
+
+task.delay(3.5, function()
+    TweenService:Create(introTitle, TweenInfo.new(0.3), {TextTransparency = 1}):Play()
+end)
+
+task.delay(3.8, function()
+    TweenService:Create(cStroke, TweenInfo.new(0.3), {Transparency = 1}):Play()
+    TweenService:Create(topBar, TweenInfo.new(0.3), {BackgroundTransparency = 1}):Play()
+    TweenService:Create(card, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Position = UDim2.fromScale(0.5, 0.4), BackgroundTransparency = 1}):Play()
+end)
+
+task.delay(4.2, function()
+    TweenService:Create(bg, TweenInfo.new(0.5), {BackgroundTransparency = 1}):Play()
+end)
+
+task.delay(4.6, function()
+    introGui:Destroy()
+end)
