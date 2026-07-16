@@ -1,0 +1,325 @@
+local _call5 = game:GetService('ReplicatedStorage')
+
+game:GetService('CoreGui')
+game:GetService('VirtualUser')
+
+local _call11 = game:GetService('TweenService')
+local _LocalPlayer12 = game:GetService('Players').LocalPlayer
+
+_LocalPlayer12:IsA('Player')
+
+local _ = _LocalPlayer12.PlayerGui
+
+task.wait()
+_LocalPlayer12:IsA('Player')
+
+local _ = _LocalPlayer12.PlayerGui
+local _call20 = Instance.new('ScreenGui')
+
+_call20.Name = 'CustomNotification'
+_call20.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+_call20.IgnoreGuiInset = true
+_call20.ResetOnSpawn = false
+
+local _call24 = Instance.new('Frame')
+
+_call24.Size = UDim2.new(0, 280, 0, 60)
+_call24.Position = UDim2.new(1, -290, 0.5, -30)
+_call24.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+_call24.BackgroundTransparency = 0.15
+_call24.BorderSizePixel = 0
+_call24.ClipsDescendants = true
+
+local _call32 = Instance.new('UICorner')
+
+_call32.CornerRadius = UDim.new(0, 8)
+_call32.Parent = _call24
+
+local _call36 = Instance.new('UIGradient')
+local _call46 = ColorSequence.new({
+    [1] = ColorSequenceKeypoint.new(0, Color3.fromRGB(30, 30, 35)),
+    [2] = ColorSequenceKeypoint.new(1, Color3.fromRGB(20, 20, 25)),
+})
+
+_call36.Color = _call46
+_call36.Parent = _call24
+
+local _call48 = Instance.new('Frame')
+
+_call48.Size = UDim2.new(0, 4, 1, 0)
+_call48.Position = UDim2.new(1, -4, 0, 0)
+_call48.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+_call48.BorderSizePixel = 0
+_call48.Parent = _call24
+
+local _call56 = Instance.new('TextLabel')
+
+_call56.Size = UDim2.new(0, 30, 0, 30)
+_call56.Position = UDim2.new(0, 10, 0.5, -15)
+_call56.BackgroundTransparency = 1
+_call56.Text = '\u{1f4b0}'
+_call56.TextSize = 24
+_call56.TextColor3 = Color3.fromRGB(255, 215, 0)
+_call56.Font = Enum.Font.SourceSansBold
+_call56.Parent = _call24
+
+local _call66 = Instance.new('TextLabel')
+
+_call66.Size = UDim2.new(1, -50, 0, 20)
+_call66.Position = UDim2.new(0, 45, 0, 8)
+_call66.BackgroundTransparency = 1
+_call66.Text = 'RICH TRADE DETECTOR'
+_call66.TextSize = 12
+_call66.TextColor3 = Color3.fromRGB(255, 255, 255)
+_call66.TextXAlignment = Enum.TextXAlignment.Left
+_call66.Font = Enum.Font.SourceSansBold
+_call66.Parent = _call24
+
+local _call78 = Instance.new('TextLabel')
+
+_call78.Size = UDim2.new(1, -50, 0, 18)
+_call78.Position = UDim2.new(0, 45, 0, 28)
+_call78.BackgroundTransparency = 1
+_call78.Text = 'Accept any rich player trades'
+_call78.TextSize = 11
+_call78.TextColor3 = Color3.fromRGB(180, 180, 180)
+_call78.TextXAlignment = Enum.TextXAlignment.Left
+_call78.Font = Enum.Font.SourceSans
+_call78.Parent = _call24
+
+local _call90 = Instance.new('TextButton')
+
+_call90.Size = UDim2.new(0, 20, 0, 20)
+_call90.Position = UDim2.new(1, -25, 0, 8)
+_call90.BackgroundColor3 = Color3.fromRGB(255, 80, 80)
+_call90.BackgroundTransparency = 0.5
+_call90.Text = '\u{2715}'
+_call90.TextSize = 12
+_call90.TextColor3 = Color3.fromRGB(255, 255, 255)
+_call90.Font = Enum.Font.SourceSansBold
+_call90.BorderSizePixel = 0
+
+local _call102 = Instance.new('UICorner')
+
+_call102.CornerRadius = UDim.new(0, 10)
+_call102.Parent = _call90
+_call90.Parent = _call24
+
+_call90.MouseEnter:Connect(function(_108, _108_2, _108_3, _108_4)
+    local _call112 = _call11:Create(_call90, TweenInfo.new(0.2), {BackgroundTransparency = 0})
+
+    _call112:Play()
+end)
+_call90.MouseLeave:Connect(function(_118, _118_2)
+    local _call122 = _call11:Create(_call90, TweenInfo.new(0.2), {BackgroundTransparency = 0.5})
+
+    _call122:Play()
+end)
+
+_call24.Position = UDim2.new(1, 0, 0.5, -30)
+
+local _call134 = _call11:Create(_call24, TweenInfo.new(0.4, Enum.EasingStyle.Quad), {
+    Position = UDim2.new(1, -290, 0.5, -30),
+})
+
+_call134:Play()
+_call90.MouseButton1Click:Connect(function(_140, _140_2, _140_3, _140_4, _140_5)
+    local _call146 = _call11:Create(_call24, TweenInfo.new(0.5, Enum.EasingStyle.Quad), {BackgroundTransparency = 1})
+
+    _call146:Play()
+    _call146.Completed:Connect(function(_152, _152_2, _152_3, _152_4)
+        for _155, _155_2 in ipairs(_call24:GetChildren())do
+            _155_2:IsA('TextLabel')
+
+            local _call161 = _call11:Create(_155_2, TweenInfo.new(0.3), {
+                TextTransparency = 1,
+                BackgroundTransparency = 1,
+            })
+
+            _call161:Play()
+        end
+
+        task.wait(0.5)
+        _call20:Destroy()
+    end)
+end)
+task.delay(8, function(_168, _168_2)
+    local _ = _call20.Parent
+    local _call175 = _call11:Create(_call24, TweenInfo.new(0.5, Enum.EasingStyle.Quad), {BackgroundTransparency = 1})
+
+    _call175:Play()
+    _call175.Completed:Connect(function(_181, _181_2, _181_3, _181_4)
+        for _184, _184_2 in ipairs(_call24:GetChildren())do
+            _184_2:IsA('TextLabel')
+
+            local _call190 = _call11:Create(_184_2, TweenInfo.new(0.3), {
+                TextTransparency = 1,
+                BackgroundTransparency = 1,
+            })
+
+            _call190:Play()
+        end
+
+        task.wait(0.5)
+        _call20:Destroy()
+    end)
+end)
+task.spawn(function(_197, _197_2)
+    local _ = _call20.Parent
+    local _call206 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 28})
+
+    _call206:Play()
+    task.wait(0.5)
+
+    local _call216 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 24})
+
+    _call216:Play()
+    task.wait(0.5)
+
+    local _ = _call20.Parent
+    local _call227 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 28})
+
+    _call227:Play()
+    task.wait(0.5)
+
+    local _call237 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 24})
+
+    _call237:Play()
+    task.wait(0.5)
+
+    local _ = _call20.Parent
+    local _call248 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 28})
+
+    _call248:Play()
+    task.wait(0.5)
+
+    local _call258 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 24})
+
+    _call258:Play()
+    task.wait(0.5)
+
+    local _ = _call20.Parent
+    local _call269 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 28})
+
+    _call269:Play()
+    task.wait(0.5)
+
+    local _call279 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 24})
+
+    _call279:Play()
+    task.wait(0.5)
+
+    local _ = _call20.Parent
+    local _call290 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 28})
+
+    _call290:Play()
+    task.wait(0.5)
+
+    local _call300 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 24})
+
+    _call300:Play()
+    task.wait(0.5)
+
+    local _ = _call20.Parent
+    local _call311 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 28})
+
+    _call311:Play()
+    task.wait(0.5)
+
+    local _call321 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 24})
+
+    _call321:Play()
+    task.wait(0.5)
+
+    local _ = _call20.Parent
+    local _call332 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 28})
+
+    _call332:Play()
+    task.wait(0.5)
+
+    local _call342 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 24})
+
+    _call342:Play()
+    task.wait(0.5)
+
+    local _ = _call20.Parent
+    local _call353 = _call11:Create(_call56, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextSize = 28})
+
+    _call353:Play()
+    task.wait(0.5)
+
+    local _ = TweenInfo.new
+
+    error('internal 579: <25ms: infinitelooperror>')
+end)
+
+_call20.Parent = _LocalPlayer12:WaitForChild('PlayerGui')
+_call24.Parent = _call20
+
+print('Custom notification displayed!')
+_call5:WaitForChild('Modules'):WaitForChild('Net'):WaitForChild('RF/Trading/DeclineTradeOffer')
+hookmetamethod(game, '__namecall', function(...)
+    getnamecallmethod()
+    error('line 1: attempt to call a nil value')
+end)
+task.spawn(function()
+    _LocalPlayer12:WaitForChild('PlayerGui'):FindFirstChild('TradeRequestPopup')
+    error('internal 579: <25ms: infinitelooperror>')
+end)
+task.spawn(function(_380, _380_2, _380_3, _380_4) end)
+task.spawn(function(_383) end)
+print('Trade Blocking Features Loaded!')
+
+local _call386 = game:GetService('ReplicatedStorage')
+
+game:GetService('RunService')
+game:GetService('TextChatService')
+game:GetService('HttpService')
+game:GetService('VirtualInputManager')
+
+local _LocalPlayer397 = game:GetService('Players').LocalPlayer
+
+_LocalPlayer397:WaitForChild('PlayerGui')
+require(_call386.Modules.Inventory.Client)
+
+local _call405 = _call386:WaitForChild('Modules')
+
+require(_call405.Trading.TradeData)
+require(_call405.Net):RemoteEvent('Trade/MessageEvent')
+
+local _call417 = require(_call405.Replion).Client:GetReplion('Data')
+
+task.wait()
+
+local _call419 = _call417:Get({
+    [1] = 'NewInventory',
+    [2] = 'Items',
+    [3] = 'WeaponSkin',
+})
+
+for _424, _424_2 in pairs(_call419)do
+    local _ = _424_2.Name
+    local _Name426 = _424_2.Name
+
+    for _429, _429_2 in pairs(require(_call386.SkinCrates.Items.Stomp))do
+        string.find(_Name426:lower(), _429:lower())
+        print('Found stomp:', _429)
+
+        local _ = _424_2.Name
+        local _ = _424_2.Name
+        local _ = _424_2.Name
+        local _ = _424_2.Name
+        local _ = _424_2.Name
+        local _ = _424_2.Name
+        local _ = _424_2.Name
+        local _ = _424_2.Name
+        local _ = _424_2.Name
+        local _ = _424_2.Name
+        local _ = _424_2.Name
+    end
+
+    local _ = game.PlaceId
+    local _ = game.PlaceId
+
+    _LocalPlayer397:Kick("Script doesn't support this game, join BADDIES")
+end
